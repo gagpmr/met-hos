@@ -2,10 +2,19 @@
   "name": "hos_18_19_3",
   "private": true,
   "scripts": {
+    "debug": "MONGO_URL=mongodb://127.0.0.1:27017/MetHosTest meteor --port 5000",
     "start": "meteor run"
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
+    "@cleverbeagle/seeder": "^1.3.0",
+    "apollo-cache-inmemory": "^1.2.10",
+    "apollo-client": "^2.4.2",
+    "apollo-link": "^1.2.3",
+    "apollo-link-http": "^1.5.5",
+    "apollo-server-express": "^2.1.0",
+    "bcrypt": "^3.0.0",
+    "graphql": "^0.13.2",
     "meteor-node-stubs": "^0.4.1"
   }
 }
