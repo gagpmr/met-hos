@@ -4,9 +4,8 @@ import "./fixtures";
 import { ApolloServer } from "apollo-server-express";
 import { WebApp } from "meteor/webapp";
 import { getUser } from "meteor/apollo";
-
-// import { resolvers } from "/imports/server/resolvers";
-// import { typeDefs } from "/imports/server/schema";
+import { resolvers } from "/imports/server/resolvers";
+import { typeDefs } from "/imports/server/schema";
 
 // import { createApolloServer } from "meteor/apollo";
 // import { makeExecutableSchema } from "graphql-tools";
@@ -28,8 +27,8 @@ import { getUser } from "meteor/apollo";
 // });
 
 const server = new ApolloServer({
-  // typeDefs,
-  // resolvers,
+  typeDefs,
+  resolvers,
   context: async ({ req }) => ({
     user: await getUser(req.headers.authorization)
   })

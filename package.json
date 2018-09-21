@@ -2,8 +2,71 @@
   "name": "hos_18_19_3",
   "private": true,
   "scripts": {
-    "debug": "MONGO_URL=mongodb://127.0.0.1:27017/MetHosTest meteor --port 5000",
-    "start": "meteor run"
+    "start": "MONGO_URL=mongodb://127.0.0.1:27017/hos_18_19 meteor --port 5000",
+    "deploy": "DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy met-hos.meteorapp.com --settings settings.json",
+    "remove": "meteor deploy --delete met-hos.meteorapp.com",
+    "debug": "MONGO_URL=mongodb://127.0.0.1:27017/MetHosTest meteor --port 5000"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-meteor": "^3.6.0",
+    "eslint-plugin-react": "^5.2.2"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "react"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:react/recommended"
+    ],
+    "globals": {
+      "server": false,
+      "browser": false,
+      "expect": false
+    },
+    "rules": {
+      "quotes": 0,
+      "comma-dangle": 0,
+      "no-unused-expressions": 0,
+      "import/no-unresolved": 0,
+      "newline-per-chained-call": 0,
+      "no-console": 0,
+      "no-debugger": 0,
+      "new-cap": 0,
+      "arrow-body-style": 0,
+      "react/jsx-closing-bracket-location": 0,
+      "react/prefer-stateless-function": 0,
+      "react/prop-types": 0,
+      "max-len": [
+        "error",
+        125
+      ],
+      "react/prefer-es6-class": 0,
+      "react/display-name": 0,
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": [
+            "_id",
+            "_str",
+            "_ensureIndex",
+            "_verifyEmailToken",
+            "_resetPasswordToken",
+            "_name"
+          ]
+        }
+      ]
+    }
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
@@ -14,7 +77,32 @@
     "apollo-link-http": "^1.5.5",
     "apollo-server-express": "^2.1.0",
     "bcrypt": "^3.0.0",
+    "bootstrap": "^3.3.7",
+    "enzyme": "^3.3.0",
+    "eslint-plugin-import": "^1.16.0",
     "graphql": "^0.13.2",
-    "meteor-node-stubs": "^0.4.1"
+    "graphql-server-express": "^1.4.0",
+    "graphql-tools": "^4.0.0",
+    "graphql-type-json": "^0.2.1",
+    "invariant": "^2.2.2",
+    "jquery": "^2.2.4",
+    "jquery-validation": "^1.15.1",
+    "lodash": "^4.17.5",
+    "moment": "^2.20.1",
+    "mongodb": "^2.2.34",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.2",
+    "react-addons-pure-render-mixin": "^15.2.1",
+    "react-apollo": "^1.4.16",
+    "react-bootstrap": "^0.30.3",
+    "react-datepicker": "^0.34.0",
+    "react-dom": "^15.6.2",
+    "react-easy-state": "^5.0.0",
+    "react-inline-css": "^2.3.0",
+    "react-modal": "^3.1.13",
+    "react-router-bootstrap": "^0.24.3",
+    "react-router-dom": "^4.2.2",
+    "meteor-node-stubs": "^0.4.1",
+    "underscore": "^1.8.3"
   }
 }

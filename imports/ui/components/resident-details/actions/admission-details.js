@@ -1,0 +1,244 @@
+import * as Styles from "/imports/modules/styles.js";
+
+import { Link, withRouter } from "react-router-dom";
+import { gql, graphql, withApollo } from "react-apollo";
+
+import ApolloClient from "apollo-client";
+import { Loading } from "/imports/ui/components/shared/Loading.js";
+import { McDetail } from "../../mc-collections/mc-detail";
+import { PaDetail } from "../../pa-collections/pa-detail";
+import PropTypes from "prop-types";
+import React from "react";
+import { SaDetail } from "../../sa-collections/sa-detail";
+
+const AdmissionDetails = props => {
+  if (props.loading || !props.admissionDetails) {
+    return (
+      <div style={Styles.Middle}>
+        <Loading />
+      </div>
+    );
+  }
+  return (
+    <span>
+      <div className="row">
+        <div className="col-md-12">
+          <table
+            style={{
+              marginBottom: "0"
+            }}
+            className="table table-bordered table-condensed table-striped"
+          >
+            <thead>
+              <tr>
+                <th style={Styles.PaddingThreeCenterLargeBold} colSpan="6">
+                  {props.admissionDetails.resident.Name}
+                  &nbsp; S/o {props.admissionDetails.resident.FatherName} &nbsp;
+                  <Link to={`/resident/${props.admissionDetails.resident._id}`}>
+                    <i className="fa fa-pencil-square-o" />
+                  </Link>
+                  <a
+                    onClick={this.closeModal}
+                    href=""
+                    style={{ float: "right", marginRight: "10px" }}
+                  >
+                    <i className="fa fa-times fa-lg" aria-hidden="true" />
+                  </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={Styles.WidthTenPaddingThreeLeftBold}>Roll Number</td>
+                <td style={Styles.WidthThirteenPaddingThreeLeft}>
+                  {props.admissionDetails.resident.RollNumber}
+                </td>
+                <td style={Styles.WidthTenPaddingThreeLeftBold}>Tel Num</td>
+                <td style={Styles.WidthTwentySevenPaddingThreeLeft}>
+                  {props.admissionDetails.resident.TelephoneNumber}
+                </td>
+                <td style={Styles.WidthTenPaddingThreeLeftBold}>Category</td>
+                <td style={Styles.WidthTwentySevenPaddingThreeLeft}>
+                  {props.admissionDetails.resident.Category.Value}
+                </td>
+              </tr>
+              <tr>
+                <td style={Styles.PaddingThreeLeftBold}>Room</td>
+                <td style={Styles.PaddingThreeLeft}>
+                  {props.admissionDetails.resident.Room.Value}
+                </td>
+                <td style={Styles.PaddingThreeLeftBold}>Class</td>
+                <td style={Styles.PaddingThreeLeft} colSpan="5">
+                  {props.admissionDetails.resident.Class.Value}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          <table className="table table-condensed table-striped text-center">
+            <thead>
+              <tr>
+                <th colSpan="18" style={Styles.PrintTableBorder}>
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
+                  Number &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp;
+                  EC: Electricity Charges
+                  <br />
+                  DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance
+                  Charges &nbsp; Misc: Miscellaneous &nbsp;
+                </th>
+              </tr>
+              <tr>
+                <th style={Styles.PrintTableBorder}>RD</th>
+                <th style={Styles.PrintTableBorder}>DD</th>
+                <th style={Styles.PrintTableBorder}>RNo</th>
+                <th style={Styles.PrintTableBorder}>Room</th>
+                <th style={Styles.PrintTableBorder}>Roll No.</th>
+                <th style={Styles.PrintTableBorder}>Name</th>
+                <th style={Styles.PrintTableBorder}>RR</th>
+                <th style={Styles.PrintTableBorder}>WC</th>
+                <th style={Styles.PrintTableBorder}>EC</th>
+                <th style={Styles.PrintTableBorder}>DF</th>
+                <th style={Styles.PrintTableBorder}>RHMC</th>
+                <th style={Styles.PrintTableBorder}>Misc</th>
+                <th style={Styles.PrintTableBorder}>Total</th>
+                <th colSpan="5" style={Styles.PrintTableBorder}>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.admissionDetails.paDetails.map((item, index) => (
+                <PaDetail
+                  key={index}
+                  detail={item}
+                  history={props.history}
+                  client={props.client}
+                  fetchPaDetails={props.refetch}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          <table className="table table-condensed table-striped text-center">
+            <tbody>
+              <tr>
+                <th colSpan="21" style={Styles.PrintTableBorder}>
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
+                  Number &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT:
+                  Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
+                  <br />
+                  PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
+                  Servant Welfare Fund &nbsp; CF: Celebration Fund
+                </th>
+              </tr>
+              <tr style={{ fontSize: "larger" }}>
+                <th style={Styles.PrintTableBorder}>RD</th>
+                <th style={Styles.PrintTableBorder}>DD</th>
+                <th style={Styles.PrintTableBorder}>RNo</th>
+                <th style={Styles.PrintTableBorder}>Room</th>
+                <th style={Styles.PrintTableBorder}>Roll No.</th>
+                <th style={Styles.PrintTableBorder}>Name</th>
+                <th style={Styles.PrintTableBorder}>M-1</th>
+                <th style={Styles.PrintTableBorder}>M-2</th>
+                <th style={Styles.PrintTableBorder}>CNT</th>
+                <th style={Styles.PrintTableBorder}>Fine</th>
+                <th style={Styles.PrintTableBorder}>AMNT</th>
+                <th style={Styles.PrintTableBorder}>FS</th>
+                <th style={Styles.PrintTableBorder}>PSWF</th>
+                <th style={Styles.PrintTableBorder}>MSWF</th>
+                <th style={Styles.PrintTableBorder}>CF</th>
+                <th style={Styles.PrintTableBorder}>Total</th>
+                <th colSpan={5} style={Styles.PrintTableBorderBold}>
+                  Actions
+                </th>
+              </tr>
+              {props.admissionDetails.mcDetails.map((item, index) => (
+                <McDetail
+                  key={index}
+                  detail={item}
+                  history={props.history}
+                  client={props.client}
+                  fetchMcDetails={props.refetch}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          <table className="table table-condensed table-striped text-center">
+            <thead>
+              <tr>
+                <th colSpan="14" style={Styles.PrintTableBorder}>
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
+                  Number &nbsp; HS: Hostel Security &nbsp; MS: Mess Security
+                  &nbsp; CS: Canteen Security
+                </th>
+              </tr>
+              <tr>
+                <th style={Styles.PrintTableBorder}>RD</th>
+                <th style={Styles.PrintTableBorder}>DD</th>
+                <th style={Styles.PrintTableBorder}>RNo</th>
+                <th style={Styles.PrintTableBorder}>Room</th>
+                <th style={Styles.PrintTableBorder}>Roll No.</th>
+                <th style={Styles.PrintTableBorder}>Name</th>
+                <th style={Styles.PrintTableBorder}>HS</th>
+                <th style={Styles.PrintTableBorder}>MS</th>
+                <th style={Styles.PrintTableBorder}>CS</th>
+                <th style={Styles.PrintTableBorder}>Total</th>
+                <th colSpan="4" style={Styles.PrintTableBorder}>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.admissionDetails.saDetails.map((item, index) => (
+                <SaDetail
+                  key={index}
+                  detail={item}
+                  history={props.history}
+                  client={props.client}
+                  fetchSaDetails={props.refetch}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </span>
+  );
+};
+
+AdmissionDetails.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  admissionDetails: PropTypes.object,
+  history: PropTypes.object.isRequired,
+  client: PropTypes.instanceOf(ApolloClient)
+};
+
+const ADMISSION_DETAILS = gql`
+  query($resId: String!) {
+    admissionDetails(resId: $resId)
+  }
+`;
+
+export default graphql(ADMISSION_DETAILS, {
+  props: ({ data: { loading, admissionDetails, refetch } }) => ({
+    loading,
+    admissionDetails,
+    refetch
+  }),
+  forceFetch: true,
+  options: ownProps => ({
+    variables: {
+      resId: ownProps.match.params.resId
+    }
+  })
+})(withRouter(withApollo(AdmissionDetails)));
