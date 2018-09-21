@@ -1,4 +1,4 @@
-import * as Styles from "/imports/modules/styles.js";
+import * as Styles from "../../../../../../modules/styles";
 
 import { gql, graphql, withApollo } from "react-apollo";
 

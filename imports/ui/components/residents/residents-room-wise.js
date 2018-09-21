@@ -1,4 +1,4 @@
-import * as Styles from "/imports/modules/styles.js";
+import * as Styles from "../../../modules/styles";
 
 import { gql, graphql } from "react-apollo";
 
@@ -17,7 +17,8 @@ const renderResident = (props, element, index) => {
         <td style={Styles.WidthTenPaddingFourCenter}>{element.RollNumber}</td>
         <td style={Styles.PaddingFourCenter}>
           <span>
-            {element.Name}&nbsp;S/o {element.FatherName}
+            {element.Name}
+            &nbsp;S/o {element.FatherName}
           </span>
         </td>
         <td style={Styles.PaddingFourCenter}>{element.Class.Value}</td>

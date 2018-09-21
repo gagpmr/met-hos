@@ -1,9 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "/imports/ui/layouts/datepicker.css";
 
 import { ApolloClient } from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { ApolloProvider } from "react-apollo";
 import App from "/imports/ui/layouts/app";
+import { Bert } from "meteor/themeteorchef:bert";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { Meteor } from "meteor/meteor";

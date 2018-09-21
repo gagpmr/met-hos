@@ -1,4 +1,4 @@
-import * as Styles from "/imports/modules/styles.js";
+import * as Styles from "../../../../../../modules/styles";
 
 import { Loading } from "/imports/ui/components/shared/Loading.js";
 import PropTypes from "prop-types";

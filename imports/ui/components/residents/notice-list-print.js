@@ -1,4 +1,4 @@
-import * as Styles from "/imports/modules/styles.js";
+import * as Styles from "../../../modules/styles";
 
 import { compose, gql, graphql, withApollo } from "react-apollo";
 
@@ -15,10 +15,12 @@ const renderList = props => (
         <thead>
           <tr>
             <th style={Styles.PaddingFourCenterLargeBold} colSpan="20">
-              Notice Board List ({moment
+              Notice Board List (
+              {moment
                 .utc()
                 .utcOffset(+5.5)
-                .format("DD-MM-YYYY")})
+                .format("DD-MM-YYYY")}
+              )
             </th>
           </tr>
           <tr>

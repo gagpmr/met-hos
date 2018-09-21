@@ -1,5 +1,7 @@
 import "/imports/ui/layouts/datepicker.css";
 
+import * as Styles from "../../../modules/styles";
+
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";

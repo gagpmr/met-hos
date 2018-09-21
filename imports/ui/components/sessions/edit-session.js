@@ -1,3 +1,5 @@
+import * as Styles from "../../../modules/styles";
+
 import { gql, graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
@@ -140,7 +142,8 @@ export class EditSession extends React.Component {
               onChange={this.alter}
               id="IsCurrentSession"
               defaultChecked
-            />&nbsp; True
+            />
+            &nbsp; True
           </td>
         );
       } else {
@@ -151,7 +154,8 @@ export class EditSession extends React.Component {
               tabIndex="1"
               onChange={this.alter}
               id="IsCurrentSession"
-            />&nbsp; False
+            />
+            &nbsp; False
           </td>
         );
       }
@@ -165,7 +169,8 @@ export class EditSession extends React.Component {
               onChange={this.alter}
               id="IsCurrentSession"
               defaultChecked
-            />&nbsp; True
+            />
+            &nbsp; True
           </td>
         );
       } else {
@@ -176,7 +181,8 @@ export class EditSession extends React.Component {
               tabIndex="1"
               onChange={this.alter}
               id="IsCurrentSession"
-            />&nbsp; False
+            />
+            &nbsp; False
           </td>
         );
       }

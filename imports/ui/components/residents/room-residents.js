@@ -1,4 +1,4 @@
-import * as Styles from "/imports/modules/styles.js";
+import * as Styles from "../../../modules/styles";
 
 import { gql, graphql, withApollo } from "react-apollo";
 
@@ -22,7 +22,8 @@ const renderList = array => (
                   className="text-center h4 font-bolder"
                 >
                   <span>
-                    {resident.Name} S/o {resident.FatherName}&nbsp;{" "}
+                    {resident.Name} S/o {resident.FatherName}
+                    &nbsp;{" "}
                   </span>
                   <Link to={`/resident/${resident._id}`}>
                     <i className="fa fa-pencil-square-o"> </i>

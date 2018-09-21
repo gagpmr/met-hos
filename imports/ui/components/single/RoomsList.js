@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.css";
+import * as Styles from "../../../modules/styles";
 
 import { Col, Grid, Pagination, Row } from "react-bootstrap";
 import { gql, graphql } from "react-apollo";
