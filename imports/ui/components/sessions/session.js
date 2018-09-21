@@ -1,10 +1,11 @@
+import { h4, widthSixtyFive } from "../../../modules/styles";
+
+import ApolloClient from "apollo-client";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { widthSixtyFive } from "/imports/modules/styles.js";
 import { gql } from "react-apollo";
-import ApolloClient from "apollo-client";
 
 const EDIT_SESSION = gql`
   query($sessId: String!) {
@@ -282,8 +283,8 @@ export class Session extends React.Component {
       >
         <thead>
           <tr>
-            <th colSpan="3" className="text-center h4">
-              Session: {this.props.session.Value}
+            <th colSpan="3">
+              <h4 style={h4}>Session: {this.props.session.Value}</h4>
             </th>
           </tr>
         </thead>

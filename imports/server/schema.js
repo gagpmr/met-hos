@@ -1,7 +1,10 @@
-export const typeDefs = [
-  `
-  scalar JSON
+import { gql, makeExecutableSchema } from "apollo-server-express";
 
+const jsonType = gql`
+  scalar JSON
+`;
+
+const queryType = gql`
   type Class {
     _id: ID!
     Value: String!
@@ -20,22 +23,22 @@ export const typeDefs = [
     FatherName: String!
     RollNumber: String!
     TelephoneNumber: String!
-    Class: Class,
-    Category: Category,
-    Room: Room,
-    McBills: [JSON],
-    PaBills: [JSON],
-    TxnPaBills: [JSON],
-    TxnMcBills: [JSON],
-    UnpaidMcTotal: JSON,
-    UnpaidPaTotal: JSON,
+    Class: Class
+    Category: Category
+    Room: Room
+    McBills: [JSON]
+    PaBills: [JSON]
+    TxnPaBills: [JSON]
+    TxnMcBills: [JSON]
+    UnpaidMcTotal: JSON
+    UnpaidPaTotal: JSON
     TxnTotal: Int!
     TxnMcTotal: Int!
     TxnPaTotal: Int!
     UnpaidTotal: Int!
     DuesList: Boolean
   }
-  
+
   type Room {
     _id: ID!
     Value: String!
@@ -85,7 +88,9 @@ export const typeDefs = [
     editSaDetail(detId: String!): JSON
     saDayTotalsByPage(pageNo: Int!): JSON
   }
+`;
 
+const mutationType = gql`
   type Mutation {
     removeMcMonth(month: String!): String!
     autoDepositMcMonth(month: String!): String!
@@ -141,11 +146,11 @@ export const typeDefs = [
     autoDepositSaMonth(month: String!): String!
     cancelledSaDetail(rNum: String!, date: String!): String!
     removeSaDetail(detId: String): String!
-    updateClass(classId: String! value: String!): String!
-    srNoMax(classId: String! srNo: Int!): String!
-    srNoUp(classId: String! srNo: Int!): String!
-    srNoDown(classId: String! srNo: Int!): String!
-    insertClass(classId: String! srNo: Int!): String!
+    updateClass(classId: String!, value: String!): String!
+    srNoMax(classId: String!, srNo: Int!): String!
+    srNoUp(classId: String!, srNo: Int!): String!
+    srNoDown(classId: String!, srNo: Int!): String!
+    insertClass(classId: String!, srNo: Int!): String!
     removeClass(classId: String!): String!
     updateResident(
       resId: String
@@ -241,15 +246,15 @@ export const typeDefs = [
       billPeriod: String!
     ): JSON
     updateSaDetail(
-      detId: ID!,
-      receiptDate: String!,
-      depositDate: String!,
-      receiptNumber: Int!,
-      studentName: String!,
-      roomNumber: String!,
-      rollNumber: String!,
-      hostelSecurity: Int!,
-      messSecurity: Int!,
+      detId: ID!
+      receiptDate: String!
+      depositDate: String!
+      receiptNumber: Int!
+      studentName: String!
+      roomNumber: String!
+      rollNumber: String!
+      hostelSecurity: Int!
+      messSecurity: Int!
       canteenSecurity: Int!
     ): JSON
     updatePaBillType(id: String!, billType: String!, billId: String!): JSON
@@ -260,5 +265,16 @@ export const typeDefs = [
     removeSaDayTotal(depositDate: String!): String
     autoDepositSaDayTotal(id: ID!): String
   }
-`
-];
+`;
+
+const querySchema = makeExecutableSchema({
+  typeDefs: [queryType, jsonType]
+});
+
+const mutationSchema = makeExecutableSchema({
+  typeDefs: [mutationType, jsonType]
+});
+
+const schemas = [querySchema, mutationSchema];
+
+export default schemas;

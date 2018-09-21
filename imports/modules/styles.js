@@ -47,6 +47,15 @@ export const Middle = {
   height: "200px"
 };
 
+export const h4 = {
+  verticalAlign: "middle",
+  margin: "0px",
+  textAlign: "center",
+  padding: "3px",
+  fontWeight: "bolder",
+  color: "black"
+};
+
 export const PaginationRow = {
   verticalAlign: "middle",
   padding: "5px 0 0 0",

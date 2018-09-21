@@ -23,8 +23,9 @@ import SaMonthTotals from "./data/saMonthTotals/saMonthTotals";
 import Sessions from "./data/sessions/sessions";
 import Transactions from "./data/residents/transactions/index";
 
-export const resolvers = {
+const queryResolver = {
   JSON: GraphQLJSON,
+
   Query: {
     test: async (_, args) => Residents.admissionDetails(args),
     admissionDetails: async (_, args) => Residents.admissionDetails(args),
@@ -68,7 +69,10 @@ export const resolvers = {
     editMcBill: async (_, args) => McBills.editMcBill(args),
     editSaDetail: async (_, args) => SaDetailsGet.editSaDetail(args),
     saDayTotalsByPage: async (_, args) => SaDayTotals.getByPage(args)
-  },
+  }
+};
+
+const mutationResolver = {
   Mutation: {
     removeMcMonth: async (_, args) => McMonthTotals.removeByMonth(args),
     autoDepositMcMonth: async (_, args) => McMonthTotals.autoDeposit(args),
@@ -145,3 +149,7 @@ export const resolvers = {
     autoDepositSaDayTotal: async (_, args) => SaDayTotals.autoDeposit(args)
   }
 };
+
+const resolvers = [queryResolver, mutationResolver];
+
+export default resolvers;
