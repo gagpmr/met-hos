@@ -2,7 +2,7 @@
   "name": "hos_18_19_3",
   "private": true,
   "scripts": {
-    "start": "MONGO_URL=mongodb://127.0.0.1:27017/hos_18_19 meteor --port 5000",
+    "start": "MONGO_URL=mongodb://127.0.0.1:27017/hos_18_19 meteor --port 4000",
     "deploy": "DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy met-hos.meteorapp.com --settings settings.json",
     "remove": "meteor deploy --delete met-hos.meteorapp.com",
     "debug": "MONGO_URL=mongodb://127.0.0.1:27017/MetHosTest meteor --port 5000"

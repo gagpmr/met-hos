@@ -8,25 +8,6 @@ import { mergeSchemas } from "graphql-tools";
 import resolvers from "../../server/resolvers";
 import schemas from "../../server/schema";
 
-// import { createApolloServer } from "meteor/apollo";
-// import { makeExecutableSchema } from "graphql-tools";
-// import { resolvers } from "/imports/server/resolvers";
-// import { typeDefs } from "/imports/server/schema";
-
-// // const cors = require("cors");
-
-// const context = {};
-
-// const schema = makeExecutableSchema({
-//   typeDefs,
-//   resolvers
-// });
-
-// createApolloServer({
-//   schema,
-//   context
-// });
-
 const schema = mergeSchemas({
   schemas,
   resolvers
