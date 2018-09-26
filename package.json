@@ -12,7 +12,7 @@
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-jsx-a11y": "^1.5.5",
-    "eslint-plugin-meteor": "^3.6.0",
+    "eslint-plugin-meteor": "^5.1.0",
     "eslint-plugin-react": "^5.2.2"
   },
   "eslintConfig": {
@@ -88,6 +88,7 @@
     "jquery": "^2.2.4",
     "jquery-validation": "^1.15.1",
     "lodash": "^4.17.5",
+    "meteor-node-stubs": "^0.4.1",
     "moment": "^2.20.1",
     "mongodb": "^2.2.34",
     "prop-types": "^15.5.10",
@@ -102,7 +103,6 @@
     "react-modal": "^3.1.13",
     "react-router-bootstrap": "^0.24.3",
     "react-router-dom": "^4.2.2",
-    "meteor-node-stubs": "^0.4.1",
     "underscore": "^1.8.3"
   }
 }
