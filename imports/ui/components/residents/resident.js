@@ -133,16 +133,6 @@ export class Resident extends React.Component {
         }
       });
     }
-    // const data = {
-    //   Name: name,
-    //   FatherName: fatherName,
-    //   RollNumber: rollNumber,
-    //   Session: session,
-    //   TelephoneNumber: telephoneNumber,
-    //   Category: category,
-    //   Room: room,
-    //   Class: clas
-    // };
     let resId = "";
     if (this.props.resident._id) {
       resId = this.props.resident._id;
@@ -163,7 +153,6 @@ export class Resident extends React.Component {
         }
       })
       .then(({ data }) => {
-        this.props.client.resetStore();
         this.props.client.query({
           query: ROOM_RESIDENTS,
           variables: {
@@ -175,35 +164,6 @@ export class Resident extends React.Component {
       .catch(error => {
         console.log("there was an error sending the query", error);
       });
-    // if (this.props.resident === undefined) {
-    //   InsertResident.call(
-    //     {
-    //       data
-    //     },
-    //     (error, result) => {
-    //       if (error) {
-    //         Bert.alert(error, "danger");
-    //       } else {
-    //         this.props.history.push(`/room-residents/${result}`);
-    //       }
-    //     }
-    //   );
-    // } else {
-    //   data.UpdateResidentInfo = true;
-    //   data.ResidentId = this.props.resident._id;
-    //   UpdateResident.call(
-    //     {
-    //       data
-    //     },
-    //     (error, result) => {
-    //       if (error) {
-    //         Bert.alert(error, "danger");
-    //       } else {
-    //         this.props.history.push(`/room-residents/${result}`);
-    //       }
-    //     }
-    //   );
-    // }
   }
 
   keyPressed(event) {
@@ -340,7 +300,7 @@ export class Resident extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>Name</td>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>Name</td>
               <td style={Styles.PaddingZeroLeft}>
                 <input
                   onChange={this.getName}
@@ -354,9 +314,7 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>
-                Father Name
-              </td>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>Father Name</td>
               <td style={Styles.PaddingZeroLeft}>
                 <input
                   onChange={this.getFatherName}
@@ -368,7 +326,7 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>
                 Telephone Number
               </td>
               <td style={Styles.PaddingZeroLeft}>
@@ -382,9 +340,7 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>
-                Roll Number
-              </td>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>Roll Number</td>
               <td style={Styles.PaddingZeroLeft}>
                 <input
                   onChange={this.getRollNumber}
@@ -396,9 +352,7 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>
-                Session
-              </td>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>Session</td>
               <td style={Styles.PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
@@ -412,9 +366,7 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>
-                Room Number
-              </td>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>Room Number</td>
               <td style={Styles.PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
@@ -428,9 +380,7 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>
-                Category
-              </td>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>Category</td>
               <td style={Styles.PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
@@ -444,14 +394,14 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthTwentyThreePaddingFourLeftBold}>Class</td>
+              <td style={Styles.WidthFortyPaddingFourLeftBold}>Class</td>
               <td style={Styles.PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
                   value={clas}
                   onChange={this.getClass}
                   id="class_dd"
-                  className="width-hundred"
+                  className="width-fifty"
                 >
                   {classes}
                 </select>

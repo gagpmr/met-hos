@@ -15,9 +15,9 @@ const McDateDetailsPrint = ({ details, dayCollection }) => {
           <tbody>
             <tr>
               <th colSpan="21" style={Styles.PrintTableBorder}>
-                RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                Number &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT:
-                Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
+                RD: Receipt Date &nbsp; RNo: Receipt Number &nbsp; M-1: Mess One
+                &nbsp; M-2: Mess Two &nbsp; CNT: Canteen &nbsp; AMNT: Amenity
+                &nbsp; FS: Food Subsidy
                 <br />
                 PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
                 Servant Welfare Fund &nbsp; CF: Celebration Fund
@@ -25,7 +25,6 @@ const McDateDetailsPrint = ({ details, dayCollection }) => {
             </tr>
             <tr style={{ fontSize: "larger" }}>
               <th style={Styles.PrintTableBorder}>RD</th>
-              <th style={Styles.PrintTableBorder}>DD</th>
               <th style={Styles.PrintTableBorder}>RNo</th>
               <th style={Styles.PrintTableBorder}>Room</th>
               <th style={Styles.PrintTableBorder}>Roll No.</th>
@@ -46,9 +45,6 @@ const McDateDetailsPrint = ({ details, dayCollection }) => {
                 <td style={Styles.PrintTableBorder}>
                   {moment.utc(item.ReceiptDate).format("DD-MM-YYYY")}
                 </td>
-                <td style={Styles.PrintTableBorder}>
-                  {moment.utc(item.DepositDate).format("DD-MM-YYYY")}
-                </td>
                 <td style={Styles.PrintTableBorder}>{item.ReceiptNumber}</td>
                 <td style={Styles.PrintTableBorder}>{item.RoomNumber}</td>
                 <td style={Styles.PrintTableBorder}>{item.RollNumber}</td>
@@ -66,7 +62,6 @@ const McDateDetailsPrint = ({ details, dayCollection }) => {
               </tr>
             ))}
             <tr key={dayCollection._id}>
-              <td style={Styles.PrintTableBorderBold}>{""}</td>
               <td style={Styles.PrintTableBorderBold}>{""}</td>
               <td style={Styles.PrintTableBorderBold}>{""}</td>
               <td style={Styles.PrintTableBorderBold}>{""}</td>

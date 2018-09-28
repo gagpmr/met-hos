@@ -142,6 +142,13 @@ export const WidthTwentyThreePaddingFourLeftBold = Object.assign(
   Bold,
   { width: "23%" }
 );
+export const WidthFortyPaddingFourLeftBold = Object.assign(
+  {},
+  PaddingFour,
+  Left,
+  Bold,
+  { width: "40%" }
+);
 export const WidthSeventyFivePaddingFourCenterBold = Object.assign(
   {},
   PaddingFour,
