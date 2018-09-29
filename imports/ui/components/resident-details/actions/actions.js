@@ -1,4 +1,8 @@
-import * as Styles from "/imports/modules/styles.js";
+import {
+  PaddingThreeCenter,
+  PaddingThreeCenterLargeBold,
+  TableHeader
+} from "../../../../modules/styles";
 
 import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
@@ -225,19 +229,19 @@ export const Actions = props => {
       <div className="row">
         <div className="col-md-12">
           <table
-            style={Styles.TableHeader}
+            style={TableHeader}
             className="table table-bordered table-condensed table-striped"
           >
             <thead>
               <tr>
-                <th style={Styles.PaddingThreeCenterLargeBold} colSpan="12">
+                <th style={PaddingThreeCenterLargeBold} colSpan="12">
                   <Resident resident={props.resident} />
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a
                     target="_blank"
                     onClick={e => securityDetail(props, e)}
@@ -246,27 +250,27 @@ export const Actions = props => {
                     Create Security Detail
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   Effective-Date: {props.date.EffectiveDateStr}
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a onClick={e => enableGenerate(props, e)} href="">
                     Effective Date-Auto
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a onClick={e => saveToday(props, e)} href="">
                     Effective Date-Today
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <RemoveResident
                     resident={props.resident}
                     loading={props.loadingResident}
                     callingComponent="ResidentDetails"
                   />
                 </td>
-                <td colSpan="2" style={Styles.PaddingThreeCenter}>
+                <td colSpan="2" style={PaddingThreeCenter}>
                   Dues List:{" "}
                   {props.resident.DuesList
                     ? props.resident.DuesList.toString()
@@ -274,27 +278,27 @@ export const Actions = props => {
                 </td>
               </tr>
               <tr>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a target="_blank" onClick={e => paDetails(props, e)} href="">
                     Private Account Details
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a target="_blank" onClick={e => mcDetails(props, e)} href="">
                     Mess Canteen Details
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a target="_blank" onClick={e => saDetails(props, e)} href="">
                     Security Account Details
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a target="_blank" onClick={e => sixMonths(props, e)} href="">
                     Six Months
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <a
                     target="_blank"
                     onClick={e => admissionDetails(props, e)}
@@ -303,14 +307,14 @@ export const Actions = props => {
                     Admission Details
                   </a>
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <DuesListTrue
                     resident={props.resident}
                     fetchResident={props.fetchResident}
                     client={props.client}
                   />
                 </td>
-                <td style={Styles.PaddingThreeCenter}>
+                <td style={PaddingThreeCenter}>
                   <Link target="_blank" to={"/dues-regular-residents"}>
                     Dues List - View
                   </Link>

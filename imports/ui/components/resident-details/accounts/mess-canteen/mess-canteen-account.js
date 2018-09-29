@@ -1,12 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import {
+  PaddingThreeCenterLargerBold,
+  TableHeader
+} from "../../../../../modules/styles";
+
 import ApolloClient from "apollo-client";
-import { gql } from "react-apollo";
-import UnpaidMc from "./unpaid-mc.js";
 import { Bert } from "meteor/themeteorchef:bert";
-import UnpaidMcTotal from "./unpaid-mc-total.js";
-import * as Styles from "/imports/modules/styles.js";
 import McBillsHeader from "../McbillsHeader";
+import PropTypes from "prop-types";
+import React from "react";
+import UnpaidMc from "./unpaid-mc.js";
+import UnpaidMcTotal from "./unpaid-mc-total.js";
+import { gql } from "react-apollo";
 
 const ADD_MC_BILL = gql`
   mutation($id: String!) {
@@ -61,12 +65,12 @@ const MessCanteenAccount = props => {
       <div className="row">
         <div className="col-md-12">
           <table
-            style={Styles.TableHeader}
+            style={TableHeader}
             className="table table-bordered table-condensed table-striped"
           >
             <thead>
               <tr>
-                <th style={Styles.PaddingThreeCenterLargerBold} colSpan="17">
+                <th style={PaddingThreeCenterLargerBold} colSpan="17">
                   Mess Canteen Account&nbsp;
                   <a onClick={e => addBill(props, e)} href="">
                     <i className="fa fa-plus" aria-hidden="true" />

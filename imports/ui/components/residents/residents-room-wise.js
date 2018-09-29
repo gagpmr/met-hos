@@ -1,5 +1,10 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PaddingFourCenter,
+  PaddingFourCenterLargeBold,
+  WidthTenPaddingFourCenter,
+  WidthThreePaddingFourCenterBold
+} from "../../../modules/styles";
 import { gql, graphql } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -13,16 +18,16 @@ const renderResident = (props, element, index) => {
   if (element) {
     return (
       <tr key={index} className="text-left">
-        <td style={Styles.PaddingFourCenterBold}>{element.Room.Value}</td>
-        <td style={Styles.WidthTenPaddingFourCenter}>{element.RollNumber}</td>
-        <td style={Styles.PaddingFourCenter}>
+        <td style={PaddingFourCenterBold}>{element.Room.Value}</td>
+        <td style={WidthTenPaddingFourCenter}>{element.RollNumber}</td>
+        <td style={PaddingFourCenter}>
           <span>
             {element.Name}
             &nbsp;S/o {element.FatherName}
           </span>
         </td>
-        <td style={Styles.PaddingFourCenter}>{element.Class.Value}</td>
-        <td style={Styles.WidthThreePaddingFourCenterBold}>
+        <td style={PaddingFourCenter}>{element.Class.Value}</td>
+        <td style={WidthThreePaddingFourCenterBold}>
           <Link
             data-toggle="tooltip"
             target="_blank"
@@ -32,14 +37,14 @@ const renderResident = (props, element, index) => {
             <i className="fa fa-pencil-square-o" />
           </Link>
         </td>
-        <td style={Styles.WidthThreePaddingFourCenterBold}>
+        <td style={WidthThreePaddingFourCenterBold}>
           <RemoveResident
             resident={element}
             fetchAllResidents={props.refetch}
             callingComponent="ResidentsRoomWise"
           />
         </td>
-        <td style={Styles.WidthThreePaddingFourCenterBold}>
+        <td style={WidthThreePaddingFourCenterBold}>
           <Link
             target="_blank"
             data-toggle="tooltip"
@@ -58,7 +63,7 @@ const renderResident = (props, element, index) => {
 const ResidentsRoomWise = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );
@@ -69,7 +74,7 @@ const ResidentsRoomWise = props => {
         <table className="table table-bordered table-condensed table-striped">
           <thead>
             <tr>
-              <th style={Styles.PaddingFourCenterLargeBold} colSpan="9">
+              <th style={PaddingFourCenterLargeBold} colSpan="9">
                 Residents &nbsp; &nbsp; Return Amount: &#8377;{" "}
                 {props.residentsRoomWise.returnAmount}
               </th>

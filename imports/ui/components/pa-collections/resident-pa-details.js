@@ -1,5 +1,4 @@
-import * as Styles from "../../../modules/styles";
-
+import { Middle, PrintTableBorder } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -17,7 +16,7 @@ const ResidentPaDetails = ({ history, details, client, refetch }) => {
           <table className="table table-condensed table-striped text-center">
             <tbody>
               <tr>
-                <th colSpan="18" style={Styles.PrintTableBorder}>
+                <th colSpan="18" style={PrintTableBorder}>
                   RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
                   Number &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp;
                   EC: Electricity Charges
@@ -27,20 +26,20 @@ const ResidentPaDetails = ({ history, details, client, refetch }) => {
                 </th>
               </tr>
               <tr>
-                <th style={Styles.PrintTableBorder}>RD</th>
-                <th style={Styles.PrintTableBorder}>DD</th>
-                <th style={Styles.PrintTableBorder}>RNo</th>
-                <th style={Styles.PrintTableBorder}>Room</th>
-                <th style={Styles.PrintTableBorder}>Roll No.</th>
-                <th style={Styles.PrintTableBorder}>Name</th>
-                <th style={Styles.PrintTableBorder}>RR</th>
-                <th style={Styles.PrintTableBorder}>WC</th>
-                <th style={Styles.PrintTableBorder}>EC</th>
-                <th style={Styles.PrintTableBorder}>DF</th>
-                <th style={Styles.PrintTableBorder}>RHMC</th>
-                <th style={Styles.PrintTableBorder}>Misc</th>
-                <th style={Styles.PrintTableBorder}>Total</th>
-                <th colSpan="5" style={Styles.PrintTableBorder}>
+                <th style={PrintTableBorder}>RD</th>
+                <th style={PrintTableBorder}>DD</th>
+                <th style={PrintTableBorder}>RNo</th>
+                <th style={PrintTableBorder}>Room</th>
+                <th style={PrintTableBorder}>Roll No.</th>
+                <th style={PrintTableBorder}>Name</th>
+                <th style={PrintTableBorder}>RR</th>
+                <th style={PrintTableBorder}>WC</th>
+                <th style={PrintTableBorder}>EC</th>
+                <th style={PrintTableBorder}>DF</th>
+                <th style={PrintTableBorder}>RHMC</th>
+                <th style={PrintTableBorder}>Misc</th>
+                <th style={PrintTableBorder}>Total</th>
+                <th colSpan="5" style={PrintTableBorder}>
                   Actions
                 </th>
               </tr>
@@ -71,7 +70,7 @@ ResidentPaDetails.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

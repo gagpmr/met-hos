@@ -1,5 +1,8 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PrintTableBorder,
+  PrintTableBorderBold
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -22,7 +25,7 @@ const PaDateDetails = ({
         <table className="table table-condensed table-striped text-center">
           <thead>
             <tr>
-              <th colSpan="18" style={Styles.PrintTableBorder}>
+              <th colSpan="18" style={PrintTableBorder}>
                 RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
                 Number &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp; EC:
                 Electricity Charges
@@ -32,20 +35,20 @@ const PaDateDetails = ({
               </th>
             </tr>
             <tr>
-              <th style={Styles.PrintTableBorder}>RD</th>
-              <th style={Styles.PrintTableBorder}>DD</th>
-              <th style={Styles.PrintTableBorder}>RNo</th>
-              <th style={Styles.PrintTableBorder}>Room</th>
-              <th style={Styles.PrintTableBorder}>Roll No.</th>
-              <th style={Styles.PrintTableBorder}>Name</th>
-              <th style={Styles.PrintTableBorder}>RR</th>
-              <th style={Styles.PrintTableBorder}>WC</th>
-              <th style={Styles.PrintTableBorder}>EC</th>
-              <th style={Styles.PrintTableBorder}>DF</th>
-              <th style={Styles.PrintTableBorder}>RHMC</th>
-              <th style={Styles.PrintTableBorder}>Misc</th>
-              <th style={Styles.PrintTableBorder}>Total</th>
-              <th colSpan="5" style={Styles.PrintTableBorder}>
+              <th style={PrintTableBorder}>RD</th>
+              <th style={PrintTableBorder}>DD</th>
+              <th style={PrintTableBorder}>RNo</th>
+              <th style={PrintTableBorder}>Room</th>
+              <th style={PrintTableBorder}>Roll No.</th>
+              <th style={PrintTableBorder}>Name</th>
+              <th style={PrintTableBorder}>RR</th>
+              <th style={PrintTableBorder}>WC</th>
+              <th style={PrintTableBorder}>EC</th>
+              <th style={PrintTableBorder}>DF</th>
+              <th style={PrintTableBorder}>RHMC</th>
+              <th style={PrintTableBorder}>Misc</th>
+              <th style={PrintTableBorder}>Total</th>
+              <th colSpan="5" style={PrintTableBorder}>
                 Actions
               </th>
             </tr>
@@ -61,29 +64,25 @@ const PaDateDetails = ({
               />
             ))}
             <tr className="text-center">
-              <td colSpan="6" style={Styles.PrintTableBorder}>
+              <td colSpan="6" style={PrintTableBorder}>
                 {""}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {dayCollection.RoomRent}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {dayCollection.WaterCharges}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{dayCollection.RoomRent}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.WaterCharges}</td>
+              <td style={PrintTableBorderBold}>
                 {dayCollection.ElectricityCharges}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {dayCollection.DevelopmentFund}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {dayCollection.RutineHstlMaintnceCharges}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {dayCollection.Miscellaneous}
               </td>
-              <td style={Styles.PrintTableBorderBold}>{dayCollection.Total}</td>
-              <td colSpan="5" style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
+              <td colSpan="5" style={PrintTableBorderBold}>
                 {""}
               </td>
             </tr>
@@ -105,7 +104,7 @@ PaDateDetails.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

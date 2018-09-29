@@ -1,12 +1,16 @@
-import * as Styles from "../../../modules/styles";
-
-import { gql, graphql, withApollo } from "react-apollo";
+import {
+  Middle,
+  WidthSevenPaddingThreeLeft,
+  WidthThirteenPaddingThreeLeft
+} from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import { Link } from "react-router-dom";
 import { Loading } from "../shared/Loading.js";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 
 const renderList = array => (
   <div>
@@ -24,32 +28,32 @@ const renderList = array => (
                   <span>
                     {resident.Name} S/o {resident.FatherName}
                     &nbsp;{" "}
+                    <a href={`/resident/${resident._id}`}>
+                      <i className="fa fa-pencil-square-o"> </i>
+                    </a>
                   </span>
-                  <Link to={`/resident/${resident._id}`}>
-                    <i className="fa fa-pencil-square-o"> </i>
-                  </Link>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr className="text-left">
-                <td style={Styles.WidthSevenPaddingThreeLeft}>Roll No</td>
+                <td style={WidthSevenPaddingThreeLeft}>Roll No</td>
                 <td style={{ padding: 3 }} className="width-thirteen">
-                  <Link to={`/resident/${resident._id}`}>
+                  <a href={`/resident/${resident._id}`}>
                     {resident.RollNumber}
-                  </Link>
+                  </a>
                 </td>
-                <td style={Styles.WidthSevenPaddingThreeLeft}>Tel Num</td>
+                <td style={WidthSevenPaddingThreeLeft}>Tel Num</td>
                 <td style={{ padding: 3 }} className="width-twenty-seven">
-                  <Link to={`/resident/${resident._id}`}>
+                  <a href={`/resident/${resident._id}`}>
                     {resident.TelephoneNumber}
-                  </Link>
+                  </a>
                 </td>
-                <td style={Styles.WidthThirteenPaddingThreeLeft}>Category</td>
+                <td style={WidthThirteenPaddingThreeLeft}>Category</td>
                 <td style={{ padding: 3 }}>
-                  <Link to={`/resident/${resident._id}`}>
+                  <a href={`/resident/${resident._id}`}>
                     {resident.Category.Value}
-                  </Link>
+                  </a>
                 </td>
               </tr>
               <tr className="text-left">
@@ -57,17 +61,17 @@ const renderList = array => (
                   Room
                 </td>
                 <td style={{ padding: 3 }}>
-                  <Link to={`/resident/${resident._id}`}>
+                  <a href={`/resident/${resident._id}`}>
                     {resident.Room.Value}
-                  </Link>
+                  </a>
                 </td>
                 <td style={{ padding: 3 }} className="font-bolder">
                   Class
                 </td>
                 <td style={{ padding: 3 }} colSpan="5">
-                  <Link to={`/resident/${resident._id}`}>
+                  <a href={`/resident/${resident._id}`}>
                     {resident.Class.Value}
-                  </Link>
+                  </a>
                 </td>
               </tr>
               <tr>
@@ -90,7 +94,7 @@ const renderList = array => (
 export const RoomResidents = ({ loading, array }) => {
   if (loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );
@@ -106,7 +110,7 @@ RoomResidents.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

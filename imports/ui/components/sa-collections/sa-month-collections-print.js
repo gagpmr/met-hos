@@ -1,5 +1,8 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PrintTableBorder,
+  PrintTableBorderBold
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import { Loading } from "/imports/ui/components/shared/Loading.js";
@@ -15,56 +18,50 @@ const SaMonthlyPrint = ({ details, monthCollection }) => {
         <table className="table table-bordered table-condensed table-striped text-center">
           <tbody>
             <tr>
-              <th colSpan="14" style={Styles.PrintTableBorder}>
+              <th colSpan="14" style={PrintTableBorder}>
                 DD: Deposit Date &nbsp; RNo:Receipt Number; ED: Excess Deposit
                 &nbsp; HS: Hostel Security &nbsp; MS: Mess Security &nbsp; CS:
                 Canteen Security
               </th>
             </tr>
             <tr>
-              <th colSpan="14" style={Styles.PrintMonthName}>
+              <th colSpan="14" style={PrintMonthName}>
                 {monthCollection.DepositMonth}
               </th>
             </tr>
             <tr style={{ fontSize: "larger" }}>
-              <th style={Styles.PrintTableBorder}>DD</th>
-              <th style={Styles.PrintTableBorder}>HS</th>
-              <th style={Styles.PrintTableBorder}>MS</th>
-              <th style={Styles.PrintTableBorder}>CS</th>
-              <th style={Styles.PrintTableBorder}>Total</th>
-              <th style={Styles.PrintTableBorder}>ED</th>
+              <th style={PrintTableBorder}>DD</th>
+              <th style={PrintTableBorder}>HS</th>
+              <th style={PrintTableBorder}>MS</th>
+              <th style={PrintTableBorder}>CS</th>
+              <th style={PrintTableBorder}>Total</th>
+              <th style={PrintTableBorder}>ED</th>
             </tr>
             {details.map(detail => (
               <tr key={detail._id}>
-                <td style={Styles.PrintTableBorder}>
+                <td style={PrintTableBorder}>
                   {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
                 </td>
-                <td style={Styles.PrintTableBorder}>{detail.HostelSecurity}</td>
-                <td style={Styles.PrintTableBorder}>{detail.MessSecurity}</td>
-                <td style={Styles.PrintTableBorder}>
-                  {detail.CanteenSecurity}
-                </td>
-                <td style={Styles.PrintTableBorderBold}>{detail.Total}</td>
-                <td style={Styles.PrintTableBorderBold}>
-                  {detail.ExcessDeposit}
-                </td>
+                <td style={PrintTableBorder}>{detail.HostelSecurity}</td>
+                <td style={PrintTableBorder}>{detail.MessSecurity}</td>
+                <td style={PrintTableBorder}>{detail.CanteenSecurity}</td>
+                <td style={PrintTableBorderBold}>{detail.Total}</td>
+                <td style={PrintTableBorderBold}>{detail.ExcessDeposit}</td>
               </tr>
             ))}
             <tr>
-              <td style={Styles.PrintTableBorderBold}>{""}</td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{""}</td>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.HostelSecurity}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.MessSecurity}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.CanteenSecurity}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.Total}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{monthCollection.Total}</td>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.ExcessDeposit}
               </td>
             </tr>
@@ -83,7 +80,7 @@ SaMonthlyPrint.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

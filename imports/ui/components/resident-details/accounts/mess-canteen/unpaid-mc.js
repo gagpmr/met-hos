@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
 import ApolloClient from "apollo-client";
-import { gql } from "react-apollo";
 import { Bert } from "meteor/themeteorchef:bert";
-import * as Styles from "/imports/modules/styles.js";
+import { PaddingThreeCenter } from "../../../../../modules/styles";
+import PropTypes from "prop-types";
+import React from "react";
+import { gql } from "react-apollo";
 
 const REMOVE_MC_BILL = gql`
   mutation($resId: String!, $billId: String!) {
@@ -114,44 +114,18 @@ const UnpaidMc = props => {
   }
   return (
     <tr>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.SrNo}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.BillPeriod}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.MessOne}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.MessTwo}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.MessFine}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.Canteen}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.CanteenFine}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.Amenity}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.HalfYearly}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.HalfYearlyFine}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.Total}</td>
-      {/* <td style={Styles.PaddingThreeCenter}>
-        <a
-          onClick={e => srnodown(props, e)}
-          data-srno={props.bill.SrNo}
-          data-billid={props.bill._id}
-          data-resid={props.resident._id}
-          data-toggle="tooltip"
-          title="Serial Number Decrease"
-          href=""
-        >
-          <i className="fa fa-arrow-circle-up" aria-hidden="true" />
-        </a>
-      </td>
-      <td style={Styles.PaddingThreeCenter}>
-        <a
-          onClick={e => srnoup(props, e)}
-          data-srno={props.bill.SrNo}
-          data-billid={props.bill._id}
-          data-resid={props.resident._id}
-          data-toggle="tooltip"
-          title="Serial Number Increase"
-          href=""
-        >
-          <i className="fa fa-arrow-circle-down" aria-hidden="true" />
-        </a>
-      </td> */}
-      <td style={Styles.PaddingThreeCenterBold}>
+      <td style={PaddingThreeCenter}>{props.bill.SrNo}</td>
+      <td style={PaddingThreeCenter}>{props.bill.BillPeriod}</td>
+      <td style={PaddingThreeCenter}>{props.bill.MessOne}</td>
+      <td style={PaddingThreeCenter}>{props.bill.MessTwo}</td>
+      <td style={PaddingThreeCenter}>{props.bill.MessFine}</td>
+      <td style={PaddingThreeCenter}>{props.bill.Canteen}</td>
+      <td style={PaddingThreeCenter}>{props.bill.CanteenFine}</td>
+      <td style={PaddingThreeCenter}>{props.bill.Amenity}</td>
+      <td style={PaddingThreeCenter}>{props.bill.HalfYearly}</td>
+      <td style={PaddingThreeCenter}>{props.bill.HalfYearlyFine}</td>
+      <td style={PaddingThreeCenter}>{props.bill.Total}</td>
+      <td style={PaddingThreeCenterBold}>
         <a
           onClick={e => createDetail(props, e)}
           data-toggle="tooltip"
@@ -161,7 +135,7 @@ const UnpaidMc = props => {
           <i className="fa fa-external-link" aria-hidden="true" />
         </a>
       </td>
-      <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>
         <a
           onClick={e => editBill(props, e)}
           data-toggle="tooltip"
@@ -171,7 +145,7 @@ const UnpaidMc = props => {
           <i className="fa fa-pencil-square-o" />
         </a>
       </td>
-      <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>
         <a
           onClick={e => txnAdd(props, e)}
           data-resid={props.resident._id}
@@ -183,7 +157,7 @@ const UnpaidMc = props => {
           <i className="fa fa-arrow-down" aria-hidden="true" />
         </a>
       </td>
-      <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>
         <a
           onClick={e => removeBill(props, e)}
           data-toggle="tooltip"

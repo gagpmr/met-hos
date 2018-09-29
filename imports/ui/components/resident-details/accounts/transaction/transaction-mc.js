@@ -1,9 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { gql } from "react-apollo";
+import {
+  PaddingThreeCenter,
+  PaddingThreeCenterBold,
+  TableHeader
+} from "../../../../../modules/styles";
+
 import ApolloClient from "apollo-client";
-import * as Styles from "/imports/modules/styles.js";
 import McBillsHeader from "../McbillsHeader";
+import PropTypes from "prop-types";
+import React from "react";
+import { gql } from "react-apollo";
 
 const TXN_REMOVE_MC_BILL = gql`
   mutation($resId: String!, $billId: String!) {
@@ -33,7 +38,7 @@ const TransactionMc = props => {
   }
   return (
     <table
-      style={Styles.TableHeader}
+      style={TableHeader}
       className="table table-bordered table-condensed table-striped"
     >
       <thead>
@@ -42,18 +47,18 @@ const TransactionMc = props => {
       <tbody>
         {props.resident.TxnMcBills.map(doc => (
           <tr key={doc._id}>
-            <td style={Styles.PaddingThreeCenter}>{doc.SrNo}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.BillPeriod}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.MessOne}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.MessTwo}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.MessFine}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.Canteen}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.CanteenFine}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.Amenity}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.HalfYearly}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.HalfYearlyFine}</td>
-            <td style={Styles.PaddingThreeCenter}>{doc.Total}</td>
-            <td style={Styles.PaddingThreeCenterBold}>
+            <td style={PaddingThreeCenter}>{doc.SrNo}</td>
+            <td style={PaddingThreeCenter}>{doc.BillPeriod}</td>
+            <td style={PaddingThreeCenter}>{doc.MessOne}</td>
+            <td style={PaddingThreeCenter}>{doc.MessTwo}</td>
+            <td style={PaddingThreeCenter}>{doc.MessFine}</td>
+            <td style={PaddingThreeCenter}>{doc.Canteen}</td>
+            <td style={PaddingThreeCenter}>{doc.CanteenFine}</td>
+            <td style={PaddingThreeCenter}>{doc.Amenity}</td>
+            <td style={PaddingThreeCenter}>{doc.HalfYearly}</td>
+            <td style={PaddingThreeCenter}>{doc.HalfYearlyFine}</td>
+            <td style={PaddingThreeCenter}>{doc.Total}</td>
+            <td style={PaddingThreeCenterBold}>
               <a
                 onClick={e => removeBill(props, e, doc._id)}
                 data-toggle="tooltip"

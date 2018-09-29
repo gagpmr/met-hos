@@ -1,4 +1,7 @@
-import * as Styles from "/imports/modules/styles.js";
+import {
+  PaddingThreeCenterLargerBold,
+  TableHeader
+} from "../../../../../modules/styles";
 
 import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
@@ -129,12 +132,12 @@ const Transaction = props => {
     <div className="row">
       <div className="col-md-12">
         <table
-          style={Styles.TableHeader}
+          style={TableHeader}
           className="table table-bordered table-condensed table-striped"
         >
           <thead>
             <tr>
-              <th style={Styles.PaddingThreeCenterLargerBold} colSpan="13">
+              <th style={PaddingThreeCenterLargerBold} colSpan="13">
                 Transaction: &nbsp; &#8377; &nbsp;
                 {props.resident.TxnTotal}
                 {/* <a
@@ -148,7 +151,7 @@ const Transaction = props => {
               </th>
             </tr>
             <tr>
-              <th style={Styles.PaddingThreeCenterLargerBold} colSpan="13">
+              <th style={PaddingThreeCenterLargerBold} colSpan="13">
                 Mess Canteen: &nbsp; &#8377; &nbsp;
                 <a
                   onClick={e => createMcDetail(props, e)}

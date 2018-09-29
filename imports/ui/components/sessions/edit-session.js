@@ -1,5 +1,4 @@
-import * as Styles from "../../../modules/styles";
-
+import { Middle, paddingThree } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
@@ -7,7 +6,6 @@ import ApolloClient from "apollo-client";
 import { Loading } from "../shared/Loading.js";
 import PropTypes from "prop-types";
 import React from "react";
-import { paddingThree } from "/imports/modules/styles.js";
 import { withRouter } from "react-router-dom";
 
 const UPDATE_SESSION = gql`
@@ -474,7 +472,7 @@ EditSession.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

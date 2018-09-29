@@ -1,9 +1,8 @@
-import * as Styles from "../../../modules/styles";
-
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import { Loading } from "../shared/Loading.js";
+import { Middle } from "../../../modules/styles";
 import { Pagination } from "react-bootstrap";
 import PropTypes from "prop-types";
 import React from "react";
@@ -114,7 +113,7 @@ Holidays.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

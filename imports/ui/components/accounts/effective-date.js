@@ -1,12 +1,11 @@
 import "/imports/ui/layouts/datepicker.css";
 
-import * as Styles from "../../../modules/styles";
-
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
 import { Loading } from "../shared/Loading.js";
+import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -106,7 +105,7 @@ class EffectiveDate extends React.Component {
   render() {
     if (this.props.loading) {
       return (
-        <div style={Styles.Middle}>
+        <div style={Middle}>
           <Loading />
         </div>
       );
@@ -205,7 +204,7 @@ EffectiveDate.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

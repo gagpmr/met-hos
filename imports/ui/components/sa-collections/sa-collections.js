@@ -1,6 +1,10 @@
-import * as Styles from "../../../modules/styles";
-
 import { Link, withRouter } from "react-router-dom";
+import {
+  Middle,
+  PaddingThreeCenter,
+  PaginationRow,
+  WidthTwentyPaddingThreeCenter
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -106,11 +110,7 @@ class SaCollections extends React.Component {
                 </th>
               </tr>
               <tr>
-                <th
-                  colSpan="10"
-                  className="text-center"
-                  style={Styles.PaginationRow}
-                >
+                <th colSpan="10" className="text-center" style={PaginationRow}>
                   <Pagination
                     prev
                     next
@@ -126,27 +126,19 @@ class SaCollections extends React.Component {
                 </th>
               </tr>
               <tr>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Deposit Date
-                </th>
-                <th colSpan="4" style={Styles.WidthTwentyPaddingThreeCenter}>
+                <th style={WidthTwentyPaddingThreeCenter}>Deposit Date</th>
+                <th colSpan="4" style={WidthTwentyPaddingThreeCenter}>
                   Actions
                 </th>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Receipts Total
-                </th>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Deposited Amount
-                </th>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Excess Deposit
-                </th>
+                <th style={WidthTwentyPaddingThreeCenter}>Receipts Total</th>
+                <th style={WidthTwentyPaddingThreeCenter}>Deposited Amount</th>
+                <th style={WidthTwentyPaddingThreeCenter}>Excess Deposit</th>
               </tr>
             </thead>
             <tbody>
               {this.props.dayTotals.map(detail => (
                 <tr key={detail._id}>
-                  <th style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <th style={WidthTwentyPaddingThreeCenter}>
                     <a
                       href={`/sa-date-details/${moment
                         .utc(detail.DepositDate)
@@ -155,7 +147,7 @@ class SaCollections extends React.Component {
                       {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
                     </a>
                   </th>
-                  <td style={Styles.PaddingThreeCenter}>
+                  <td style={PaddingThreeCenter}>
                     <Link
                       data-toggle="tooltip"
                       title="Edit Sa Day Total"
@@ -166,7 +158,7 @@ class SaCollections extends React.Component {
                       <i className="fa fa-pencil-square-o" />
                     </Link>
                   </td>
-                  <td style={Styles.PaddingThreeCenter}>
+                  <td style={PaddingThreeCenter}>
                     <Link
                       target="_blank"
                       data-toggle="tooltip"
@@ -178,7 +170,7 @@ class SaCollections extends React.Component {
                       <i className="fa fa-print" />
                     </Link>
                   </td>
-                  <td style={Styles.PaddingThreeCenter}>
+                  <td style={PaddingThreeCenter}>
                     <a
                       target="_blank"
                       data-toggle="tooltip"
@@ -190,7 +182,7 @@ class SaCollections extends React.Component {
                       <i className="fa fa-arrows-h" aria-hidden="true" />
                     </a>
                   </td>
-                  <td style={Styles.PaddingThreeCenter}>
+                  <td style={PaddingThreeCenter}>
                     <a
                       href=""
                       data-date={detail.DepositDate}
@@ -199,13 +191,13 @@ class SaCollections extends React.Component {
                       <i className="fa fa-trash-o" />
                     </a>
                   </td>
-                  <td style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <td style={WidthTwentyPaddingThreeCenter}>
                     &#8377; {detail.Total}
                   </td>
-                  <td style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <td style={WidthTwentyPaddingThreeCenter}>
                     &#8377; {detail.Deposit}
                   </td>
-                  <td style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <td style={WidthTwentyPaddingThreeCenter}>
                     &#8377; {detail.ExcessDeposit}
                   </td>
                 </tr>
@@ -230,7 +222,7 @@ SaCollections.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

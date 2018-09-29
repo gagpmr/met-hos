@@ -1,8 +1,7 @@
-import * as Styles from "/imports/modules/styles.js";
-
 import ApolloClient from "apollo-client";
 import PropTypes from "prop-types";
 import React from "react";
+import { WidthEightyPaddingZeroLeft } from "../../../../../../modules/styles";
 import gqls from "./sharedGqls";
 
 class Regular extends React.Component {
@@ -78,7 +77,7 @@ class Regular extends React.Component {
           <td>
             <select
               autoFocus
-              style={Styles.WidthEightyPaddingZeroLeft}
+              style={WidthEightyPaddingZeroLeft}
               onKeyDown={this.keyPressed}
               value={this.state.BillPeriod}
               onChange={this.handleChange}

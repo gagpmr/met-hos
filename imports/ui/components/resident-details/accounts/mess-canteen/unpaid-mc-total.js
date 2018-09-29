@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { gql } from "react-apollo";
 import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
-import * as Styles from "/imports/modules/styles.js";
+import { PaddingThreeCenterBold } from "../../../../../modules/styles";
+import PropTypes from "prop-types";
+import React from "react";
+import { gql } from "react-apollo";
 
 const TXN_ADD_ALL_MC = gql`
   mutation($resId: String!) {
@@ -56,18 +56,18 @@ const UnpaidMcTotal = props => {
   }
   return (
     <tr>
-      <td style={Styles.PaddingThreeCenterBold}>#</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.BillPeriod}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.MessOne}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.MessTwo}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.MessFine}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.Canteen}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.CanteenFine}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.Amenity}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.HalfYearly}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.HalfYearlyFine}</td>
-      <td style={Styles.PaddingThreeCenterBold}>{props.bill.Total}</td>
-      <td colSpan="2" style={Styles.PaddingThreeCenterBold}>
+      <td style={PaddingThreeCenterBold}>#</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.BillPeriod}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.MessOne}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.MessTwo}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.MessFine}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.Canteen}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.CanteenFine}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.Amenity}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.HalfYearly}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.HalfYearlyFine}</td>
+      <td style={PaddingThreeCenterBold}>{props.bill.Total}</td>
+      <td colSpan="2" style={PaddingThreeCenterBold}>
         <a
           onClick={e => createDetail(props, e)}
           data-toggle="tooltip"
@@ -77,7 +77,7 @@ const UnpaidMcTotal = props => {
           <i className="fa fa-external-link" aria-hidden="true" />
         </a>
       </td>
-      <td colSpan="2" style={Styles.PaddingThreeCenterBold}>
+      <td colSpan="2" style={PaddingThreeCenterBold}>
         <a
           onClick={e => txnAddAll(props, e)}
           data-toggle="tooltip"

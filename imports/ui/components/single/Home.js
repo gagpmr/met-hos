@@ -1,4 +1,7 @@
-import * as Styles from "/imports/modules/styles.js";
+import {
+  PaddingThreeCenterLargeBold,
+  WidthTwentyPaddingThreeCenter
+} from "../../../modules/styles";
 
 import { Link } from "react-router-dom";
 import React from "react";
@@ -87,10 +90,10 @@ const getArrays = () => {
 
 const TableCell = ({ cell }) => {
   if (cell.isEmpty) {
-    return <td style={Styles.WidthTwentyPaddingThreeCenter}>&nbsp;</td>;
+    return <td style={WidthTwentyPaddingThreeCenter}>&nbsp;</td>;
   }
   return (
-    <td style={Styles.WidthTwentyPaddingThreeCenter}>
+    <td style={WidthTwentyPaddingThreeCenter}>
       <Link target="_blank" to={cell.Link}>
         {cell.Value}
       </Link>
@@ -100,7 +103,11 @@ const TableCell = ({ cell }) => {
 
 const TableRow = ({ cells }) => {
   return (
-    <tr>{cells.map((cell, index) => <TableCell key={index} cell={cell} />)}</tr>
+    <tr>
+      {cells.map((cell, index) => (
+        <TableCell key={index} cell={cell} />
+      ))}
+    </tr>
   );
 };
 
@@ -112,13 +119,15 @@ const Home = () => {
         <table className="table table-bordered table-condensed table-striped">
           <thead>
             <tr>
-              <th style={Styles.PaddingThreeCenterLargeBold} colSpan="5">
+              <th style={PaddingThreeCenterLargeBold} colSpan="5">
                 Home
               </th>
             </tr>
           </thead>
           <tbody>
-            {rows.map((item, index) => <TableRow key={index} cells={item} />)}
+            {rows.map((item, index) => (
+              <TableRow key={index} cells={item} />
+            ))}
           </tbody>
         </table>
       </div>

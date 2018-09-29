@@ -1,5 +1,9 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PaddingFourCenter,
+  PaddingFourCenterBold,
+  PaddingFourCenterLargeBold
+} from "../../../modules/styles";
 import { compose, gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -88,27 +92,27 @@ const print = (props, e) => {
 
 const renderDuesTotal = duesTotal => (
   <tr>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.SrNo}</td>
-    <td style={Styles.PaddingFourCenter}>{duesTotal.Room}</td>
-    <td style={Styles.PaddingFourCenter}>{duesTotal.RollNumber}</td>
-    <td style={Styles.PaddingFourCenter}>
+    <td style={PaddingFourCenterBold}>{duesTotal.SrNo}</td>
+    <td style={PaddingFourCenter}>{duesTotal.Room}</td>
+    <td style={PaddingFourCenter}>{duesTotal.RollNumber}</td>
+    <td style={PaddingFourCenter}>
       <span>{duesTotal.Name}</span>
     </td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.MessOne}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.MessTwo}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.Canteen}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.Amenity}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.HalfYearlyMc}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.FinesMc}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.TotalMc}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.RoomRent}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.WaterCharges}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.ElectricityCharges}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.HalfYearlyPa}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.Miscellaneous}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.TotalPa}</td>
-    <td style={Styles.PaddingFourCenterBold}>{duesTotal.Total}</td>
-    <td colSpan="4" style={Styles.PaddingFourCenterBold} />
+    <td style={PaddingFourCenterBold}>{duesTotal.MessOne}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.MessTwo}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.Canteen}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.Amenity}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.HalfYearlyMc}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.FinesMc}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.TotalMc}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.RoomRent}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.WaterCharges}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.ElectricityCharges}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.HalfYearlyPa}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.Miscellaneous}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.TotalPa}</td>
+    <td style={PaddingFourCenterBold}>{duesTotal.Total}</td>
+    <td colSpan="4" style={PaddingFourCenterBold} />
   </tr>
 );
 
@@ -124,7 +128,7 @@ const renderList = props => (
       <table className="table table-bordered table-condensed table-striped">
         <thead>
           <tr>
-            <th style={Styles.PaddingFourCenterLargeBold} colSpan="24">
+            <th style={PaddingFourCenterLargeBold} colSpan="24">
               Dues - Regular Residents ({moment().format("DD-MMM-YYYY")}) &nbsp;
               <a onClick={e => print(props, e)} href="">
                 <i className="fa fa-print" aria-hidden="true" />
@@ -136,25 +140,25 @@ const renderList = props => (
             </th>
           </tr>
           <tr>
-            <td style={Styles.PaddingFourCenterBold}>Sr.</td>
-            <td style={Styles.PaddingFourCenterBold}>Room</td>
-            <td style={Styles.PaddingFourCenterBold}>R.No.</td>
-            <td style={Styles.PaddingFourCenterBold}>Name</td>
-            <td style={Styles.PaddingFourCenterBold}>M-1</td>
-            <td style={Styles.PaddingFourCenterBold}>M-2</td>
-            <td style={Styles.PaddingFourCenterBold}>CNT</td>
-            <td style={Styles.PaddingFourCenterBold}>AMNT</td>
-            <td style={Styles.PaddingFourCenterBold}>HY-MC</td>
-            <td style={Styles.PaddingFourCenterBold}>MC-Fine</td>
-            <td style={Styles.PaddingFourCenterBold}>MC-Total</td>
-            <td style={Styles.PaddingFourCenterBold}>RR</td>
-            <td style={Styles.PaddingFourCenterBold}>WC</td>
-            <td style={Styles.PaddingFourCenterBold}>Elec</td>
-            <td style={Styles.PaddingFourCenterBold}>HY-HST</td>
-            <td style={Styles.PaddingFourCenterBold}>Misc</td>
-            <td style={Styles.PaddingFourCenterBold}>HST-Total</td>
-            <td style={Styles.PaddingFourCenterBold}>Total</td>
-            <td colSpan="4" style={Styles.PaddingFourCenterBold}>
+            <td style={PaddingFourCenterBold}>Sr.</td>
+            <td style={PaddingFourCenterBold}>Room</td>
+            <td style={PaddingFourCenterBold}>R.No.</td>
+            <td style={PaddingFourCenterBold}>Name</td>
+            <td style={PaddingFourCenterBold}>M-1</td>
+            <td style={PaddingFourCenterBold}>M-2</td>
+            <td style={PaddingFourCenterBold}>CNT</td>
+            <td style={PaddingFourCenterBold}>AMNT</td>
+            <td style={PaddingFourCenterBold}>HY-MC</td>
+            <td style={PaddingFourCenterBold}>MC-Fine</td>
+            <td style={PaddingFourCenterBold}>MC-Total</td>
+            <td style={PaddingFourCenterBold}>RR</td>
+            <td style={PaddingFourCenterBold}>WC</td>
+            <td style={PaddingFourCenterBold}>Elec</td>
+            <td style={PaddingFourCenterBold}>HY-HST</td>
+            <td style={PaddingFourCenterBold}>Misc</td>
+            <td style={PaddingFourCenterBold}>HST-Total</td>
+            <td style={PaddingFourCenterBold}>Total</td>
+            <td colSpan="4" style={PaddingFourCenterBold}>
               Do
             </td>
           </tr>
@@ -162,57 +166,55 @@ const renderList = props => (
         <tbody>
           {props.residents.map((resident, index) => (
             <tr key={resident._id}>
-              <td style={Styles.PaddingFourCenterBold}>{index + 1}</td>
-              <td style={Styles.PaddingFourCenter}>{resident.Room.Value}</td>
-              <td style={Styles.PaddingFourCenter}>{resident.RollNumber}</td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenterBold}>{index + 1}</td>
+              <td style={PaddingFourCenter}>{resident.Room.Value}</td>
+              <td style={PaddingFourCenter}>{resident.RollNumber}</td>
+              <td style={PaddingFourCenter}>
                 <span>{resident.Name}</span>
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.MessOne}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.MessTwo}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.Canteen}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.Amenity}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.HalfYearly}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.MessFine +
                   resident.UnpaidMcTotal.CanteenFine +
                   resident.UnpaidMcTotal.HalfYearlyFine}
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>
                 {resident.UnpaidMcTotal.Total}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidPaTotal.RoomRent}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidPaTotal.WaterCharges}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidPaTotal.ElectricityCharges}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidPaTotal.HalfYearly}
               </td>
-              <td style={Styles.PaddingFourCenter}>
+              <td style={PaddingFourCenter}>
                 {resident.UnpaidPaTotal.Miscellaneous}
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>
                 {resident.UnpaidPaTotal.Total}
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
-                {resident.UnpaidTotal}
-              </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidTotal}</td>
+              <td style={PaddingFourCenterBold}>
                 <a
                   data-resid={resident._id}
                   onClick={e => run(props, e)}
@@ -223,7 +225,7 @@ const renderList = props => (
                   <i className="fa fa-times" aria-hidden="true" />
                 </a>
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>
                 <Link
                   target="_blank"
                   to={`/resident-details/${resident._id}`}
@@ -233,7 +235,7 @@ const renderList = props => (
                   <i className="fa fa-user-circle" aria-hidden="true" />
                 </Link>
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>
                 <a
                   data-resid={resident._id}
                   data-toggle="tooltip"
@@ -244,7 +246,7 @@ const renderList = props => (
                   <i className="fa fa-list" aria-hidden="true" />
                 </a>
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>
                 <Link
                   target="_blank"
                   to={`/notice-list`}
@@ -292,7 +294,7 @@ DuesRegularResidents.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

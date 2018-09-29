@@ -1,5 +1,4 @@
-import * as Styles from "../../../modules/styles";
-
+import { Middle, PaddingThreeCenterBold } from "../../../modules/styles";
 import { gql, graphql } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -80,7 +79,7 @@ class MesCanFine extends React.Component {
             </tr>
             <tr>
               <th className="text-center mes-can-fine">Fine</th>
-              <td style={Styles.PaddingThreeCenterBold}>{this.state.Fine}</td>
+              <td style={PaddingThreeCenterBold}>{this.state.Fine}</td>
             </tr>
           </tbody>
         </table>
@@ -102,7 +101,7 @@ MesCanFine.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

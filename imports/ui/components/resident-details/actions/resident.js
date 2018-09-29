@@ -1,8 +1,16 @@
-import React from "react";
+import {
+  PaddingThreeCenterLargeBold,
+  PaddingThreeLeft,
+  PaddingThreeLeftBold,
+  WidthTenPaddingThreeLeftBold,
+  WidthThirteenPaddingThreeLeft,
+  WidthTwentySevenPaddingThreeLeft
+} from "../../../../modules/styles";
+
+import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import * as Styles from "/imports/modules/styles.js";
+import React from "react";
 
 const customStyles = {
   content: {
@@ -71,9 +79,9 @@ class Resident extends React.Component {
               >
                 <thead>
                   <tr>
-                    <th style={Styles.PaddingThreeCenterLargeBold} colSpan="6">
-                      {this.props.resident.Name}&nbsp; S/o{" "}
-                      {this.props.resident.FatherName} &nbsp;
+                    <th style={PaddingThreeCenterLargeBold} colSpan="6">
+                      {this.props.resident.Name}
+                      &nbsp; S/o {this.props.resident.FatherName} &nbsp;
                       <Link to={`/resident/${this.props.resident._id}`}>
                         <i className="fa fa-pencil-square-o" />
                       </Link>
@@ -89,30 +97,26 @@ class Resident extends React.Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td style={Styles.WidthTenPaddingThreeLeftBold}>
-                      Roll Number
-                    </td>
-                    <td style={Styles.WidthThirteenPaddingThreeLeft}>
+                    <td style={WidthTenPaddingThreeLeftBold}>Roll Number</td>
+                    <td style={WidthThirteenPaddingThreeLeft}>
                       {this.props.resident.RollNumber}
                     </td>
-                    <td style={Styles.WidthTenPaddingThreeLeftBold}>Tel Num</td>
-                    <td style={Styles.WidthTwentySevenPaddingThreeLeft}>
+                    <td style={WidthTenPaddingThreeLeftBold}>Tel Num</td>
+                    <td style={WidthTwentySevenPaddingThreeLeft}>
                       {this.props.resident.TelephoneNumber}
                     </td>
-                    <td style={Styles.WidthTenPaddingThreeLeftBold}>
-                      Category
-                    </td>
-                    <td style={Styles.WidthTwentySevenPaddingThreeLeft}>
+                    <td style={WidthTenPaddingThreeLeftBold}>Category</td>
+                    <td style={WidthTwentySevenPaddingThreeLeft}>
                       {this.props.resident.Category.Value}
                     </td>
                   </tr>
                   <tr>
-                    <td style={Styles.PaddingThreeLeftBold}>Room</td>
-                    <td style={Styles.PaddingThreeLeft}>
+                    <td style={PaddingThreeLeftBold}>Room</td>
+                    <td style={PaddingThreeLeft}>
                       {this.props.resident.Room.Value}
                     </td>
-                    <td style={Styles.PaddingThreeLeftBold}>Class</td>
-                    <td style={Styles.PaddingThreeLeft} colSpan="5">
+                    <td style={PaddingThreeLeftBold}>Class</td>
+                    <td style={PaddingThreeLeft} colSpan="5">
                       {this.props.resident.Class.Value}
                     </td>
                   </tr>

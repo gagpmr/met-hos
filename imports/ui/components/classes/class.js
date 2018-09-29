@@ -1,4 +1,10 @@
-import * as Styles from "../../../modules/styles";
+import {
+  Middle,
+  PaddingFourCenter,
+  PaddingFourCenterBold,
+  WidthFivePaddingFourCenterBold,
+  WidthSeventyFivePaddingFourCenterBold
+} from "../../../modules/styles";
 
 import ApolloClient from "apollo-client";
 import { Link } from "react-router-dom";
@@ -153,17 +159,15 @@ export class Class extends React.Component {
   render() {
     if (this.props.loading) {
       return (
-        <div style={Styles.Middle}>
+        <div style={Middle}>
           <Loading />
         </div>
       );
     }
     return (
       <tr ref={this.props.clas._id} className="text-left">
-        <td style={Styles.WidthFivePaddingFourCenterBold}>
-          {this.props.clas.SrNo}
-        </td>
-        <td style={Styles.PaddingFourCenterBold}>
+        <td style={WidthFivePaddingFourCenterBold}>{this.props.clas.SrNo}</td>
+        <td style={PaddingFourCenterBold}>
           <a
             id="add-class"
             onClick={this.insert}
@@ -177,7 +181,7 @@ export class Class extends React.Component {
             <span />
           </a>
         </td>
-        <td style={Styles.PaddingFourCenter}>
+        <td style={PaddingFourCenter}>
           <a
             data-toggle="tooltip"
             onClick={this.srnodown}
@@ -189,7 +193,7 @@ export class Class extends React.Component {
             <i className="fa fa-arrow-circle-up" aria-hidden="true" />
           </a>
         </td>
-        <td style={Styles.PaddingFourCenter}>
+        <td style={PaddingFourCenter}>
           <a
             id="sr-no-up"
             onClick={this.srnoup}
@@ -202,7 +206,7 @@ export class Class extends React.Component {
             <i className="fa fa-arrow-circle-down" aria-hidden="true" />
           </a>
         </td>
-        <td style={Styles.PaddingFourCenter}>
+        <td style={PaddingFourCenter}>
           <a
             onClick={this.srnomax}
             data-classid={this.props.clas._id}
@@ -214,7 +218,7 @@ export class Class extends React.Component {
             <i className="fa fa-long-arrow-down" aria-hidden="true" />
           </a>
         </td>
-        <td style={Styles.PaddingFourCenter}>
+        <td style={PaddingFourCenter}>
           <Link
             data-toggle="tooltip"
             title="Edit Class"
@@ -223,7 +227,7 @@ export class Class extends React.Component {
             <i className="fa fa-pencil-square-o" />
           </Link>
         </td>
-        <td style={Styles.PaddingFourCenter}>
+        <td style={PaddingFourCenter}>
           <a
             onClick={this.remove}
             data-classid={this.props.clas._id}
@@ -234,7 +238,7 @@ export class Class extends React.Component {
             <i className="fa fa-trash-o" aria-hidden="true" />
           </a>
         </td>
-        <td style={Styles.WidthSeventyFivePaddingFourCenterBold}>
+        <td style={WidthSeventyFivePaddingFourCenterBold}>
           {this.props.clas.Value}
         </td>
       </tr>

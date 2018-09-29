@@ -1,9 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import {
+  PaddingThreeCenter,
+  PaddingThreeCenterBold
+} from "../../../../../modules/styles";
+
 import ApolloClient from "apollo-client";
-import { gql } from "react-apollo";
 import { Bert } from "meteor/themeteorchef:bert";
-import * as Styles from "/imports/modules/styles.js";
+import PropTypes from "prop-types";
+import React from "react";
+import { gql } from "react-apollo";
 
 const REMOVE_PA_BILL = gql`
   mutation($resId: String!, $billId: String!) {
@@ -147,16 +151,16 @@ const srNoUp = (props, e) => {
 const UnpaidPa = props => {
   return (
     <tr>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.SrNo}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.BillPeriod}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.RoomRent}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.WaterCharges}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.ElectricityCharges}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.Miscellaneous}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.HalfYearly}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.Security}</td>
-      <td style={Styles.PaddingThreeCenter}>{props.bill.Total}</td>
-      {/* <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>{props.bill.SrNo}</td>
+      <td style={PaddingThreeCenter}>{props.bill.BillPeriod}</td>
+      <td style={PaddingThreeCenter}>{props.bill.RoomRent}</td>
+      <td style={PaddingThreeCenter}>{props.bill.WaterCharges}</td>
+      <td style={PaddingThreeCenter}>{props.bill.ElectricityCharges}</td>
+      <td style={PaddingThreeCenter}>{props.bill.Miscellaneous}</td>
+      <td style={PaddingThreeCenter}>{props.bill.HalfYearly}</td>
+      <td style={PaddingThreeCenter}>{props.bill.Security}</td>
+      <td style={PaddingThreeCenter}>{props.bill.Total}</td>
+      {/* <td style={PaddingThreeCenter}>
         <a
           onClick={e => srNoDown(props, e)}
           data-srno={props.bill.SrNo}
@@ -169,7 +173,7 @@ const UnpaidPa = props => {
           <i className="fa fa-arrow-circle-up" aria-hidden="true" />
         </a>
       </td>
-      <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>
         <a
           onClick={e => srNoUp(props, e)}
           data-srno={props.bill.SrNo}
@@ -182,7 +186,7 @@ const UnpaidPa = props => {
           <i className="fa fa-arrow-circle-down" aria-hidden="true" />
         </a>
       </td> */}
-      <td style={Styles.PaddingThreeCenterBold}>
+      <td style={PaddingThreeCenterBold}>
         <a
           onClick={e => createDetail(props, e)}
           data-toggle="tooltip"
@@ -192,7 +196,7 @@ const UnpaidPa = props => {
           <i className="fa fa-external-link" aria-hidden="true" />
         </a>
       </td>
-      <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>
         <a
           onClick={e => editBill(props, e)}
           data-toggle="tooltip"
@@ -202,7 +206,7 @@ const UnpaidPa = props => {
           <i className="fa fa-pencil-square-o" aria-hidden="true" />
         </a>
       </td>
-      <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>
         <a
           onClick={e => txnAdd(props, e)}
           data-toggle="tooltip"
@@ -212,7 +216,7 @@ const UnpaidPa = props => {
           <i className="fa fa-arrow-down" aria-hidden="true" />
         </a>
       </td>
-      <td style={Styles.PaddingThreeCenter}>
+      <td style={PaddingThreeCenter}>
         <a
           onClick={e => removeBill(props, e)}
           data-toggle="tooltip"

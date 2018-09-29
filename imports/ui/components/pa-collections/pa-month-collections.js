@@ -1,6 +1,10 @@
-import * as Styles from "../../../modules/styles";
-
 import { Link, withRouter } from "react-router-dom";
+import {
+  Middle,
+  PaddingThreeCenter,
+  PaginationRow,
+  WidthTwentyPaddingThreeCenter
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -92,11 +96,7 @@ class PaMonthCollections extends React.Component {
                 </th>
               </tr>
               <tr>
-                <th
-                  colSpan="10"
-                  className="text-center"
-                  style={Styles.PaginationRow}
-                >
+                <th colSpan="10" className="text-center" style={PaginationRow}>
                   <Pagination
                     prev
                     next
@@ -112,30 +112,22 @@ class PaMonthCollections extends React.Component {
                 </th>
               </tr>
               <tr>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Deposit Month
-                </th>
-                <th colSpan="3" style={Styles.WidthTwentyPaddingThreeCenter}>
+                <th style={WidthTwentyPaddingThreeCenter}>Deposit Month</th>
+                <th colSpan="3" style={WidthTwentyPaddingThreeCenter}>
                   Actions
                 </th>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Receipts Total
-                </th>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Deposited Amount
-                </th>
-                <th style={Styles.WidthTwentyPaddingThreeCenter}>
-                  Excess Deposit
-                </th>
+                <th style={WidthTwentyPaddingThreeCenter}>Receipts Total</th>
+                <th style={WidthTwentyPaddingThreeCenter}>Deposited Amount</th>
+                <th style={WidthTwentyPaddingThreeCenter}>Excess Deposit</th>
               </tr>
             </thead>
             <tbody>
               {this.props.monthTotals.map(detail => (
                 <tr key={detail.DepositDate}>
-                  <th style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <th style={WidthTwentyPaddingThreeCenter}>
                     {detail.DepositMonth}
                   </th>
-                  <td style={Styles.PaddingThreeCenter}>
+                  <td style={PaddingThreeCenter}>
                     <Link
                       target="_blank"
                       data-toggle="tooltip"
@@ -145,7 +137,7 @@ class PaMonthCollections extends React.Component {
                       <i className="fa fa-print" />
                     </Link>
                   </td>
-                  <td style={Styles.PaddingThreeCenter}>
+                  <td style={PaddingThreeCenter}>
                     <a
                       target="_blank"
                       data-toggle="tooltip"
@@ -157,7 +149,7 @@ class PaMonthCollections extends React.Component {
                       <i className="fa fa-arrows-h" aria-hidden="true" />
                     </a>
                   </td>
-                  <td style={Styles.PaddingThreeCenter}>
+                  <td style={PaddingThreeCenter}>
                     <a
                       href=""
                       data-month={detail.DepositMonth}
@@ -166,13 +158,13 @@ class PaMonthCollections extends React.Component {
                       <i className="fa fa-trash-o" />
                     </a>
                   </td>
-                  <td style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <td style={WidthTwentyPaddingThreeCenter}>
                     &#8377; {detail.Total}
                   </td>
-                  <td style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <td style={WidthTwentyPaddingThreeCenter}>
                     &#8377; {detail.Deposit}
                   </td>
-                  <td style={Styles.WidthTwentyPaddingThreeCenter}>
+                  <td style={WidthTwentyPaddingThreeCenter}>
                     &#8377; {detail.ExcessDeposit}
                   </td>
                 </tr>
@@ -197,7 +189,7 @@ PaMonthCollections.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

@@ -1,8 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import {
+  PaddingThreeLeft,
+  PaddingThreeLeftBold,
+  WidthSixtyPaddingZeroLeft
+} from "../../../../../../modules/styles";
+
 import ApolloClient from "apollo-client";
+import PropTypes from "prop-types";
+import React from "react";
 import gqls from "./sharedGqls";
-import * as Styles from "/imports/modules/styles.js";
 
 class ReduceCanteen extends React.Component {
   constructor(props) {
@@ -80,15 +85,15 @@ class ReduceCanteen extends React.Component {
       <tbody>
         <tr>
           <th>Unpaid Mc Total</th>
-          <td style={Styles.PaddingThreeLeftBold}>
+          <td style={PaddingThreeLeftBold}>
             {this.props.resident.UnpaidMcTotal.Total}
           </td>
         </tr>
         <tr>
           <th>Reduce Canteen By</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
-              style={Styles.WidthSixtyPaddingZeroLeft}
+              style={WidthSixtyPaddingZeroLeft}
               type="text"
               name="Canteen"
               autoFocus
@@ -103,7 +108,7 @@ class ReduceCanteen extends React.Component {
         </tr>
         <tr>
           <th>Has Canteen Fine</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
               type="checkbox"
               name="HasCanteenFine"

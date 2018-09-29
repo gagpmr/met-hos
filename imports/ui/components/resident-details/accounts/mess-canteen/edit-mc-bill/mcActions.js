@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
 import ApolloClient from "apollo-client";
+import { PaddingThreeCenterLargeBold } from "../../../../../../modules/styles";
+import PropTypes from "prop-types";
+import React from "react";
 import gqls from "./sharedGqls";
-import * as Styles from "/imports/modules/styles.js";
 
 const reduceMessTwo = (props, e) => {
   e.preventDefault();
@@ -110,7 +110,7 @@ const McActions = props => {
       <table className="table table-bordered table-condensed table-striped text-center">
         <thead>
           <tr>
-            <th style={Styles.PaddingThreeCenterLargeBold}>Actions</th>
+            <th style={PaddingThreeCenterLargeBold}>Actions</th>
           </tr>
         </thead>
         <tbody>

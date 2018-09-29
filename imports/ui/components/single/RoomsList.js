@@ -1,9 +1,8 @@
-import * as Styles from "../../../modules/styles";
-
 import { Col, Grid, Pagination, Row } from "react-bootstrap";
 import { gql, graphql } from "react-apollo";
 
 import { Loading } from "/imports/ui/components/shared/Loading";
+import { Middle } from "../../../modules/styles";
 import { PropTypes } from "prop-types";
 import React from "react";
 
@@ -45,7 +44,7 @@ class Rooms extends React.Component {
   render() {
     if (this.props.loading) {
       return (
-        <div style={Styles.Middle}>
+        <div style={Middle}>
           <Loading />
         </div>
       );

@@ -1,13 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import {
+  PaddingThreeCenterLargerBold,
+  TableHeader
+} from "../../../../../modules/styles";
+
 import ApolloClient from "apollo-client";
-import { gql } from "react-apollo";
-import UnpaidPa from "./unpaid-pa.js";
 import { Bert } from "meteor/themeteorchef:bert";
-import UnpaidPaTotal from "./unpaid-pa-total.js";
-import * as Styles from "/imports/modules/styles.js";
 import EditReturnAmount from "./edit-return-amount";
 import PaBillsHeader from "../PabillsHeader";
+import PropTypes from "prop-types";
+import React from "react";
+import UnpaidPa from "./unpaid-pa.js";
+import UnpaidPaTotal from "./unpaid-pa-total.js";
+import { gql } from "react-apollo";
 
 const EDIT_PA_BILL = gql`
   query($resId: String!, $billId: String!) {
@@ -97,12 +101,12 @@ const PrivateAccount = props => {
       <div className="row">
         <div className="col-md-12">
           <table
-            style={Styles.TableHeader}
+            style={TableHeader}
             className="table table-bordered table-condensed table-striped"
           >
             <thead>
               <tr>
-                <th style={Styles.PaddingThreeCenterLargerBold} colSpan="15">
+                <th style={PaddingThreeCenterLargerBold} colSpan="15">
                   Unpaid Total: &#8377; {props.resident.UnpaidTotal}
                   &nbsp; &nbsp; Return Amount: &#8377;&nbsp;
                   <EditReturnAmount resident={props.resident} />
@@ -110,7 +114,7 @@ const PrivateAccount = props => {
                 </th>
               </tr>
               <tr>
-                <th style={Styles.PaddingThreeCenterLargerBold} colSpan="15">
+                <th style={PaddingThreeCenterLargerBold} colSpan="15">
                   Private Account&nbsp;
                   <a id="addBill" onClick={e => addBill(props, e)} href="">
                     <i className="fa fa-plus" aria-hidden="true" />

@@ -1,5 +1,9 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PaddingZeroLeft,
+  WidthHundredPaddingThree,
+  WidthTwentyThreePaddingFourLeftBold
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
@@ -175,7 +179,7 @@ export class Resident extends React.Component {
   render() {
     if (this.props.loading) {
       return (
-        <div style={Styles.Middle}>
+        <div style={Middle}>
           <Loading />
         </div>
       );
@@ -300,8 +304,8 @@ export class Resident extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>Name</td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Name</td>
+              <td style={PaddingZeroLeft}>
                 <input
                   onChange={this.getName}
                   onKeyDown={this.keyPressed}
@@ -314,8 +318,8 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>Father Name</td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Father Name</td>
+              <td style={PaddingZeroLeft}>
                 <input
                   onChange={this.getFatherName}
                   onKeyDown={this.keyPressed}
@@ -326,10 +330,10 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>
                 Telephone Number
               </td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={PaddingZeroLeft}>
                 <input
                   onChange={this.getTelephoneNumber}
                   onKeyDown={this.keyPressed}
@@ -340,8 +344,8 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>Roll Number</td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Roll Number</td>
+              <td style={PaddingZeroLeft}>
                 <input
                   onChange={this.getRollNumber}
                   onKeyDown={this.keyPressed}
@@ -352,8 +356,8 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>Session</td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Session</td>
+              <td style={PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
                   value={session}
@@ -366,8 +370,8 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>Room Number</td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Room Number</td>
+              <td style={PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
                   value={room}
@@ -380,8 +384,8 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>Category</td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Category</td>
+              <td style={PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
                   value={category}
@@ -394,14 +398,14 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={Styles.WidthFortyPaddingFourLeftBold}>Class</td>
-              <td style={Styles.PaddingZeroLeft}>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Class</td>
+              <td style={PaddingZeroLeft}>
                 <select
                   onKeyDown={this.keyPressed}
                   value={clas}
                   onChange={this.getClass}
                   id="class_dd"
-                  className="width-fifty"
+                  style={WidthHundredPaddingThree}
                 >
                   {classes}
                 </select>
@@ -434,7 +438,7 @@ Resident.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

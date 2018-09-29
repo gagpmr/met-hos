@@ -1,5 +1,9 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PrintMonthName,
+  PrintTableBorder,
+  PrintTableBorderBold
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import { Loading } from "/imports/ui/components/shared/Loading.js";
@@ -15,7 +19,7 @@ const PaMonthlyPrint = ({ details, monthCollection }) => {
         <table className="table table-bordered table-condensed table-striped text-center">
           <tbody>
             <tr>
-              <th colSpan="14" style={Styles.PrintTableBorder}>
+              <th colSpan="14" style={PrintTableBorder}>
                 DD: Deposit Date &nbsp; RR: Room Rent &nbsp; WC: Water Charges
                 &nbsp; EC: Electricity Charges &nbsp; DF: Development Fund
                 <br />
@@ -24,68 +28,58 @@ const PaMonthlyPrint = ({ details, monthCollection }) => {
               </th>
             </tr>
             <tr>
-              <th colSpan="14" style={Styles.PrintMonthName}>
+              <th colSpan="14" style={PrintMonthName}>
                 {monthCollection.DepositMonth}
               </th>
             </tr>
             <tr style={{ fontSize: "larger" }}>
-              <th style={Styles.PrintTableBorder}>DD</th>
-              <th style={Styles.PrintTableBorder}>RR</th>
-              <th style={Styles.PrintTableBorder}>WC</th>
-              <th style={Styles.PrintTableBorder}>EC</th>
-              <th style={Styles.PrintTableBorder}>DF</th>
-              <th style={Styles.PrintTableBorder}>RHMC</th>
-              <th style={Styles.PrintTableBorder}>Misc</th>
-              <th style={Styles.PrintTableBorder}>Total</th>
-              <th style={Styles.PrintTableBorder}>ED</th>
+              <th style={PrintTableBorder}>DD</th>
+              <th style={PrintTableBorder}>RR</th>
+              <th style={PrintTableBorder}>WC</th>
+              <th style={PrintTableBorder}>EC</th>
+              <th style={PrintTableBorder}>DF</th>
+              <th style={PrintTableBorder}>RHMC</th>
+              <th style={PrintTableBorder}>Misc</th>
+              <th style={PrintTableBorder}>Total</th>
+              <th style={PrintTableBorder}>ED</th>
             </tr>
             {details.map(detail => (
               <tr key={detail._id}>
-                <td style={Styles.PrintTableBorder}>
+                <td style={PrintTableBorder}>
                   {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
                 </td>
-                <td style={Styles.PrintTableBorder}>{detail.RoomRent}</td>
-                <td style={Styles.PrintTableBorder}>{detail.WaterCharges}</td>
-                <td style={Styles.PrintTableBorder}>
-                  {detail.ElectricityCharges}
-                </td>
-                <td style={Styles.PrintTableBorder}>
-                  {detail.DevelopmentFund}
-                </td>
-                <td style={Styles.PrintTableBorder}>
+                <td style={PrintTableBorder}>{detail.RoomRent}</td>
+                <td style={PrintTableBorder}>{detail.WaterCharges}</td>
+                <td style={PrintTableBorder}>{detail.ElectricityCharges}</td>
+                <td style={PrintTableBorder}>{detail.DevelopmentFund}</td>
+                <td style={PrintTableBorder}>
                   {detail.RutineHstlMaintnceCharges}
                 </td>
-                <td style={Styles.PrintTableBorder}>{detail.Miscellaneous}</td>
-                <td style={Styles.PrintTableBorderBold}>{detail.Total}</td>
-                <td style={Styles.PrintTableBorderBold}>
-                  {detail.ExcessDeposit}
-                </td>
+                <td style={PrintTableBorder}>{detail.Miscellaneous}</td>
+                <td style={PrintTableBorderBold}>{detail.Total}</td>
+                <td style={PrintTableBorderBold}>{detail.ExcessDeposit}</td>
               </tr>
             ))}
             <tr>
-              <td style={Styles.PrintTableBorderBold}>{""}</td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.RoomRent}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{""}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.RoomRent}</td>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.WaterCharges}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.ElectricityCharges}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.DevelopmentFund}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.RutineHstlMaintnceCharges}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.Miscellaneous}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.Total}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{monthCollection.Total}</td>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.ExcessDeposit}
               </td>
             </tr>
@@ -104,7 +98,7 @@ PaMonthlyPrint.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

@@ -1,5 +1,7 @@
-import * as Styles from "../../../../../../modules/styles";
-
+import {
+  Middle,
+  PaddingThreeCenterLargeBold
+} from "../../../../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -17,7 +19,7 @@ import { withRouter } from "react-router-dom";
 const EditMcBill = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );
@@ -29,7 +31,7 @@ const EditMcBill = props => {
           <table className="table table-bordered table-condensed table-striped text-center">
             <thead>
               <tr>
-                <th style={Styles.PaddingThreeCenterLargeBold} colSpan="2">
+                <th style={PaddingThreeCenterLargeBold} colSpan="2">
                   Edit Bill
                 </th>
               </tr>

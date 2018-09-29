@@ -1,5 +1,9 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PaddingFourCenter,
+  PaddingFourCenterBold,
+  PaddingFourCenterLargeBold
+} from "../../../modules/styles";
 import { compose, gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -115,7 +119,7 @@ const renderList = props => (
       <table className="table table-bordered table-condensed table-striped">
         <thead>
           <tr>
-            <th style={Styles.PaddingFourCenterLargeBold} colSpan="20">
+            <th style={PaddingFourCenterLargeBold} colSpan="20">
               Notice Board List &nbsp;
               <a onClick={e => print(props, e)} href="">
                 <i className="fa fa-print" aria-hidden="true" />
@@ -123,19 +127,19 @@ const renderList = props => (
             </th>
           </tr>
           {/* <tr>
-            <td colSpan="20" style={Styles.PaddingFourCenterBold}>
+            <td colSpan="20" style={PaddingFourCenterBold}>
               Pay By Date: <NoticeDate client={props.client} />
             </td>
           </tr> */}
           <tr>
-            <td style={Styles.PaddingFourCenterBold}>Sr.</td>
-            <td style={Styles.PaddingFourCenterBold}>Room</td>
-            <td style={Styles.PaddingFourCenterBold}>R.No.</td>
-            <td style={Styles.PaddingFourCenterBold}>Name</td>
-            <td style={Styles.PaddingFourCenterBold}>Mess Canteen</td>
-            <td style={Styles.PaddingFourCenterBold}>Hostel</td>
-            <td style={Styles.PaddingFourCenterBold}>Total</td>
-            <td colSpan="2" style={Styles.PaddingFourCenterBold}>
+            <td style={PaddingFourCenterBold}>Sr.</td>
+            <td style={PaddingFourCenterBold}>Room</td>
+            <td style={PaddingFourCenterBold}>R.No.</td>
+            <td style={PaddingFourCenterBold}>Name</td>
+            <td style={PaddingFourCenterBold}>Mess Canteen</td>
+            <td style={PaddingFourCenterBold}>Hostel</td>
+            <td style={PaddingFourCenterBold}>Total</td>
+            <td colSpan="2" style={PaddingFourCenterBold}>
               Do
             </td>
           </tr>
@@ -143,20 +147,18 @@ const renderList = props => (
         <tbody>
           {props.residents.map((resident, index) => (
             <tr key={resident._id}>
-              <td style={Styles.PaddingFourCenterBold}>{index + 1}</td>
-              <td style={Styles.PaddingFourCenter}>{resident.Room.Value}</td>
-              <td style={Styles.PaddingFourCenter}>{resident.RollNumber}</td>
-              <td style={Styles.PaddingFourCenter}>{resident.Name}</td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>{index + 1}</td>
+              <td style={PaddingFourCenter}>{resident.Room.Value}</td>
+              <td style={PaddingFourCenter}>{resident.RollNumber}</td>
+              <td style={PaddingFourCenter}>{resident.Name}</td>
+              <td style={PaddingFourCenterBold}>
                 {resident.UnpaidMcTotal.Total}
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>
                 {resident.UnpaidPaTotal.Total}
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
-                {resident.UnpaidTotal}
-              </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidTotal}</td>
+              <td style={PaddingFourCenterBold}>
                 <a
                   data-resid={resident._id}
                   onClick={e => noticeListRemove(props, e)}
@@ -165,7 +167,7 @@ const renderList = props => (
                   <i className="fa fa-times" aria-hidden="true" />
                 </a>
               </td>
-              <td style={Styles.PaddingFourCenterBold}>
+              <td style={PaddingFourCenterBold}>
                 <Link target="_blank" to={`/resident-details/${resident._id}`}>
                   <i className="fa fa-user-circle" aria-hidden="true" />
                 </Link>
@@ -205,7 +207,7 @@ NoticeList.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

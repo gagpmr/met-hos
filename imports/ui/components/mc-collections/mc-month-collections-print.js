@@ -1,5 +1,9 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PrintMonthName,
+  PrintTableBorder,
+  PrintTableBorderBold
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import { Loading } from "/imports/ui/components/shared/Loading.js";
@@ -15,7 +19,7 @@ const McMonthlyPrint = ({ details, monthCollection }) => {
         <table className="table table-bordered table-condensed table-striped text-center">
           <tbody>
             <tr>
-              <th colSpan="14" style={Styles.PrintTableBorder}>
+              <th colSpan="14" style={PrintTableBorder}>
                 DD: Deposit Date &nbsp; M-1: Mess One &nbsp; M-2: Mess Two
                 &nbsp; CNT: Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
                 &nbsp; ED: Excess Deposit
@@ -25,81 +29,63 @@ const McMonthlyPrint = ({ details, monthCollection }) => {
               </th>
             </tr>
             <tr>
-              <th colSpan="14" style={Styles.PrintMonthName}>
+              <th colSpan="14" style={PrintMonthName}>
                 {monthCollection.DepositMonth}
               </th>
             </tr>
             <tr style={{ fontSize: "larger" }}>
-              <th style={Styles.PrintTableBorder}>DD</th>
-              <th style={Styles.PrintTableBorder}>M-1</th>
-              <th style={Styles.PrintTableBorder}>M-2</th>
-              <th style={Styles.PrintTableBorder}>CNT</th>
-              <th style={Styles.PrintTableBorder}>Fine</th>
-              <th style={Styles.PrintTableBorder}>AMNT</th>
-              <th style={Styles.PrintTableBorder}>FS</th>
-              <th style={Styles.PrintTableBorder}>PSWF</th>
-              <th style={Styles.PrintTableBorder}>MSWF</th>
-              <th style={Styles.PrintTableBorder}>CF</th>
-              <th style={Styles.PrintTableBorder}>Total</th>
-              <th style={Styles.PrintTableBorder}>ED</th>
+              <th style={PrintTableBorder}>DD</th>
+              <th style={PrintTableBorder}>M-1</th>
+              <th style={PrintTableBorder}>M-2</th>
+              <th style={PrintTableBorder}>CNT</th>
+              <th style={PrintTableBorder}>Fine</th>
+              <th style={PrintTableBorder}>AMNT</th>
+              <th style={PrintTableBorder}>FS</th>
+              <th style={PrintTableBorder}>PSWF</th>
+              <th style={PrintTableBorder}>MSWF</th>
+              <th style={PrintTableBorder}>CF</th>
+              <th style={PrintTableBorder}>Total</th>
+              <th style={PrintTableBorder}>ED</th>
             </tr>
             {details.map(detail => (
               <tr key={detail._id}>
-                <td style={Styles.PrintTableBorder}>
+                <td style={PrintTableBorder}>
                   {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
                 </td>
-                <td style={Styles.PrintTableBorder}>{detail.MessOne}</td>
-                <td style={Styles.PrintTableBorder}>{detail.MessTwo}</td>
-                <td style={Styles.PrintTableBorder}>{detail.Canteen}</td>
-                <td style={Styles.PrintTableBorder}>{detail.Fines}</td>
-                <td style={Styles.PrintTableBorder}>{detail.Amenity}</td>
-                <td style={Styles.PrintTableBorder}>{detail.FoodSubsidy}</td>
-                <td style={Styles.PrintTableBorder}>{detail.PoorStuWelFund}</td>
-                <td style={Styles.PrintTableBorder}>
-                  {detail.McServantWelFund}
-                </td>
-                <td style={Styles.PrintTableBorder}>
-                  {detail.CelebrationFund}
-                </td>
-                <td style={Styles.PrintTableBorderBold}>{detail.Total}</td>
-                <td style={Styles.PrintTableBorderBold}>
-                  {detail.ExcessDeposit}
-                </td>
+                <td style={PrintTableBorder}>{detail.MessOne}</td>
+                <td style={PrintTableBorder}>{detail.MessTwo}</td>
+                <td style={PrintTableBorder}>{detail.Canteen}</td>
+                <td style={PrintTableBorder}>{detail.Fines}</td>
+                <td style={PrintTableBorder}>{detail.Amenity}</td>
+                <td style={PrintTableBorder}>{detail.FoodSubsidy}</td>
+                <td style={PrintTableBorder}>{detail.PoorStuWelFund}</td>
+                <td style={PrintTableBorder}>{detail.McServantWelFund}</td>
+                <td style={PrintTableBorder}>{detail.CelebrationFund}</td>
+                <td style={PrintTableBorderBold}>{detail.Total}</td>
+                <td style={PrintTableBorderBold}>{detail.ExcessDeposit}</td>
               </tr>
             ))}
             <tr>
-              <td style={Styles.PrintTableBorderBold}>{""}</td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.MessOne}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.MessTwo}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.Canteen}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.Fines}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.Amenity}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{""}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.MessOne}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.MessTwo}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.Canteen}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.Fines}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.Amenity}</td>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.FoodSubsidy}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.PoorStuWelFund}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.McServantWelFund}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.CelebrationFund}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {monthCollection.Total}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{monthCollection.Total}</td>
+              <td style={PrintTableBorderBold}>
                 {monthCollection.ExcessDeposit}
               </td>
             </tr>
@@ -118,7 +104,7 @@ McMonthlyPrint.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

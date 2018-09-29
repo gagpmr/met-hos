@@ -1,6 +1,5 @@
-import * as Styles from "/imports/modules/styles";
-
 import ApolloClient from "apollo-client";
+import { PrintTableBorder } from "/imports/modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -147,35 +146,27 @@ export class McDetail extends React.Component {
         id={this.props.detail._id}
         className="text-center"
       >
-        <td style={Styles.PrintTableBorder}>
+        <td style={PrintTableBorder}>
           {moment.utc(this.props.detail.ReceiptDate).format("DD-MM-YYYY")}
         </td>
-        <td style={Styles.PrintTableBorder}>
+        <td style={PrintTableBorder}>
           {moment.utc(this.props.detail.DepositDate).format("DD-MM-YYYY")}
         </td>
-        <td style={Styles.PrintTableBorder}>
-          {this.props.detail.ReceiptNumber}
-        </td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.RoomNumber}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.RollNumber}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.StudentName}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.MessOne}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.MessTwo}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.Canteen}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.Fines}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.Amenity}</td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.FoodSubsidy}</td>
-        <td style={Styles.PrintTableBorder}>
-          {this.props.detail.PoorStuWelFund}
-        </td>
-        <td style={Styles.PrintTableBorder}>
-          {this.props.detail.McServantWelFund}
-        </td>
-        <td style={Styles.PrintTableBorder}>
-          {this.props.detail.CelebrationFund}
-        </td>
-        <td style={Styles.PrintTableBorder}>{this.props.detail.Total}</td>
-        <td style={Styles.PrintTableBorder} className="text-center">
+        <td style={PrintTableBorder}>{this.props.detail.ReceiptNumber}</td>
+        <td style={PrintTableBorder}>{this.props.detail.RoomNumber}</td>
+        <td style={PrintTableBorder}>{this.props.detail.RollNumber}</td>
+        <td style={PrintTableBorder}>{this.props.detail.StudentName}</td>
+        <td style={PrintTableBorder}>{this.props.detail.MessOne}</td>
+        <td style={PrintTableBorder}>{this.props.detail.MessTwo}</td>
+        <td style={PrintTableBorder}>{this.props.detail.Canteen}</td>
+        <td style={PrintTableBorder}>{this.props.detail.Fines}</td>
+        <td style={PrintTableBorder}>{this.props.detail.Amenity}</td>
+        <td style={PrintTableBorder}>{this.props.detail.FoodSubsidy}</td>
+        <td style={PrintTableBorder}>{this.props.detail.PoorStuWelFund}</td>
+        <td style={PrintTableBorder}>{this.props.detail.McServantWelFund}</td>
+        <td style={PrintTableBorder}>{this.props.detail.CelebrationFund}</td>
+        <td style={PrintTableBorder}>{this.props.detail.Total}</td>
+        <td style={PrintTableBorder} className="text-center">
           <a
             target="_blank"
             data-toggle="tooltip"
@@ -186,7 +177,7 @@ export class McDetail extends React.Component {
             <i className="fa fa-files-o" aria-hidden="true" />
           </a>
         </td>
-        <td style={Styles.PrintTableBorder} className="text-center">
+        <td style={PrintTableBorder} className="text-center">
           <a
             target="_blank"
             data-toggle="tooltip"
@@ -197,7 +188,7 @@ export class McDetail extends React.Component {
             <i className="fa fa-pencil-square-o" />
           </a>
         </td>
-        <td style={Styles.PrintTableBorder} className="text-center">
+        <td style={PrintTableBorder} className="text-center">
           <a
             data-toggle="tooltip"
             title="Delete Detail"
@@ -208,7 +199,7 @@ export class McDetail extends React.Component {
             <i className="fa fa-trash-o" aria-hidden="true" />
           </a>
         </td>
-        <td style={Styles.PrintTableBorder} className="text-center">
+        <td style={PrintTableBorder} className="text-center">
           <a
             data-toggle="tooltip"
             title="Add Cancelled Detail"
@@ -218,7 +209,7 @@ export class McDetail extends React.Component {
             <i className="fa fa-strikethrough" aria-hidden="true" />
           </a>
         </td>
-        <td style={Styles.PrintTableBorder} className="text-center">
+        <td style={PrintTableBorder} className="text-center">
           <a
             target="_blank"
             data-toggle="tooltip"

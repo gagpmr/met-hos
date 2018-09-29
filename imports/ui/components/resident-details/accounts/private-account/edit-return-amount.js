@@ -1,8 +1,9 @@
-import $ from "jquery";
-import React from "react";
-import PropTypes from "prop-types";
 import { gql, graphql } from "react-apollo";
-import * as Styles from "/imports/modules/styles.js";
+
+import $ from "jquery";
+import { PaddingThreeCenterLargeBold } from "../../../../../modules/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 const enableInput = e => {
   if (e === undefined) {
@@ -63,7 +64,7 @@ const EditReturnAmount = props => {
       <a
         href=""
         onClick={e => enableInput(e)}
-        style={Styles.PaddingThreeCenterLargeBold}
+        style={PaddingThreeCenterLargeBold}
       >
         <i className="fa fa-pencil-square-o" />
       </a>

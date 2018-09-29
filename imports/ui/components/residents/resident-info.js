@@ -1,7 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import {
+  PaddingThreeCenterLargeBold,
+  PaddingThreeLeft,
+  PaddingThreeLeftBold,
+  WidthTenPaddingThreeLeftBold,
+  WidthThirteenPaddingThreeLeft,
+  WidthTwentySevenPaddingThreeLeft
+} from "../../../modules/styles";
+
 import { Link } from "react-router-dom";
-import * as Styles from "/imports/modules/styles.js";
+import PropTypes from "prop-types";
+import React from "react";
 
 export class ResidentInfo extends React.Component {
   render() {
@@ -16,9 +24,9 @@ export class ResidentInfo extends React.Component {
           >
             <thead>
               <tr>
-                <th style={Styles.PaddingThreeCenterLargeBold} colSpan="6">
-                  {this.props.resident.Name}&nbsp; S/o{" "}
-                  {this.props.resident.FatherName}
+                <th style={PaddingThreeCenterLargeBold} colSpan="6">
+                  {this.props.resident.Name}
+                  &nbsp; S/o {this.props.resident.FatherName}
                   &nbsp;
                   <Link to={`/resident/${this.props.resident._id}`}>
                     <i className="fa fa-pencil-square-o" />
@@ -32,34 +40,34 @@ export class ResidentInfo extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <td style={Styles.WidthTenPaddingThreeLeftBold}>Roll Number</td>
-                <td style={Styles.WidthThirteenPaddingThreeLeft}>
+                <td style={WidthTenPaddingThreeLeftBold}>Roll Number</td>
+                <td style={WidthThirteenPaddingThreeLeft}>
                   <Link to={`/resident/${this.props.resident._id}`}>
                     {this.props.resident.RollNumber}
                   </Link>
                 </td>
-                <td style={Styles.WidthTenPaddingThreeLeftBold}>Tel Num</td>
-                <td style={Styles.WidthTwentySevenPaddingThreeLeft}>
+                <td style={WidthTenPaddingThreeLeftBold}>Tel Num</td>
+                <td style={WidthTwentySevenPaddingThreeLeft}>
                   <Link to={`/resident/${this.props.resident._id}`}>
                     {this.props.resident.TelephoneNumber}
                   </Link>
                 </td>
-                <td style={Styles.WidthTenPaddingThreeLeftBold}>Category</td>
-                <td style={Styles.WidthTwentySevenPaddingThreeLeft}>
+                <td style={WidthTenPaddingThreeLeftBold}>Category</td>
+                <td style={WidthTwentySevenPaddingThreeLeft}>
                   <Link to={`/resident/${this.props.resident._id}`}>
                     {this.props.resident.Category.Value}
                   </Link>
                 </td>
               </tr>
               <tr>
-                <td style={Styles.PaddingThreeLeftBold}>Room</td>
-                <td style={Styles.PaddingThreeLeft}>
+                <td style={PaddingThreeLeftBold}>Room</td>
+                <td style={PaddingThreeLeft}>
                   <Link to={`/resident/${this.props.resident._id}`}>
                     {this.props.resident.Room.Value}
                   </Link>
                 </td>
-                <td style={Styles.PaddingThreeLeftBold}>Class</td>
-                <td style={Styles.PaddingThreeLeft} colSpan="5">
+                <td style={PaddingThreeLeftBold}>Class</td>
+                <td style={PaddingThreeLeft} colSpan="5">
                   <Link to={`/resident/${this.props.resident._id}`}>
                     {this.props.resident.Class.Value}
                   </Link>

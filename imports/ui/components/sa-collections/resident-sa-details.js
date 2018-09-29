@@ -1,5 +1,4 @@
-import * as Styles from "../../../modules/styles";
-
+import { Middle, PrintTableBorder } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -17,24 +16,24 @@ const ResidentSaDetails = ({ history, details, client, refetch }) => {
           <table className="table table-condensed table-striped text-center">
             <thead>
               <tr>
-                <th colSpan="14" style={Styles.PrintTableBorder}>
+                <th colSpan="14" style={PrintTableBorder}>
                   RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
                   Number &nbsp; HS: Hostel Security &nbsp; MS: Mess Security
                   &nbsp; CS: Canteen Security
                 </th>
               </tr>
               <tr>
-                <th style={Styles.PrintTableBorder}>RD</th>
-                <th style={Styles.PrintTableBorder}>DD</th>
-                <th style={Styles.PrintTableBorder}>RNo</th>
-                <th style={Styles.PrintTableBorder}>Room</th>
-                <th style={Styles.PrintTableBorder}>Roll No.</th>
-                <th style={Styles.PrintTableBorder}>Name</th>
-                <th style={Styles.PrintTableBorder}>HS</th>
-                <th style={Styles.PrintTableBorder}>MS</th>
-                <th style={Styles.PrintTableBorder}>CS</th>
-                <th style={Styles.PrintTableBorder}>Total</th>
-                <th colSpan="4" style={Styles.PrintTableBorder}>
+                <th style={PrintTableBorder}>RD</th>
+                <th style={PrintTableBorder}>DD</th>
+                <th style={PrintTableBorder}>RNo</th>
+                <th style={PrintTableBorder}>Room</th>
+                <th style={PrintTableBorder}>Roll No.</th>
+                <th style={PrintTableBorder}>Name</th>
+                <th style={PrintTableBorder}>HS</th>
+                <th style={PrintTableBorder}>MS</th>
+                <th style={PrintTableBorder}>CS</th>
+                <th style={PrintTableBorder}>Total</th>
+                <th colSpan="4" style={PrintTableBorder}>
                   Actions
                 </th>
               </tr>
@@ -67,7 +66,7 @@ ResidentSaDetails.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

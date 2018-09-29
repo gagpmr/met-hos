@@ -1,4 +1,8 @@
-import * as Styles from "../../../../../../modules/styles";
+import {
+  Middle,
+  PaddingThreeLeft,
+  WidthSixtyPaddingZeroLeft
+} from "../../../../../../modules/styles";
 
 import { Loading } from "/imports/ui/components/shared/Loading.js";
 import PropTypes from "prop-types";
@@ -98,7 +102,7 @@ class FullBill extends React.Component {
   render() {
     if (this.props.loading) {
       return (
-        <div style={Styles.Middle}>
+        <div style={Middle}>
           <Loading />
         </div>
       );
@@ -107,10 +111,10 @@ class FullBill extends React.Component {
       <tbody>
         <tr>
           <th>Select Month</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <select
               autoFocus
-              style={Styles.WidthSixtyPaddingZeroLeft}
+              style={WidthSixtyPaddingZeroLeft}
               onKeyDown={this.keyPressed}
               value={this.state.BillPeriod}
               onChange={this.handleChange}
@@ -126,9 +130,9 @@ class FullBill extends React.Component {
         </tr>
         <tr>
           <th>Mess One</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
-              style={Styles.WidthSixtyPaddingZeroLeft}
+              style={WidthSixtyPaddingZeroLeft}
               type="text"
               name="MessOne"
               onKeyDown={this.keyPressed}
@@ -139,9 +143,9 @@ class FullBill extends React.Component {
         </tr>
         <tr>
           <th>Mess Two</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
-              style={Styles.WidthSixtyPaddingZeroLeft}
+              style={WidthSixtyPaddingZeroLeft}
               type="text"
               name="MessTwo"
               onKeyDown={this.keyPressed}
@@ -152,9 +156,9 @@ class FullBill extends React.Component {
         </tr>
         <tr>
           <th>Canteen</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
-              style={Styles.WidthSixtyPaddingZeroLeft}
+              style={WidthSixtyPaddingZeroLeft}
               type="text"
               name="Canteen"
               onKeyDown={this.keyPressed}
@@ -165,9 +169,9 @@ class FullBill extends React.Component {
         </tr>
         <tr>
           <th>Amenity</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
-              style={Styles.WidthSixtyPaddingZeroLeft}
+              style={WidthSixtyPaddingZeroLeft}
               type="text"
               name="Amenity"
               onKeyDown={this.keyPressed}
@@ -178,7 +182,7 @@ class FullBill extends React.Component {
         </tr>
         <tr>
           <th>Has Canteen Fine</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
               type="checkbox"
               name="HasCanteenFine"
@@ -193,7 +197,7 @@ class FullBill extends React.Component {
         </tr>
         <tr>
           <th>Has Mess Fine</th>
-          <td style={Styles.PaddingThreeLeft}>
+          <td style={PaddingThreeLeft}>
             <input
               type="checkbox"
               name="HasMessFine"

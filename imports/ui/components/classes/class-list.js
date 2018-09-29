@@ -1,5 +1,4 @@
-import * as Styles from "../../../modules/styles";
-
+import { Middle, PaddingThreeCenterLargeBold } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -11,7 +10,7 @@ import React from "react";
 const Classes = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );
@@ -22,7 +21,7 @@ const Classes = props => {
         <table className="table table-bordered table-condensed table-striped">
           <thead>
             <tr>
-              <td style={Styles.PaddingThreeCenterLargeBold} colSpan="9">
+              <td style={PaddingThreeCenterLargeBold} colSpan="9">
                 Classes
               </td>
             </tr>

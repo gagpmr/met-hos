@@ -1,5 +1,8 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PrintTableBorder,
+  PrintTableBorderBold
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -22,24 +25,24 @@ const SaDateDetails = ({
         <table className="table table-condensed table-striped text-center">
           <thead>
             <tr>
-              <th colSpan="14" style={Styles.PrintTableBorder}>
+              <th colSpan="14" style={PrintTableBorder}>
                 RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
                 Number &nbsp; HS: Hostel Security &nbsp; MS: Mess Security
                 &nbsp; CS: Canteen Security
               </th>
             </tr>
             <tr>
-              <th style={Styles.PrintTableBorder}>RD</th>
-              <th style={Styles.PrintTableBorder}>DD</th>
-              <th style={Styles.PrintTableBorder}>RNo</th>
-              <th style={Styles.PrintTableBorder}>Room</th>
-              <th style={Styles.PrintTableBorder}>Roll No.</th>
-              <th style={Styles.PrintTableBorder}>Name</th>
-              <th style={Styles.PrintTableBorder}>HS</th>
-              <th style={Styles.PrintTableBorder}>MS</th>
-              <th style={Styles.PrintTableBorder}>CS</th>
-              <th style={Styles.PrintTableBorder}>Total</th>
-              <th colSpan="4" style={Styles.PrintTableBorder}>
+              <th style={PrintTableBorder}>RD</th>
+              <th style={PrintTableBorder}>DD</th>
+              <th style={PrintTableBorder}>RNo</th>
+              <th style={PrintTableBorder}>Room</th>
+              <th style={PrintTableBorder}>Roll No.</th>
+              <th style={PrintTableBorder}>Name</th>
+              <th style={PrintTableBorder}>HS</th>
+              <th style={PrintTableBorder}>MS</th>
+              <th style={PrintTableBorder}>CS</th>
+              <th style={PrintTableBorder}>Total</th>
+              <th colSpan="4" style={PrintTableBorder}>
                 Actions
               </th>
             </tr>
@@ -55,20 +58,18 @@ const SaDateDetails = ({
               />
             ))}
             <tr className="text-center">
-              <td colSpan="6" style={Styles.PrintTableBorderBold}>
+              <td colSpan="6" style={PrintTableBorderBold}>
                 {""}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>
                 {dayCollection.HostelSecurity}
               </td>
-              <td style={Styles.PrintTableBorderBold}>
-                {dayCollection.MessSecurity}
-              </td>
-              <td style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{dayCollection.MessSecurity}</td>
+              <td style={PrintTableBorderBold}>
                 {dayCollection.CanteenSecurity}
               </td>
-              <td style={Styles.PrintTableBorderBold}>{dayCollection.Total}</td>
-              <td colSpan="4" style={Styles.PrintTableBorderBold}>
+              <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
+              <td colSpan="4" style={PrintTableBorderBold}>
                 {""}
               </td>
             </tr>
@@ -90,7 +91,7 @@ SaDateDetails.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );

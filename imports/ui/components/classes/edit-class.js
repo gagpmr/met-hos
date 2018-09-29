@@ -1,5 +1,10 @@
-import * as Styles from "../../../modules/styles";
-
+import {
+  Middle,
+  PaddingFourCenterLargeBold,
+  PaddingZeroCenter,
+  WidthFifteenPaddingThreeCenterBoldLarger,
+  WidthHundredPaddingThreeLeftNormal
+} from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
@@ -59,24 +64,24 @@ export class EditClass extends React.Component {
           <table className="table table-bordered table-condensed table-striped text-center">
             <thead>
               <tr>
-                <th colSpan="2" style={Styles.PaddingFourCenterLargeBold}>
+                <th colSpan="2" style={PaddingFourCenterLargeBold}>
                   Edit Class
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style={Styles.WidthFifteenPaddingThreeCenterBoldLarger}>
+                <td style={WidthFifteenPaddingThreeCenterBoldLarger}>
                   Class Name
                 </td>
-                <td style={Styles.PaddingZeroCenter}>
+                <td style={PaddingZeroCenter}>
                   <input
                     id="class-value"
                     autoFocus
                     ref={input => {
                       this.field = input;
                     }}
-                    style={Styles.WidthHundredPaddingThreeLeftNormal}
+                    style={WidthHundredPaddingThreeLeftNormal}
                     onKeyDown={this.keyPressed}
                     type="text"
                     defaultValue={this.props.clas.Value}
@@ -107,7 +112,7 @@ EditClass.propTypes = {
 const FormatData = props => {
   if (props.loading) {
     return (
-      <div style={Styles.Middle}>
+      <div style={Middle}>
         <Loading />
       </div>
     );
