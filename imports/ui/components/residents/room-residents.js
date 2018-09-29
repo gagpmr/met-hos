@@ -1,7 +1,8 @@
 import {
   Middle,
   WidthSevenPaddingThreeLeft,
-  WidthThirteenPaddingThreeLeft
+  WidthThirteenPaddingThreeLeft,
+  h4
 } from "../../../modules/styles";
 import { graphql, withApollo } from "react-apollo";
 
@@ -20,18 +21,14 @@ const renderList = array => (
           <table className="table table-bordered table-condensed table-striped">
             <thead>
               <tr className="text-left">
-                <th
-                  style={{ padding: 3 }}
-                  colSpan="6"
-                  className="text-center h4 font-bolder"
-                >
-                  <span>
+                <th colSpan="6">
+                  <h4 style={h4}>
                     {resident.Name} S/o {resident.FatherName}
                     &nbsp;{" "}
                     <a href={`/resident/${resident._id}`}>
                       <i className="fa fa-pencil-square-o"> </i>
                     </a>
-                  </span>
+                  </h4>
                 </th>
               </tr>
             </thead>

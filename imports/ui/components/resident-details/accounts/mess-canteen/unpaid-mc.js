@@ -1,6 +1,10 @@
+import {
+  PaddingThreeCenter,
+  PaddingThreeCenterBold
+} from "../../../../../modules/styles";
+
 import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
-import { PaddingThreeCenter } from "../../../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
 import { gql } from "react-apollo";

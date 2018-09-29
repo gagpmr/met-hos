@@ -1,6 +1,7 @@
 import {
   Middle,
   PaddingFourCenter,
+  PaddingFourCenterBold,
   PaddingFourCenterLargeBold,
   WidthTenPaddingFourCenter,
   WidthThreePaddingFourCenterBold

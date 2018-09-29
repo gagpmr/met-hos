@@ -52,7 +52,7 @@ export const h4 = {
   margin: "0px",
   textAlign: "center",
   padding: "3px",
-  fontWeight: "bolder",
+  fontWeight: "bold",
   color: "black"
 };
 
