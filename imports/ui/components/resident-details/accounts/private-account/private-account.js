@@ -39,23 +39,24 @@ const addBill = (props, e) => {
         }
       })
       .then(({ data }) => {
-        props.client.resetStore();
-        props.client
-          .query({
-            query: EDIT_PA_BILL,
-            variables: {
-              resId: props.resident._id,
-              billId: data.addPaBill
-            }
-          })
-          .then(() => {
-            props.history.push(
-              `/edit-pa-bill/${props.resident._id}/${data.addPaBill}`
-            );
-          })
-          .catch(error => {
-            console.log("there was an error sending the query", error);
-          });
+        props.client.resetStore().then(() => {
+          props.client
+            .query({
+              query: EDIT_PA_BILL,
+              variables: {
+                resId: props.resident._id,
+                billId: data.addPaBill
+              }
+            })
+            .then(() => {
+              props.history.push(
+                `/edit-pa-bill/${props.resident._id}/${data.addPaBill}`
+              );
+            })
+            .catch(error => {
+              console.log("there was an error sending the query", error);
+            });
+        });
       })
       .catch(error => {
         console.log("there was an error sending the query", error);
@@ -70,23 +71,24 @@ const addBill = (props, e) => {
         }
       })
       .then(({ data }) => {
-        props.client.resetStore();
-        props.client
-          .query({
-            query: EDIT_PA_BILL,
-            variables: {
-              resId: props.resident._id,
-              billId: data.addPaBill
-            }
-          })
-          .then(() => {
-            props.history.push(
-              `/edit-pa-bill/${props.resident._id}/${data.addPaBill}`
-            );
-          })
-          .catch(error => {
-            console.log("there was an error sending the query", error);
-          });
+        props.client.resetStore().then(() => {
+          props.client
+            .query({
+              query: EDIT_PA_BILL,
+              variables: {
+                resId: props.resident._id,
+                billId: data.addPaBill
+              }
+            })
+            .then(() => {
+              props.history.push(
+                `/edit-pa-bill/${props.resident._id}/${data.addPaBill}`
+              );
+            })
+            .catch(error => {
+              console.log("there was an error sending the query", error);
+            });
+        });
       })
       .catch(error => {
         console.log("there was an error sending the query", error);

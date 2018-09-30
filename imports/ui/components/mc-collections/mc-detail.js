@@ -64,12 +64,13 @@ export class McDetail extends React.Component {
         }
       })
       .then(({ data }) => {
-        this.props.client.resetStore();
-        this.props.client.query({
-          query: EDIT_MC_DETAIL,
-          variables: {
-            detId: data.copyEditMcDetail
-          }
+        this.props.client.resetStore().then(() => {
+          this.props.client.query({
+            query: EDIT_MC_DETAIL,
+            variables: {
+              detId: data.copyEditMcDetail
+            }
+          });
         });
         // this.props.history.push(`/edit-mc-detail/${data.copyEditMcDetail}`);
       })

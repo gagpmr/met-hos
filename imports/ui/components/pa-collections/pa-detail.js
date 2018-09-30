@@ -64,14 +64,15 @@ export class PaDetail extends React.Component {
         }
       })
       .then(({ data }) => {
-        this.props.client.resetStore();
-        this.props.client.query({
-          query: EDIT_PA_DETAIL,
-          variables: {
-            detId: data.copyEditPaDetail
-          }
+        this.props.client.resetStore().then(() => {
+          this.props.client.query({
+            query: EDIT_PA_DETAIL,
+            variables: {
+              detId: data.copyEditPaDetail
+            }
+          });
+          this.props.history.push(`/edit-pa-detail/${data.copyEditPaDetail}`);
         });
-        this.props.history.push(`/edit-pa-detail/${data.copyEditPaDetail}`);
       })
       .catch(error => {
         console.log("there was an error sending the query", error);

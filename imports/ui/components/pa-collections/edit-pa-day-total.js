@@ -52,22 +52,23 @@ export class EditPaDayTotal extends React.Component {
         }
       })
       .then(() => {
-        this.props.client.resetStore();
-        this.props.client
-          .query({
-            query: PA_COLLECTIONS,
-            variables: {
-              pageNo: this.props.match.params.pageNo
-            }
-          })
-          .then(() => {
-            this.props.history.push(
-              `/pa-collections/${this.props.match.params.pageNo}`
-            );
-          })
-          .catch(error => {
-            console.log("there was an error sending the query", error);
-          });
+        this.props.client.resetStore().then(() => {
+          this.props.client
+            .query({
+              query: PA_COLLECTIONS,
+              variables: {
+                pageNo: this.props.match.params.pageNo
+              }
+            })
+            .then(() => {
+              this.props.history.push(
+                `/pa-collections/${this.props.match.params.pageNo}`
+              );
+            })
+            .catch(error => {
+              console.log("there was an error sending the query", error);
+            });
+        });
       })
       .catch(error => {
         console.log("there was an error sending the query", error);
