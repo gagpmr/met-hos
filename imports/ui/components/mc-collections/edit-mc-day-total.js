@@ -54,25 +54,26 @@ class EditMcDayTotal extends React.Component {
         }
       })
       .then(() => {
-        this.props.client.resetStore();
-        this.props.client
-          .query({
-            query: MC_COLLECTIONS,
-            variables: {
-              pageNo: this.props.match.params.pageNo
-            }
-          })
-          .then(() => {
-            this.props.history.push(
-              `/mc-collections/${this.props.match.params.pageNo}`
-            );
-          })
-          .catch(error => {
-            console.log("there was an error sending the query", error);
-          });
+        this.props.client.resetStore().then(() => {
+          this.props.client
+            .query({
+              query: MC_COLLECTIONS,
+              variables: {
+                pageNo: this.props.match.params.pageNo
+              }
+            })
+            .then(() => {
+              this.props.history.push(
+                `/mc-collections/${this.props.match.params.pageNo}`
+              );
+            })
+            .catch(error => {
+              console.log("Error:- MC_COLLECTIONS", error);
+            });
+        });
       })
       .catch(error => {
-        console.log("there was an error sending the query", error);
+        console.log("Error:- UPDATE_MC_DAY_TOTAL", error);
       });
   }
 
@@ -182,7 +183,7 @@ FormatData.propTypes = {
 };
 
 FormatData.defaultProps = {
-  editmcDayTotal: {}
+  editMcDayTotal: {}
 };
 const EDIT_MC_DAY_TOTAL = gql`
   query($detId: String!) {

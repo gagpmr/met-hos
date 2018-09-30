@@ -4,6 +4,43 @@ const jsonType = gql`
   scalar JSON
 `;
 
+const resDetailQuery = gql`
+  type Query {
+    admissionDetails(resId: String): JSON
+    transactionDetails(mcDetId: String!, paDetId: String!): JSON
+    residentMcDetails(resId: String!): JSON
+  }
+`;
+
+const mcMonthQuery = gql`
+  type Query {
+    mcMonthlyPrint(monthId: String!): JSON
+    mcMonthTotalsByPage(pageNo: Int!): JSON
+  }
+`;
+
+const mcMonthMutation = gql`
+  type Mutation {
+    removeMcMonth(month: String!): String!
+    autoDepositMcMonth(month: String!): String!
+  }
+`;
+
+const mcDayQuery = gql`
+  type Query {
+    editMcDayTotal(detId: String!): JSON
+    mcDayTotalsByPage(pageNo: Int!): JSON
+  }
+`;
+
+const mcDayMutation = gql`
+  type Mutation {
+    removeMcDayTotal(depositDate: String!): String
+    autoDepositMcDayTotal(id: ID!): String!
+    updateMcDayTotal(detId: ID!, deposit: Int!): String
+  }
+`;
+
 const queryType = gql`
   type Class {
     _id: ID!
@@ -46,15 +83,8 @@ const queryType = gql`
 
   type Query {
     test(resId: String!): JSON
-    admissionDetails(resId: String): JSON
-    transactionDetails(mcDetId: String!, paDetId: String!): JSON
-    residentMcDetails(resId: String!): JSON
-    mcMonthlyPrint(monthId: String!): JSON
-    mcMonthTotalsByPage(pageNo: Int!): JSON
-    editMcDayTotal(detId: String!): JSON
     editMcDetail(detId: String!): JSON
     mcDateDetails(date: String!): JSON
-    mcDayTotalsByPage(pageNo: Int!): JSON
     residentPaDetails(resId: String!): JSON
     paMonthlyPrint(monthId: String!): JSON
     paMonthTotalsByPage(pageNo: Int!): JSON
@@ -92,11 +122,6 @@ const queryType = gql`
 
 const mutationType = gql`
   type Mutation {
-    removeMcMonth(month: String!): String!
-    autoDepositMcMonth(month: String!): String!
-    removeMcDayTotal(depositDate: String!): String
-    autoDepositMcDayTotal(id: ID!): String!
-    updateMcDayTotal(detId: ID!, deposit: Int!): String
     updateMcDetail(
       detId: ID!
       receiptDate: String!
@@ -267,6 +292,18 @@ const mutationType = gql`
   }
 `;
 
+const mcDaySchema = makeExecutableSchema({
+  typeDefs: [mcDayQuery, mcDayMutation, jsonType]
+});
+
+const mcMonthSchema = makeExecutableSchema({
+  typeDefs: [mcMonthQuery, mcMonthMutation, jsonType]
+});
+
+const resDetailSchema = makeExecutableSchema({
+  typeDefs: [resDetailQuery, jsonType]
+});
+
 const querySchema = makeExecutableSchema({
   typeDefs: [queryType, jsonType]
 });
@@ -275,6 +312,12 @@ const mutationSchema = makeExecutableSchema({
   typeDefs: [mutationType, jsonType]
 });
 
-const schemas = [querySchema, mutationSchema];
+const schemas = [
+  mcDaySchema,
+  mcMonthSchema,
+  resDetailSchema,
+  querySchema,
+  mutationSchema
+];
 
 export default schemas;
