@@ -1,9 +1,9 @@
+import { Middle, h4 } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
 import { Loading } from "/imports/ui/components/shared/Loading.js";
-import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -46,6 +46,12 @@ const UPDATE_PA_DETAIL = gql`
 const EDIT_PA_DETAIL = gql`
   query($detId: String!) {
     editPaDetail(detId: $detId)
+  }
+`;
+
+const PA_DATE_DETAILS = gql`
+  query($date: String!) {
+    paDateDetails(date: $date)
   }
 `;
 
@@ -96,11 +102,24 @@ export class EditPaDetail extends React.Component {
         }
       })
       .then(() => {
-        this.props.client.resetStore();
-        this.props.history.push(`/pa-date-details/${depositDate}`);
+        this.props.client.resetStore().then(() => {
+          this.props.client
+            .query({
+              query: PA_DATE_DETAILS,
+              variables: {
+                date: depositDate
+              }
+            })
+            .then(() => {
+              this.props.history.push(`/pa-date-details/${depositDate}`);
+            })
+            .catch(error => {
+              console.log("Error:- PA_DATE_DETAILS", error);
+            });
+        });
       })
       .catch(error => {
-        console.log("there was an error sending the query", error);
+        console.log("Error:- UPDATE_PA_DETAIL", error);
       });
   }
 
@@ -134,8 +153,8 @@ export class EditPaDetail extends React.Component {
           <table className="table table-bordered table-condensed table-striped text-center">
             <thead>
               <tr>
-                <th colSpan="2" className="text-center h4">
-                  Edit Private Account Detail
+                <th colSpan="2">
+                  <h4 style={h4}>Edit Private Account Detail</h4>
                 </th>
               </tr>
             </thead>

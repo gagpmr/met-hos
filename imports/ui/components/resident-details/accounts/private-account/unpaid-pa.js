@@ -82,6 +82,12 @@ const paDetailBill = gql`
   }
 `;
 
+const EDIT_PA_DETAIL = gql`
+  query($detId: String!) {
+    editPaDetail(detId: $detId)
+  }
+`;
+
 const createDetail = (props, e) => {
   e.preventDefault();
   Bert.alert("Creating Detail", "success");
@@ -95,10 +101,20 @@ const createDetail = (props, e) => {
       }
     })
     .then(({ data }) => {
-      props.client.resetStore();
-      if (data.paDetailBill !== undefined) {
-        props.history.push(`/edit-pa-detail/${data.paDetailBill}`);
-      }
+      props.client.resetStore().then(() => {
+        props.client
+          .query({
+            query: EDIT_PA_DETAIL,
+            variables: {
+              detId: data.paDetailBill
+            }
+          })
+          .then(() => {
+            if (data.paDetailBill !== undefined) {
+              props.history.push(`/edit-pa-detail/${data.paDetailBill}`);
+            }
+          });
+      });
     });
 };
 
