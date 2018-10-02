@@ -94,6 +94,12 @@ const mcDetailBill = gql`
   }
 `;
 
+const EDIT_MC_DETAIL = gql`
+  query($detId: String!) {
+    editMcDetail(detId: $detId)
+  }
+`;
+
 const createDetail = (props, e) => {
   e.preventDefault();
   Bert.alert("Creating Detail", "success");
@@ -107,8 +113,18 @@ const createDetail = (props, e) => {
       }
     })
     .then(({ data }) => {
-      props.client.resetStore();
-      props.history.push(`/edit-mc-detail/${data.mcDetailBill}`);
+      props.client.resetStore().then(() => {
+        props.client
+          .query({
+            query: EDIT_MC_DETAIL,
+            variables: {
+              detId: data.mcDetailBill
+            }
+          })
+          .then(() => {
+            props.history.push(`/edit-mc-detail/${data.mcDetailBill}`);
+          });
+      });
     });
 };
 

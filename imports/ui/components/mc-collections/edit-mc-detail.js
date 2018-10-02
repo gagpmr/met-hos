@@ -1,11 +1,11 @@
 import "/imports/ui/layouts/datepicker.css";
 
+import { Middle, h4 } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
 import { Loading } from "/imports/ui/components/shared/Loading.js";
-import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -56,6 +56,12 @@ const UPDATE_MC_DETAIL = gql`
 const EDIT_MC_DETAIL = gql`
   query($detId: String!) {
     editMcDetail(detId: $detId)
+  }
+`;
+
+const MC_DATE_DETAILS = gql`
+  query($date: String!) {
+    mcDateDetails(date: $date)
   }
 `;
 
@@ -114,8 +120,21 @@ export class EditMcDetail extends React.Component {
         }
       })
       .then(() => {
-        this.props.client.resetStore();
-        this.props.history.push(`/mc-date-details/${depositDate}`);
+        this.props.client.resetStore().then(() => {
+          this.props.client
+            .query({
+              query: MC_DATE_DETAILS,
+              variables: {
+                date: depositDate
+              }
+            })
+            .then(() => {
+              this.props.history.push(`/mc-date-details/${depositDate}`);
+            })
+            .catch(error => {
+              console.log("Error:- MC_DATE_DETAILS", error);
+            });
+        });
       })
       .catch(error => {
         console.log("there was an error sending the query", error);
@@ -152,8 +171,8 @@ export class EditMcDetail extends React.Component {
           <table className="table table-bordered table-condensed table-striped text-center">
             <thead>
               <tr>
-                <th colSpan="2" className="text-center h4">
-                  Edit Mess Canteen Detail
+                <th colSpan="2">
+                  <h4 style={h4}>Edit Mess Canteen Detail</h4>
                 </th>
               </tr>
             </thead>
