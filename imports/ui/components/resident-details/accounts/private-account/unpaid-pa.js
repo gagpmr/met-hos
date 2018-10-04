@@ -118,52 +118,6 @@ const createDetail = (props, e) => {
     });
 };
 
-const srNoDown = (props, e) => {
-  e.preventDefault();
-  // const srno = e.currentTarget.dataset.srno;
-  // const targetsrno = parseInt(srno, 10) - 1;
-  // const data = {
-  //   ResidentId: props.resident._id,
-  //   BillId: props.bill._id,
-  //   UpdatePaBillSrNo: true,
-  //   SrNo: srno,
-  //   TargetSrNo: targetsrno
-  // };
-  // UpdateResident.call(
-  //   {
-  //     data
-  //   },
-  //   error => {
-  //     if (error) {
-  //       Bert.alert(error, "danger");
-  //     }
-  //   }
-  // );
-};
-
-const srNoUp = (props, e) => {
-  e.preventDefault();
-  // const srno = e.currentTarget.dataset.srno;
-  // const targetsrno = parseInt(srno, 10) + 1;
-  // const data = {
-  //   ResidentId: props.resident._id,
-  //   BillId: props.bill._id,
-  //   UpdatePaBillSrNo: true,
-  //   SrNo: srno,
-  //   TargetSrNo: targetsrno
-  // };
-  // UpdateResident.call(
-  //   {
-  //     data
-  //   },
-  //   error => {
-  //     if (error) {
-  //       Bert.alert(error, "danger");
-  //     }
-  //   }
-  // );
-};
-
 const UnpaidPa = props => {
   return (
     <tr>

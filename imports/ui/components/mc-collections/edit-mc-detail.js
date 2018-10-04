@@ -137,7 +137,7 @@ export class EditMcDetail extends React.Component {
         });
       })
       .catch(error => {
-        console.log("there was an error sending the query", error);
+        console.log("Error:- UPDATE_MC_DETAIL", error);
       });
   }
 

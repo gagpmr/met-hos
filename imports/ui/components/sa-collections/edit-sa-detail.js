@@ -1,9 +1,9 @@
+import { Middle, h4 } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
 import { Loading } from "/imports/ui/components/shared/Loading.js";
-import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -40,6 +40,12 @@ const UPDATE_SA_DETAIL = gql`
 const EDIT_SA_DETAIL = gql`
   query($detId: String!) {
     editSaDetail(detId: $detId)
+  }
+`;
+
+const SA_DATE_DETAILS = gql`
+  query($date: String!) {
+    saDateDetails(date: $date)
   }
 `;
 
@@ -84,8 +90,18 @@ export class EditSaDetail extends React.Component {
         }
       })
       .then(() => {
-        this.props.client.resetStore();
-        this.props.history.push(`/sa-date-details/${depositDate}`);
+        this.props.client.resetStore().then(() => {
+          this.props.client
+            .query({
+              query: SA_DATE_DETAILS,
+              variables: {
+                date: depositDate
+              }
+            })
+            .then(() => {
+              this.props.history.push(`/sa-date-details/${depositDate}`);
+            });
+        });
       })
       .catch(error => {
         console.log("there was an error sending the query", error);
@@ -122,8 +138,8 @@ export class EditSaDetail extends React.Component {
           <table className="table table-bordered table-condensed table-striped text-center">
             <thead>
               <tr>
-                <th colSpan="2" className="text-center h4">
-                  Edit Security Account Detail
+                <th colSpan="2">
+                  <h4 style={h4}>Edit Security Account Detail</h4>
                 </th>
               </tr>
             </thead>

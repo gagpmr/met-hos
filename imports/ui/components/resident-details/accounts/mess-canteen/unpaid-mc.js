@@ -58,36 +58,6 @@ const txnAdd = (props, e) => {
     });
 };
 
-const srnodown = (props, e) => {
-  e.preventDefault();
-  // const srno = e.currentTarget.dataset.srno;
-  // const billid = e.currentTarget.dataset.billid;
-  // const resid = e.currentTarget.dataset.resid;
-  // const targetsrno = parseInt(srno, 10) - 1;
-  // const data = {
-  //   ResidentId: resid,
-  //   BillId: billid,
-  //   UpdateMcBillSrNo: true,
-  //   SrNo: srno,
-  //   TargetSrNo: targetsrno
-  // };
-};
-
-const srnoup = (props, e) => {
-  e.preventDefault();
-  // const srno = e.currentTarget.dataset.srno;
-  // const billid = e.currentTarget.dataset.billid;
-  // const resid = e.currentTarget.dataset.resid;
-  // const targetsrno = parseInt(srno, 10) + 1;
-  // const data = {
-  //   ResidentId: resid,
-  //   BillId: billid,
-  //   UpdateMcBillSrNo: true,
-  //   SrNo: srno,
-  //   TargetSrNo: targetsrno
-  // };
-};
-
 const mcDetailBill = gql`
   mutation($resId: String!, $billType: String!, $billId: String!) {
     mcDetailBill(resId: $resId, billType: $billType, billId: $billId)
