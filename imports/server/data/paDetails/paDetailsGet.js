@@ -4,7 +4,10 @@ import moment from "moment";
 
 const nextReceiptNumber = async () => {
   const lastDetail = await dbPaDetails.lastDetail();
-  return lastDetail.ReceiptNumber + 1;
+  if (lastDetail) {
+    return parseInt(lastDetail.ReceiptNumber, 10) + 1;
+  }
+  return 1;
 };
 
 const editPaDetail = async args => {
