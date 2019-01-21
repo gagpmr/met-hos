@@ -1,5 +1,5 @@
 import ApolloClient from "apollo-client";
-import { PrintTableBorder } from "/imports/modules/styles";
+import { PrintTableBorder } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";

@@ -1,4 +1,4 @@
-import connectMongo from "/imports/server/connector";
+import connectMongo from "../../server/connector";
 
 const setAllFalse = async () => {
   const mongo = await connectMongo();

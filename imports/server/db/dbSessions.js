@@ -1,4 +1,4 @@
-import connectMongo from "/imports/server/connector";
+import connectMongo from "../../server/connector";
 
 const getSessionSuffix = async value => {
   const mongo = await connectMongo();

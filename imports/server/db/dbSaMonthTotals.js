@@ -1,6 +1,6 @@
 import { _ } from "underscore";
-import connectMongo from "/imports/server/connector";
-import dbSaDayTotals from "/imports/server/db/dbSaDayTotals";
+import connectMongo from "../../server/connector";
+import dbSaDayTotals from "../db/dbSaDayTotals";
 import moment from "moment";
 
 const getDefault = async () => {

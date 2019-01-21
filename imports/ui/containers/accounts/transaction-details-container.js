@@ -1,9 +1,9 @@
-import { Meteor } from "meteor/meteor";
-import moment from "moment";
-import { createContainer } from "meteor/react-meteor-data";
-import { PaDetails } from "/imports/api/padetails/padetails.js";
 import { McDetails } from "/imports/api/mcdetails/mcdetails.js";
+import { Meteor } from "meteor/meteor";
+import { PaDetails } from "/imports/api/padetails/padetails.js";
 import TransactionDetails from "/imports/ui/components/resident-details/accounts/transaction/transaction-details.js";
+import { createContainer } from "meteor/react-meteor-data";
+import moment from "moment";
 
 export default createContainer(({ match, history }) => {
   const { paDetId, mcDetId } = match.params;

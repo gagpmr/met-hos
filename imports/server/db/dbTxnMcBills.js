@@ -1,5 +1,5 @@
 import { _ } from "underscore";
-import connectMongo from "/imports/server/connector";
+import connectMongo from "../../server/connector";
 import dbMcBills from "./dbMcBills";
 
 const getAll = async resId => {

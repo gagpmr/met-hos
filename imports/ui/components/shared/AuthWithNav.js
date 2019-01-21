@@ -1,6 +1,6 @@
 import { Link, Redirect, Route } from "react-router-dom";
 
-import Logout from "/imports/ui/components/shared/Logout";
+import Logout from "../shared/Logout";
 import PropTypes from "prop-types";
 import React from "react";
 

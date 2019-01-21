@@ -1,5 +1,5 @@
 import dbRemoResidents from "../../db/dbRemoResidents";
-import dbResidents from "/imports/server/db/dbResidents";
+import dbResidents from "../../db/dbResidents";
 
 const create = async resId => {
   const res = await dbResidents.getById(resId);

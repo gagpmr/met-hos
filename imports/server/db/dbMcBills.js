@@ -1,5 +1,5 @@
 import { _ } from "underscore";
-import connectMongo from "/imports/server/connector";
+import connectMongo from "../../server/connector";
 
 const getDefault = async () => {
   const mongo = await connectMongo();

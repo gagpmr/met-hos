@@ -4,7 +4,7 @@ import { Bert } from "meteor/themeteorchef:bert";
 import { Meteor } from "meteor/meteor";
 import PropTypes from "prop-types";
 import React from "react";
-import validate from "/imports/modules/validate";
+import validate from "../../../modules/validate";
 
 class Login extends React.Component {
   constructor(props) {

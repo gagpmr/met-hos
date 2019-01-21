@@ -1,4 +1,4 @@
-import "/imports/ui/layouts/datepicker.css";
+import "../../layouts/datepicker.css";
 
 import { gql, graphql, withApollo } from "react-apollo";
 

@@ -1,6 +1,6 @@
 import updatePaBills from "./accountsPa";
 import updateMcBills from "./accountsMc";
-import dbResidents from "/imports/server/db/dbResidents";
+import dbResidents from "../../db/dbResidents";
 
 const removeUndefinedAndNulls = async resId => {
   const nResident = await dbResidents.getById(resId);

@@ -1,11 +1,11 @@
 import Dates from "../../dates/dates";
 import { _ } from "underscore";
 import addPaBill from "./addPaBill";
-import dbFinesPa from "/imports/server/db/dbFinesPa";
-import dbMonthsPa from "/imports/server/db/dbMonthsPa";
-import dbPaBills from "/imports/server/db/dbPaBills";
-import dbResidents from "/imports/server/db/dbResidents";
-import updateFinesPa from "/imports/server/data/finesPa/finesPa";
+import dbFinesPa from "../../../db/dbFinesPa";
+import dbMonthsPa from "../../../db/dbMonthsPa";
+import dbPaBills from "../../../db/dbPaBills";
+import dbResidents from "../../../db/dbResidents";
+import updateFinesPa from "../../../data/finesPa/finesPa";
 import updateMonthsPa from "../../monthsPa/monthsPa";
 import updatePaBill from "./updatePaBill";
 import updatePaBillType from "./updatePaBillType";

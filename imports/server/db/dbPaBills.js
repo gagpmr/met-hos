@@ -1,6 +1,6 @@
 import { _ } from "underscore";
+import connectMongo from "../../server/connector";
 import moment from "moment";
-import connectMongo from "/imports/server/connector";
 
 const getDefault = async () => {
   const startdate = moment

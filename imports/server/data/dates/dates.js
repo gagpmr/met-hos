@@ -1,5 +1,5 @@
-import dbDates from "/imports/server/db/dbDates";
-import dbHolidays from "/imports/server/db/dbHolidays";
+import dbDates from "../../db/dbDates";
+import dbHolidays from "../../db/dbHolidays";
 import moment from "moment";
 
 const isWorkingDate = async date => {

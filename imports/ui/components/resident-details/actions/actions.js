@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { Loading } from "../../../components/shared/Loading";
 import PropTypes from "prop-types";
 import React from "react";
-import RemoveResident from "/imports/ui/components/shared/RemoveResident";
+import RemoveResident from "../../shared/RemoveResident";
 import Resident from "./resident";
 import { gql } from "react-apollo";
 import moment from "moment";

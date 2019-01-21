@@ -1,7 +1,7 @@
-import updateFinesMc from "/imports/server/data/finesMc/finesMc";
-import dbMcBills from "/imports/server/db/dbMcBills";
-import dbResidents from "/imports/server/db/dbResidents";
-import dbFinesMc from "/imports/server/db/dbFinesMc";
+import dbFinesMc from "../../db/dbFinesMc";
+import dbMcBills from "../../db/dbMcBills";
+import dbResidents from "../../db/dbResidents";
+import updateFinesMc from "../../data/finesMc/finesMc";
 
 const unpaidTotalBillPeriod = async billArray => {
   let name = "";

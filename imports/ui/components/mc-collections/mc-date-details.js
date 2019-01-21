@@ -6,7 +6,7 @@ import {
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
-import { Loading } from "/imports/ui/components/shared/Loading.js";
+import { Loading } from "../shared/Loading";
 import { McDetail } from "./mc-detail.js";
 import PropTypes from "prop-types";
 import React from "react";

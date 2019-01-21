@@ -1,7 +1,7 @@
-import updateFinesPa from "/imports/server/data/finesPa/finesPa";
-import dbPaBills from "/imports/server/db/dbPaBills";
-import dbResidents from "/imports/server/db/dbResidents";
-import dbFinesPa from "/imports/server/db/dbFinesPa";
+import dbFinesPa from "../../db/dbFinesPa";
+import dbPaBills from "../../db/dbPaBills";
+import dbResidents from "../../db/dbResidents";
+import updateFinesPa from "../../data/finesPa/finesPa";
 
 const unpaidTotalBillPeriod = async billArray => {
   let name = "";

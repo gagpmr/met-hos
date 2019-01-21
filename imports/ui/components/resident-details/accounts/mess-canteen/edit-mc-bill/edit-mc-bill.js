@@ -7,7 +7,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 import ApolloClient from "apollo-client";
 import FullBill from "./full-bill.js";
 import HalfYearly from "../../halfYearly.js";
-import { Loading } from "/imports/ui/components/shared/Loading.js";
+import { Loading } from "../../../../shared/Loading";
 import McActions from "./mcActions.js";
 import PropTypes from "prop-types";
 import React from "react";

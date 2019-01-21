@@ -2,7 +2,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import { Actions } from "./actions/actions.js";
 import ApolloClient from "apollo-client";
-import { Loading } from "/imports/ui/components/shared/Loading.js";
+import { Loading } from "../shared/Loading";
 import MessCanteenAccount from "./accounts/mess-canteen/mess-canteen-account.js";
 import { Middle } from "../../../modules/styles";
 import PrivateAccount from "./accounts/private-account/private-account.js";

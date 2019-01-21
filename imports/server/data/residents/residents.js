@@ -7,8 +7,8 @@ import dbCategories from "../../db/dbCategories";
 import dbClasses from "../../db/dbClasses";
 import dbMcDetails from "../../db/dbMcDetails";
 import dbPaDetails from "../../db/dbPaDetails";
-import dbResidents from "/imports/server/db/dbResidents";
-import dbRooms from "/imports/server/db/dbRooms";
+import dbResidents from "../../db/dbResidents";
+import dbRooms from "../../db/dbRooms";
 import dbSaDetails from "../../db/dbSaDetails";
 import dbSessions from "../../db/dbSessions";
 

@@ -1,14 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Row, Col, FormGroup, ControlLabel, Button } from "react-bootstrap";
-import { Meteor } from "meteor/meteor";
+import "./Profile.scss";
+
+import { Button, Col, ControlLabel, FormGroup, Row } from "react-bootstrap";
+
 import { Accounts } from "meteor/accounts-base";
 import { Bert } from "meteor/themeteorchef:bert";
+import InputHint from "../../components/InputHint/InputHint";
+import { Meteor } from "meteor/meteor";
+import PropTypes from "prop-types";
+import React from "react";
 import { createContainer } from "meteor/react-meteor-data";
-import InputHint from "/imports/ui/components/InputHint/InputHint";
-import validate from "/imports/modules/validate";
-
-import "./Profile.scss";
+import validate from "../../../modules/validate";
 
 class Profile extends React.Component {
   constructor(props) {

@@ -1,4 +1,4 @@
-import dbRooms from "/imports/server/db/dbRooms";
+import dbRooms from "../../db/dbRooms";
 
 const getAll = async () => {
   return await dbRooms.getAll();

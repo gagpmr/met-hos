@@ -1,5 +1,5 @@
-import dbMcBills from "/imports/server/db/dbMcBills";
-import dbSessions from "/imports/server/db/dbSessions";
+import dbMcBills from "../../../db/dbMcBills";
+import dbSessions from "../../../db/dbSessions";
 
 const setValues = async bill => {
   const nBill = Object.assign({}, bill);

@@ -1,12 +1,12 @@
-import Accounts from "/imports/server/data/accounts/accounts";
+import Accounts from "../../../data/accounts/accounts";
 import Dates from "../../dates/dates";
 import { _ } from "underscore";
-import dbFinesMc from "/imports/server/db/dbFinesMc";
-import dbMcBills from "/imports/server/db/dbMcBills";
-import dbMonthsMc from "/imports/server/db/dbMonthsMc";
-import dbResidents from "/imports/server/db/dbResidents";
-import dbSessions from "/imports/server/db/dbSessions";
-import updateFinesMc from "/imports/server/data/finesMc/finesMc";
+import dbFinesMc from "../../../db/dbFinesMc";
+import dbMcBills from "../../../db/dbMcBills";
+import dbMonthsMc from "../../../db/dbMonthsMc";
+import dbResidents from "../../../db/dbResidents";
+import dbSessions from "../../../db/dbSessions";
+import updateFinesMc from "../../../data/finesMc/finesMc";
 import updateMcBill from "./updateMcBill";
 import updateMcBillType from "./updateMcBillType";
 

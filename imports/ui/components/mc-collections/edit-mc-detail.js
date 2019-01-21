@@ -1,11 +1,11 @@
-import "/imports/ui/layouts/datepicker.css";
+import "../../layouts/datepicker.css";
 
 import { Middle, h4 } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
-import { Loading } from "/imports/ui/components/shared/Loading.js";
+import { Loading } from "../shared/Loading";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";

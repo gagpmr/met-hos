@@ -1,6 +1,6 @@
-import Dates from "/imports/server/data/dates/dates";
-import dbFinesMc from "/imports/server/db/dbFinesMc";
-import dbMonthsMc from "/imports/server/db/dbMonthsMc";
+import Dates from "../../data/dates/dates";
+import dbFinesMc from "../../db/dbFinesMc";
+import dbMonthsMc from "../../db/dbMonthsMc";
 import updateMcMonths from "../monthsMc/monthsMc";
 
 const insertFine = async fine => {

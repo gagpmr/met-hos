@@ -1,11 +1,11 @@
-import Accounts from "/imports/server/data/accounts/accounts";
-import dbFinesPa from "/imports/server/db/dbFinesPa";
-import dbMonthsPa from "/imports/server/db/dbMonthsPa";
-import dbPaBills from "/imports/server/db/dbPaBills";
-import dbResidents from "/imports/server/db/dbResidents";
-import dbSessions from "/imports/server/db/dbSessions";
+import Accounts from "../../../data/accounts/accounts";
+import dbFinesPa from "../../../db/dbFinesPa";
+import dbMonthsPa from "../../../db/dbMonthsPa";
+import dbPaBills from "../../../db/dbPaBills";
+import dbResidents from "../../../db/dbResidents";
+import dbSessions from "../../../db/dbSessions";
 import moment from "moment";
-import updateFinesPa from "/imports/server/data/finesPa/finesPa";
+import updateFinesPa from "../../../data/finesPa/finesPa";
 
 const updatePaContinuationOrDailyBill = async args => {
   const bill = await dbPaBills.getBillForResident(args.resId, args.billId);

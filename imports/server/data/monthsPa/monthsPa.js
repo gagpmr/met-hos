@@ -1,5 +1,5 @@
-import dbMonthsPa from "/imports/server/db/dbMonthsPa";
-import dbSessions from "/imports/server/db/dbSessions";
+import dbMonthsPa from "../../db/dbMonthsPa";
+import dbSessions from "../../db/dbSessions";
 import moment from "moment";
 
 const getStartYear = async session => {

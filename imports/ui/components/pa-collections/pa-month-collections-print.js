@@ -6,7 +6,7 @@ import {
 } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
-import { Loading } from "/imports/ui/components/shared/Loading.js";
+import { Loading } from "../shared/Loading";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";

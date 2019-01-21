@@ -10,7 +10,7 @@ import Daily from "./daily.js";
 import Electricity from "./electricity.js";
 import FineWarden from "./fine-warden.js";
 import HalfYearly from "../../halfYearly.js";
-import { Loading } from "/imports/ui/components/shared/Loading.js";
+import { Loading } from "../../../../shared/Loading";
 import NightStay from "./night-stay.js";
 import PaActions from "./paActions.js";
 import PhdHra from "./phd-hra.js";

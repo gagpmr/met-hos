@@ -1,4 +1,4 @@
-import "/imports/ui/layouts/datepicker.css";
+import "../../../../../layouts/datepicker.css";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";

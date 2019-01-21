@@ -6,9 +6,9 @@ import {
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
-import { Loading } from "/imports/ui/components/shared/Loading.js";
-import { McDetail } from "/imports/ui/components/mc-collections/mc-detail.js";
-import { PaDetail } from "/imports/ui/components/pa-collections/pa-detail.js";
+import { Loading } from "../../../shared/Loading";
+import { McDetail } from "../../../mc-collections/mc-detail";
+import { PaDetail } from "../../../pa-collections/pa-detail";
 import PropTypes from "prop-types";
 import React from "react";
 import { withRouter } from "react-router-dom";

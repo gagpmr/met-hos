@@ -1,6 +1,6 @@
 import Dates from "../dates/dates";
-import dbMonthsMc from "/imports/server/db/dbMonthsMc";
-import dbSessions from "/imports/server/db/dbSessions";
+import dbMonthsMc from "../../db/dbMonthsMc";
+import dbSessions from "../../db/dbSessions";
 import moment from "moment";
 
 const generateMcMonths = async () => {

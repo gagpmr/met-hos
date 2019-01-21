@@ -1,7 +1,7 @@
 import Dates from "../dates/dates";
-import dbFinesPa from "/imports/server/db/dbFinesPa";
-import dbMonthsPa from "/imports/server/db/dbMonthsPa";
-import updateMonthsPa from "/imports/server/data/monthsPa/monthsPa";
+import dbFinesPa from "../../db/dbFinesPa";
+import dbMonthsPa from "../../db/dbMonthsPa";
+import updateMonthsPa from "../../data/monthsPa/monthsPa";
 
 const insertFine = async fine => {
   let count = 0;

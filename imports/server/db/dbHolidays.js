@@ -1,4 +1,4 @@
-import connectMongo from "/imports/server/connector";
+import connectMongo from "../../server/connector";
 import moment from "moment";
 
 const insert = async date => {
