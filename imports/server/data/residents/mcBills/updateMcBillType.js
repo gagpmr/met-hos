@@ -1,26 +1,34 @@
+import Dates from "../../dates/dates";
 import dbMcBills from "../../../db/dbMcBills";
 import dbSessions from "../../../db/dbSessions";
+import moment from "moment";
 
 const setValues = async bill => {
   const nBill = Object.assign({}, bill);
   nBill.BillPeriod = bill.BillPeriod;
   const sess = await dbSessions.getCurrentSession();
-  const hy =
-    sess.PoorStuWelFund +
-    sess.McServantWelFund +
-    sess.FoodSubsidy +
-    sess.CelebrationFund;
-  if (nBill.Type === "HalfYearly") {
-    nBill.HalfYearly = hy;
-    nBill.Total = hy;
-    nBill.BillPeriod = "Half Yearly";
+  const ef = await Dates.effectiveDate();
+  if (nBill.Type === "HalfYearly" || nBill.Type === "Quarterly") {
+    const year = moment.utc(ef.EffectiveDate).format("YYYY");
+    const hy =
+      sess.PoorStuWelFund +
+      sess.McServantWelFund +
+      sess.FoodSubsidy +
+      sess.CelebrationFund;
+    const month = `HYr, ${year}`;
+    nBill.BillPeriod = month;
+    if (nBill.Type === "HalfYearly") {
+      nBill.HalfYearly = hy;
+      nBill.Total = hy;
+    }
+    if (nBill.Type === "Quarterly") {
+      nBill.HalfYearly = hy / 2;
+      nBill.Total = hy / 2;
+      if (!sess.Value.includes(year)) {
+        nBill.BillPeriod = `HYr/2, ${year}`;
+      }
+    }
   }
-  if (nBill.Type === "Quarterly") {
-    nBill.HalfYearly = hy / 2;
-    nBill.Total = hy / 2;
-    nBill.BillPeriod = "Quarterly";
-  }
-  nBill.HalfYearlyFine = 0;
   return nBill;
 };
 
