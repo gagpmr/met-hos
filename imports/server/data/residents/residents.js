@@ -72,53 +72,6 @@ const getAll = async () => {
   return await dbResidents.getAll();
 };
 
-const duesRegularResidents = async () => {
-  const residents = await dbResidents.getAllRegularDuesListTrue();
-  const duesTotal = {
-    SrNo: "",
-    Room: "",
-    RollNumber: "",
-    Name: "",
-    MessOne: 0,
-    MessTwo: 0,
-    Canteen: 0,
-    Amenity: 0,
-    HalfYearlyMc: 0,
-    FinesMc: 0,
-    TotalMc: 0,
-    RoomRent: 0,
-    WaterCharges: 0,
-    ElectricityCharges: 0,
-    HalfYearlyPa: 0,
-    Miscellaneous: 0,
-    TotalPa: 0,
-    Total: 0
-  };
-  for (const resident of residents) {
-    duesTotal.MessOne += resident.UnpaidMcTotal.MessOne;
-    duesTotal.MessTwo += resident.UnpaidMcTotal.MessTwo;
-    duesTotal.Canteen += resident.UnpaidMcTotal.Canteen;
-    duesTotal.Amenity += resident.UnpaidMcTotal.Amenity;
-    duesTotal.HalfYearlyMc += resident.UnpaidMcTotal.HalfYearly;
-    duesTotal.FinesMc +=
-      resident.UnpaidMcTotal.MessFine +
-      resident.UnpaidMcTotal.CanteenFine +
-      resident.UnpaidMcTotal.HalfYearlyFine;
-    duesTotal.TotalMc += resident.UnpaidMcTotal.Total;
-    duesTotal.RoomRent += resident.UnpaidPaTotal.RoomRent;
-    duesTotal.WaterCharges += resident.UnpaidPaTotal.WaterCharges;
-    duesTotal.ElectricityCharges += resident.UnpaidPaTotal.ElectricityCharges;
-    duesTotal.HalfYearlyPa += resident.UnpaidPaTotal.HalfYearly;
-    duesTotal.Miscellaneous += resident.UnpaidPaTotal.Miscellaneous;
-    duesTotal.TotalPa += resident.UnpaidPaTotal.Total;
-    duesTotal.Total += resident.UnpaidTotal;
-  }
-  return {
-    residents,
-    duesTotal
-  };
-};
-
 const residentsRoomWise = async () => {
   const residents = await dbResidents.getAllRoomWise();
   let returnAmount = 0;
@@ -196,6 +149,89 @@ const admissionDetails = async args => {
   };
 };
 
+const duesRegularResidents = async () => {
+  const residents = await dbResidents.getAllRegularDuesListTrue();
+  const duesTotal = {
+    SrNo: "",
+    Room: "",
+    RollNumber: "",
+    Name: "",
+    MessOne: 0,
+    MessTwo: 0,
+    Canteen: 0,
+    Amenity: 0,
+    HalfYearlyMc: 0,
+    FinesMc: 0,
+    TotalMc: 0,
+    RoomRent: 0,
+    WaterCharges: 0,
+    ElectricityCharges: 0,
+    HalfYearlyPa: 0,
+    Miscellaneous: 0,
+    TotalPa: 0,
+    Total: 0
+  };
+  for (const resident of residents) {
+    duesTotal.MessOne += resident.UnpaidMcTotal.MessOne;
+    duesTotal.MessTwo += resident.UnpaidMcTotal.MessTwo;
+    duesTotal.Canteen += resident.UnpaidMcTotal.Canteen;
+    duesTotal.Amenity += resident.UnpaidMcTotal.Amenity;
+    duesTotal.HalfYearlyMc += resident.UnpaidMcTotal.HalfYearly;
+    duesTotal.FinesMc +=
+      resident.UnpaidMcTotal.MessFine +
+      resident.UnpaidMcTotal.CanteenFine +
+      resident.UnpaidMcTotal.HalfYearlyFine;
+    duesTotal.TotalMc += resident.UnpaidMcTotal.Total;
+    duesTotal.RoomRent += resident.UnpaidPaTotal.RoomRent;
+    duesTotal.WaterCharges += resident.UnpaidPaTotal.WaterCharges;
+    duesTotal.ElectricityCharges += resident.UnpaidPaTotal.ElectricityCharges;
+    duesTotal.HalfYearlyPa += resident.UnpaidPaTotal.HalfYearly;
+    duesTotal.Miscellaneous += resident.UnpaidPaTotal.Miscellaneous;
+    duesTotal.TotalPa += resident.UnpaidPaTotal.Total;
+    duesTotal.Total += resident.UnpaidTotal;
+  }
+  return {
+    residents,
+    duesTotal
+  };
+};
+
+const duesMessOne = async () => {
+  const residents = await dbResidents.getDuesListMessOne();
+  const duesTotal = {
+    SrNo: "",
+    Room: "",
+    RollNumber: "",
+    Name: "",
+    MessOne: 0
+  };
+  for (const resident of residents) {
+    duesTotal.MessOne += resident.UnpaidMcTotal.MessOne;
+  }
+  return {
+    residents,
+    duesTotal
+  };
+};
+
+const duesMessTwo = async () => {
+  const residents = await dbResidents.getDuesListMessTwo();
+  const duesTotal = {
+    SrNo: "",
+    Room: "",
+    RollNumber: "",
+    Name: "",
+    MessTwo: 0
+  };
+  for (const resident of residents) {
+    duesTotal.MessTwo += resident.UnpaidMcTotal.MessTwo;
+  }
+  return {
+    residents,
+    duesTotal
+  };
+};
+
 const Residents = {
   admissionDetails,
   updateResident,
@@ -209,10 +245,12 @@ const Residents = {
   getAll,
   removeResident,
   residentsRoomWise,
-  duesRegularResidents,
   residentDetails,
   duesListTrue,
-  duesListFalse
+  duesListFalse,
+  duesRegularResidents,
+  duesMessOne,
+  duesMessTwo
 };
 
 export default Residents;

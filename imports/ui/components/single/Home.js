@@ -32,22 +32,17 @@ const getArrays = () => {
     isEmpty: false
   });
   items.push({
-    Link: "/dues-regular-residents",
-    Value: "Dues Regular Resident",
+    Link: "/profile",
+    Value: "Profile",
     isEmpty: false
   });
-  items.push({
-    Link: "/notice-list",
-    Value: "Notice Board Residents List",
-    isEmpty: false
-  });
+  items.push(empty);
   items.push({ Link: "/residents", Value: "All Residents", isEmpty: false });
   items.push({
     Link: "/residents-room-wise",
     Value: "Residents (Current) Room Wise",
     isEmpty: false
   });
-
   items.push({
     Link: "/pa-collections/1",
     Value: "Private A/c Collections",
@@ -63,11 +58,7 @@ const getArrays = () => {
     Value: "Security A/c Collections",
     isEmpty: false
   });
-  items.push({
-    Link: "/profile",
-    Value: "Profile",
-    isEmpty: false
-  });
+  items.push(empty);
   items.push(empty);
   items.push({
     Link: "/pa-month-collections/1",
@@ -82,6 +73,31 @@ const getArrays = () => {
   items.push({
     Link: "/sa-month-collections/1",
     Value: "Sa A/c Monthly Collections",
+    isEmpty: false
+  });
+  items.push({
+    Link: "/dues-regular-residents",
+    Value: "Dues Regular Resident",
+    isEmpty: false
+  });
+  items.push({
+    Link: "/notice-list",
+    Value: "Notice Board Residents List",
+    isEmpty: false
+  });
+  items.push({
+    Link: "/dues-mess-one",
+    Value: "Dues - Mess One",
+    isEmpty: false
+  });
+  items.push({
+    Link: "/dues-mess-two",
+    Value: "Dues - Mess Two",
+    isEmpty: false
+  });
+  items.push({
+    Link: "/dues-canteen",
+    Value: "Dues - Canteen",
     isEmpty: false
   });
   const chunks = chunk(items, 5);

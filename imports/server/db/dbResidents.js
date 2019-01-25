@@ -180,6 +180,38 @@ const insert = async resInfo => {
   return id;
 };
 
+const getDuesListMessOne = async () => {
+  const mongo = await connectMongo();
+  const residents = await mongo.Residents.find({
+    DuesList: true,
+    "UnpaidMcTotal.MessOne": { $gt: 0 }
+  })
+    .sort({ "UnpaidMcTotal.MessOne": -1 })
+    .toArray();
+  const out = _.filter(
+    residents,
+    resident => !resident.RollNumber.includes("-D")
+  );
+  await mongo.client.close();
+  return out;
+};
+
+const getDuesListMessTwo = async () => {
+  const mongo = await connectMongo();
+  const residents = await mongo.Residents.find({
+    DuesList: true,
+    "UnpaidMcTotal.MessTwo": { $gt: 0 }
+  })
+    .sort({ "UnpaidMcTotal.MessTwo": -1 })
+    .toArray();
+  const out = _.filter(
+    residents,
+    resident => !resident.RollNumber.includes("-D")
+  );
+  await mongo.client.close();
+  return out;
+};
+
 const dbResidents = {
   insert,
   updateInfo,
@@ -195,7 +227,9 @@ const dbResidents = {
   replaceUnpaidMcTotal,
   replaceUnpaidPaTotal,
   updateDuesListBool,
-  getAllRegularDuesListTrue
+  getAllRegularDuesListTrue,
+  getDuesListMessOne,
+  getDuesListMessTwo
 };
 
 export default dbResidents;
