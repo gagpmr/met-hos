@@ -92,7 +92,6 @@ const print = (props, e) => {
 
 const renderDuesTotal = duesTotal => (
   <tr>
-    <td style={PaddingFourCenterBold}>{duesTotal.SrNo}</td>
     <td style={PaddingFourCenter}>{duesTotal.Room}</td>
     <td style={PaddingFourCenter}>{duesTotal.RollNumber}</td>
     <td style={PaddingFourCenter}>
@@ -140,7 +139,6 @@ const renderList = props => (
             </th>
           </tr>
           <tr>
-            <td style={PaddingFourCenterBold}>Sr.</td>
             <td style={PaddingFourCenterBold}>Room</td>
             <td style={PaddingFourCenterBold}>R.No.</td>
             <td style={PaddingFourCenterBold}>Name</td>
@@ -164,9 +162,8 @@ const renderList = props => (
           </tr>
         </thead>
         <tbody>
-          {props.residents.map((resident, index) => (
+          {props.residents.map(resident => (
             <tr key={resident._id}>
-              <td style={PaddingFourCenterBold}>{index + 1}</td>
               <td style={PaddingFourCenter}>{resident.Room.Value}</td>
               <td style={PaddingFourCenter}>{resident.RollNumber}</td>
               <td style={PaddingFourCenter}>
@@ -214,6 +211,11 @@ const renderList = props => (
                 {resident.UnpaidPaTotal.Total}
               </td>
               <td style={PaddingFourCenterBold}>{resident.UnpaidTotal}</td>
+              <td style={PaddingFourCenterBold}>
+                <a id="refresh" onClick={e => refresh(props, e)} href="">
+                  <i className="fa fa-refresh" aria-hidden="true" />
+                </a>
+              </td>
               <td style={PaddingFourCenterBold}>
                 <a
                   data-resid={resident._id}
