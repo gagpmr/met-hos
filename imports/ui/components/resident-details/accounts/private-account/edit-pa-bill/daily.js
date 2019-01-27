@@ -49,11 +49,24 @@ class Daily extends React.Component {
         })
         .then(() => {
           if (this.state.Modified) {
-            this.props.client.resetStore();
+            this.props.client.resetStore().then(() => {
+              this.props.client
+                .query({
+                  query: gqls.residentDetails,
+                  variables: {
+                    id: this.props.resident._id
+                  }
+                })
+                .then(() => {
+                  this.props.history.push(
+                    `/resident-details/${this.props.resident._id}`
+                  );
+                })
+                .catch(error => {
+                  console.log("Error:- NIGHT_STAY", error);
+                });
+            });
           }
-          this.props.history.push(
-            `/resident-details/${this.props.resident._id}`
-          );
         })
         .catch(error => {
           console.log("there was an error sending the query", error);

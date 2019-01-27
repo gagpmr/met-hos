@@ -5,6 +5,7 @@ import AdmissionDetails from "../components/resident-details/actions/admission-d
 import AuthWithNav from "../components/shared/AuthWithNav";
 import Authenticated from "../components/shared/Authenticated";
 import Classes from "../components/classes/class-list";
+import DuesCanteen from "../components/residents/dues-canteen";
 import DuesMessOne from "../components/residents/dues-mess-one";
 import DuesMessTwo from "../components/residents/dues-mess-two";
 import DuesRegularPrint from "../components/residents/dues-regular-print";
@@ -140,6 +141,12 @@ const App = props => (
           exact
           path="/dues-mess-two"
           component={DuesMessTwo}
+          {...props}
+        />
+        <Authenticated
+          exact
+          path="/dues-canteen"
+          component={DuesCanteen}
           {...props}
         />
         <Authenticated

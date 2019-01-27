@@ -232,6 +232,24 @@ const duesMessTwo = async () => {
   };
 };
 
+const duesCanteen = async () => {
+  const residents = await dbResidents.getDuesListCanteen();
+  const duesTotal = {
+    SrNo: "",
+    Room: "",
+    RollNumber: "",
+    Name: "",
+    Canteen: 0
+  };
+  for (const resident of residents) {
+    duesTotal.Canteen += resident.UnpaidMcTotal.Canteen;
+  }
+  return {
+    residents,
+    duesTotal
+  };
+};
+
 const Residents = {
   admissionDetails,
   updateResident,
@@ -250,7 +268,8 @@ const Residents = {
   duesListFalse,
   duesRegularResidents,
   duesMessOne,
-  duesMessTwo
+  duesMessTwo,
+  duesCanteen
 };
 
 export default Residents;

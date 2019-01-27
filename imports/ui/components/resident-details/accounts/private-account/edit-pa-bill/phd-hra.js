@@ -43,10 +43,23 @@ class PhdHra extends React.Component {
           }
         })
         .then(() => {
-          this.props.client.resetStore();
-          this.props.history.push(
-            `/resident-details/${this.props.resident._id}`
-          );
+          this.props.client.resetStore().then(() => {
+            this.props.client
+              .query({
+                query: gqls.residentDetails,
+                variables: {
+                  id: this.props.resident._id
+                }
+              })
+              .then(() => {
+                this.props.history.push(
+                  `/resident-details/${this.props.resident._id}`
+                );
+              })
+              .catch(error => {
+                console.log("Error:- NIGHT_STAY", error);
+              });
+          });
         })
         .catch(error => {
           console.log("there was an error sending the query", error);

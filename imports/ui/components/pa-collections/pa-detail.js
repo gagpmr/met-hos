@@ -137,7 +137,19 @@ export class PaDetail extends React.Component {
 
   editDetail(e) {
     e.preventDefault();
-    this.props.history.push(`/edit-pa-detail/${this.props.detail._id}`);
+    this.props.client
+      .query({
+        query: EDIT_PA_DETAIL,
+        variables: {
+          detId: this.props.detail._id
+        }
+      })
+      .then(() => {
+        this.props.history.push(`/edit-pa-detail/${this.props.detail._id}`);
+      })
+      .catch(error => {
+        console.log("there was an error sending the query", error);
+      });
   }
 
   render() {

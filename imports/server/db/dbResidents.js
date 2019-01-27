@@ -212,6 +212,22 @@ const getDuesListMessTwo = async () => {
   return out;
 };
 
+const getDuesListCanteen = async () => {
+  const mongo = await connectMongo();
+  const residents = await mongo.Residents.find({
+    DuesList: true,
+    "UnpaidMcTotal.Canteen": { $gt: 0 }
+  })
+    .sort({ "UnpaidMcTotal.Canteen": -1 })
+    .toArray();
+  const out = _.filter(
+    residents,
+    resident => !resident.RollNumber.includes("-D")
+  );
+  await mongo.client.close();
+  return out;
+};
+
 const dbResidents = {
   insert,
   updateInfo,
@@ -229,7 +245,8 @@ const dbResidents = {
   updateDuesListBool,
   getAllRegularDuesListTrue,
   getDuesListMessOne,
-  getDuesListMessTwo
+  getDuesListMessTwo,
+  getDuesListCanteen
 };
 
 export default dbResidents;

@@ -111,6 +111,7 @@ const queryType = gql`
     roomResidents(roomId: String!): JSON
     residentsRoomWise: JSON
     duesRegularResidents: JSON
+    duesCanteen: JSON
     duesMessOne: JSON
     duesMessTwo: JSON
     noticeList: [Resident]

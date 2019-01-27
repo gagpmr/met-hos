@@ -62,6 +62,7 @@ const queryResolver = {
     residents: async () => Residents.getAll(),
     roomResidents: async (_, args) => Residents.getByRoomId(args),
     residentsRoomWise: async () => Residents.residentsRoomWise(),
+    duesCanteen: async () => Residents.duesCanteen(),
     duesMessOne: async () => Residents.duesMessOne(),
     duesMessTwo: async () => Residents.duesMessTwo(),
     duesRegularResidents: async () => Residents.duesRegularResidents(),

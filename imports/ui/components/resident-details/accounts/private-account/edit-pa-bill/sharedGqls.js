@@ -36,9 +36,16 @@ const updatePaBillType = gql`
   }
 `;
 
+const residentDetails = gql`
+  query($id: String!) {
+    residentDetails(id: $id)
+  }
+`;
+
 const gqls = {
   updatePaBill,
-  updatePaBillType
+  updatePaBillType,
+  residentDetails
 };
 
 export default gqls;
