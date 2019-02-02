@@ -32,6 +32,9 @@ const insert = async month => {
   const count = await countGetByMonth(month.Value);
   if (count === 0) {
     await mongo.MonthsPa.insert(month);
+  } else {
+    await mongo.MonthsPa.remove({ Value: month.Value });
+    await mongo.MonthsPa.insert(month);
   }
   await mongo.client.close();
 };

@@ -149,7 +149,6 @@ const updateMonthsPa = async () => {
     .getMonth();
   const sess = await dbSessions.getCurrentSession();
   const startYear = await getStartYear(sess.Value);
-  const endYear = startYear + 1;
   if (sessPresent !== sess.Value) {
     const months = await getPaMonths();
     await dbMonthsPa.setAllFalse();
@@ -157,7 +156,7 @@ const updateMonthsPa = async () => {
       if (element.Value.includes(`1st HYr, ${startYear}`) && month >= 6) {
         element.Selected = true;
         await dbMonthsPa.insert(element);
-      } else if (element.Value.includes(`2nd HYr, ${endYear}`) && month < 6) {
+      } else if (element.Value.includes(`2nd HYr, ${startYear}`) && month < 6) {
         element.Selected = true;
         await dbMonthsPa.insert(element);
       } else {

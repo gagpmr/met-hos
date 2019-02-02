@@ -35,7 +35,6 @@ const addBill = (props, e) => {
       }
     })
     .then(({ data }) => {
-      props.client.resetStore();
       props.client
         .query({
           query: EDIT_MC_BILL,
