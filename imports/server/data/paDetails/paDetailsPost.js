@@ -5,8 +5,9 @@ import moment from "moment";
 
 const removeDetail = async args => {
   const detail = await dbPaDetails.getById(args.detId);
+  const depositDate = detail.DepositDate;
   await dbPaDetails.removeById(args.detId);
-  await PaDayTotals.upsert(detail.DepositDate);
+  await PaDayTotals.upsert(depositDate);
   return "Pa Detail Removed";
 };
 

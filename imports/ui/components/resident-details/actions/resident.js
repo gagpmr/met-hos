@@ -54,7 +54,7 @@ class Resident extends React.Component {
   render() {
     return (
       <div>
-        {this.props.resident.Name} &nbsp;
+        {this.props.resident.Name} - {this.props.resident.RollNumber} &nbsp;
         <a target="_blank" onClick={this.openModal} href="">
           <i className="fa fa-id-badge fa-sm" aria-hidden="true" />
         </a>

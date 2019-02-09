@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../ui/layouts/datepicker.css";
 
 import { ApolloClient } from "apollo-client";
 import { ApolloLink } from "apollo-link";

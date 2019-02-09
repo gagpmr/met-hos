@@ -1,3 +1,5 @@
+import "../../layouts/datepicker.css";
+
 import { Middle, h4 } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
@@ -59,8 +61,8 @@ export class EditPaDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ReceiptDate: moment.utc(props.detail.ReceiptDate),
-      DepositDate: moment.utc(props.detail.DepositDate),
+      ReceiptDate: moment(props.detail.ReceiptDate).toDate(),
+      DepositDate: moment(props.detail.DepositDate).toDate(),
       ReceiptNumber: props.detail.ReceiptNumber,
       Name: props.detail.Name,
       RoomNumber: props.detail.RoomNumber,
@@ -81,14 +83,14 @@ export class EditPaDetail extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-    const depositDate = this.state.DepositDate.format("DD-MM-YYYY");
+    const depositDate = moment.utc(this.state.DepositDate).format("DD-MM-YYYY");
     this.props.client
       .mutate({
         mutation: UPDATE_PA_DETAIL,
         variables: {
           depositDate,
           detId: this.props.detail._id,
-          receiptDate: this.state.ReceiptDate.format("DD-MM-YYYY"),
+          receiptDate: this.state.ReceiptDate,
           receiptNumber: this.state.ReceiptNumber,
           name: this.state.Name,
           roomNumber: this.state.RoomNumber,
@@ -171,7 +173,7 @@ export class EditPaDetail extends React.Component {
                   <DatePicker
                     autoFocus
                     tabIndex={1}
-                    dateFormat="DD-MM-YYYY"
+                    dateFormat="dd-MM-yyyy"
                     selected={this.state.ReceiptDate}
                     onChange={this.rcptChange}
                   />
@@ -188,7 +190,7 @@ export class EditPaDetail extends React.Component {
                 >
                   <DatePicker
                     tabIndex={1}
-                    dateFormat="DD-MM-YYYY"
+                    dateFormat="dd-MM-yyyy"
                     selected={this.state.DepositDate}
                     onChange={this.deptChange}
                   />

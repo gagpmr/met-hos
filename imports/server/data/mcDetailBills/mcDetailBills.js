@@ -175,6 +175,7 @@ const detailMultipleBills = async (args, mcBills) => {
     det.PoorStuWelFund += element.PoorStuWelFund;
     det.McServantWelFund += element.McServantWelFund;
     det.FoodSubsidy += element.FoodSubsidy;
+    det.CelebrationFund += element.CelebrationFund;
     det.Total +=
       element.MessOne +
       element.MessTwo +
@@ -183,6 +184,7 @@ const detailMultipleBills = async (args, mcBills) => {
       element.Fines +
       element.PoorStuWelFund +
       element.McServantWelFund +
+      element.CelebrationFund +
       element.FoodSubsidy;
   }
   const ef = await Dates.effectiveDate();

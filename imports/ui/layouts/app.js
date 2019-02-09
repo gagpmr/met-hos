@@ -60,7 +60,7 @@ import SaMonthCollections from "../components/sa-collections/sa-month-collection
 import SaMonthlyPrint from "../components/sa-collections/sa-month-collections-print";
 import Sessions from "../components/sessions/sessions-list";
 import TransactionDetails from "../components/resident-details/accounts/transaction/transaction-details";
-import { createContainer } from "meteor/react-meteor-data";
+import { withTracker } from "meteor/react-meteor-data";
 
 const App = props => (
   <Router>
@@ -373,7 +373,7 @@ const getUserName = name =>
     object: `${name.first} ${name.last}`
   }[typeof name]);
 
-export default createContainer(() => {
+export default withTracker(() => {
   const loggingIn = Meteor.loggingIn();
   const user = Meteor.user();
   const userId = Meteor.userId();
@@ -394,4 +394,4 @@ export default createContainer(() => {
         ? user && user.emails && user.emails[0].verified
         : true
   };
-}, App);
+})(App);

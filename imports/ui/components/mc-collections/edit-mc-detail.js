@@ -69,8 +69,8 @@ export class EditMcDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ReceiptDate: moment.utc(props.detail.ReceiptDate),
-      DepositDate: moment.utc(props.detail.DepositDate),
+      ReceiptDate: moment.utc(props.detail.ReceiptDate).toDate(),
+      DepositDate: moment.utc(props.detail.DepositDate).toDate(),
       ReceiptNumber: props.detail.ReceiptNumber,
       StudentName: props.detail.StudentName,
       RoomNumber: props.detail.RoomNumber,
