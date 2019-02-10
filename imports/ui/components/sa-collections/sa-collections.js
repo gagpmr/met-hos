@@ -8,7 +8,7 @@ import {
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
-import { Loading } from "../shared/Loading";
+import MDSpinner from "react-md-spinner";
 import { Pagination } from "react-bootstrap";
 import PropTypes from "prop-types";
 import React from "react";
@@ -223,7 +223,7 @@ const FormatData = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

@@ -9,7 +9,6 @@ import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
 import DuesListTrue from "./duesListTrue";
 import { Link } from "react-router-dom";
-import { Loading } from "../../../components/shared/Loading";
 import PropTypes from "prop-types";
 import React from "react";
 import RemoveResident from "../../shared/RemoveResident";

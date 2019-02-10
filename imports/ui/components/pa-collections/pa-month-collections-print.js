@@ -6,7 +6,7 @@ import {
 } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
-import { Loading } from "../shared/Loading";
+import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -99,7 +99,7 @@ const FormatData = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

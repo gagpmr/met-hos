@@ -4,7 +4,7 @@ import {
   WidthSixtyPaddingZeroLeft
 } from "../../../../../../modules/styles";
 
-import { Loading } from "../../../../shared/Loading";
+import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import gqls from "./sharedGqls";
@@ -103,7 +103,7 @@ class FullBill extends React.Component {
     if (this.props.loading) {
       return (
         <div style={Middle}>
-          <Loading />
+          <MDSpinner />
         </div>
       );
     }

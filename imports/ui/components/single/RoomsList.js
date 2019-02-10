@@ -1,7 +1,8 @@
 import { Col, Grid, Pagination, Row } from "react-bootstrap";
 import { gql, graphql } from "react-apollo";
 
-import { Loading } from "../shared/Logout";
+import ApolloClient from "apollo-client";
+import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
 import { PropTypes } from "prop-types";
 import React from "react";
@@ -42,29 +43,28 @@ class Rooms extends React.Component {
   }
 
   render() {
-    if (this.props.loading) {
-      return (
-        <div style={Middle}>
-          <Loading />
-        </div>
-      );
-    }
     return (
       <Grid fluid>
         <Row className="text-center">
           <Col md={12} style={{ paddingBottom: "30px", paddingTop: "3%" }}>
-            <Pagination
-              prev
-              next
-              first
-              last
-              ellipsis
-              boundaryLinks
-              items={this.pagesNo(this.props.rooms.length)}
-              maxButtons={9}
-              activePage={this.state.activePage}
-              onSelect={this.handleSelect}
-            />
+            <Pagination>
+              <Pagination.First />
+              <Pagination.Prev />
+              <Pagination.Item>{1}</Pagination.Item>
+              <Pagination.Ellipsis />
+
+              <Pagination.Item>{10}</Pagination.Item>
+              <Pagination.Item>{11}</Pagination.Item>
+              <Pagination.Item active>{12}</Pagination.Item>
+              <Pagination.Item>{13}</Pagination.Item>
+              <Pagination.Item disabled>{14}</Pagination.Item>
+
+              <Pagination.Ellipsis />
+              <Pagination.Item>{20}</Pagination.Item>
+              <Pagination.Next />
+              <Pagination.Last />
+            </Pagination>
+            ;
           </Col>
           <Col md={12} xs={12} sm={12}>
             {this.roomsFiltered(this.props.rooms).map(room => (
@@ -85,18 +85,37 @@ class Rooms extends React.Component {
   }
 }
 
-Rooms.defaultProps = {
-  rooms: []
-};
-
 Rooms.propTypes = {
-  loading: PropTypes.bool.isRequired,
   rooms: PropTypes.arrayOf(
     PropTypes.shape({
       _id: PropTypes.string.isRequired,
       Value: PropTypes.string.isRequired
     })
   ).isRequired
+};
+
+const FormatData = props => {
+  if (props.loading) {
+    return (
+      <div style={Middle}>
+        <MDSpinner />
+      </div>
+    );
+  }
+  return (
+    <Rooms rooms={props.rooms} client={props.client} refetch={props.refetch} />
+  );
+};
+
+FormatData.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  rooms: PropTypes.array.isRequired,
+  refetch: PropTypes.func.isRequired,
+  client: PropTypes.instanceOf(ApolloClient)
+};
+
+FormatData.defaultProps = {
+  rooms: []
 };
 
 const ROOMS_QUERY = gql`
@@ -108,11 +127,11 @@ const ROOMS_QUERY = gql`
   }
 `;
 
-const RoomsList = graphql(ROOMS_QUERY, {
-  props: ({ data: { loading, rooms } }) => ({
+export default graphql(ROOMS_QUERY, {
+  props: ({ data: { loading, rooms, refetch } }) => ({
     loading,
-    rooms
-  })
-})(Rooms);
-
-export default RoomsList;
+    rooms,
+    refetch
+  }),
+  forceFetch: true
+})(FormatData);

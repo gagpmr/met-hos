@@ -2,7 +2,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import { Actions } from "./actions/actions.js";
 import ApolloClient from "apollo-client";
-import { Loading } from "../shared/Loading";
+import MDSpinner from "react-md-spinner";
 import MessCanteenAccount from "./accounts/mess-canteen/mess-canteen-account.js";
 import { Middle } from "../../../modules/styles";
 import PrivateAccount from "./accounts/private-account/private-account.js";
@@ -15,7 +15,7 @@ const ResidentDetails = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

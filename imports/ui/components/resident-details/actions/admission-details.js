@@ -13,7 +13,7 @@ import {
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
-import { Loading } from "../../shared/Loading";
+import MDSpinner from "react-md-spinner";
 import { McDetail } from "../../mc-collections/mc-detail";
 import { PaDetail } from "../../pa-collections/pa-detail";
 import PropTypes from "prop-types";
@@ -24,7 +24,7 @@ const AdmissionDetails = props => {
   if (props.loading || !props.admissionDetails) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

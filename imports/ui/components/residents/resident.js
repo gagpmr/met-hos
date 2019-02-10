@@ -8,7 +8,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
 import ApolloClient from "apollo-client";
-import { Loading } from "../shared/Loading.js";
+import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import { withRouter } from "react-router-dom";
@@ -180,7 +180,7 @@ export class Resident extends React.Component {
     if (this.props.loading) {
       return (
         <div style={Middle}>
-          <Loading />
+          <MDSpinner />
         </div>
       );
     }
@@ -439,7 +439,7 @@ const FormatData = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

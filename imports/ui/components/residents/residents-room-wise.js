@@ -10,7 +10,7 @@ import { gql, graphql } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import { Link } from "react-router-dom";
-import { Loading } from "../shared/Loading.js";
+import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import RemoveResident from "../shared/RemoveResident.js";
@@ -65,7 +65,7 @@ const ResidentsRoomWise = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

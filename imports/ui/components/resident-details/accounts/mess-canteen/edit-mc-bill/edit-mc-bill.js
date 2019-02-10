@@ -7,7 +7,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 import ApolloClient from "apollo-client";
 import FullBill from "./full-bill.js";
 import HalfYearly from "../../halfYearly.js";
-import { Loading } from "../../../../shared/Loading";
+import MDSpinner from "react-md-spinner";
 import McActions from "./mcActions.js";
 import PropTypes from "prop-types";
 import React from "react";
@@ -20,7 +20,7 @@ const EditMcBill = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

@@ -4,7 +4,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
-import { Loading } from "../shared/Loading.js";
+import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -106,7 +106,7 @@ class EffectiveDate extends React.Component {
     if (this.props.loading) {
       return (
         <div style={Middle}>
-          <Loading />
+          <MDSpinner />
         </div>
       );
     }
@@ -205,7 +205,7 @@ const FormatData = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

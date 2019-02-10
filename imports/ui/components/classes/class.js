@@ -8,7 +8,7 @@ import {
 
 import ApolloClient from "apollo-client";
 import { Link } from "react-router-dom";
-import { Loading } from "../shared/Loading.js";
+import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -160,7 +160,7 @@ export class Class extends React.Component {
     if (this.props.loading) {
       return (
         <div style={Middle}>
-          <Loading />
+          <MDSpinner />
         </div>
       );
     }

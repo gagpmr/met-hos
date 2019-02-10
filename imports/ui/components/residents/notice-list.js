@@ -10,7 +10,7 @@ import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
 import DatePicker from "react-datepicker";
 import { Link } from "react-router-dom";
-import { Loading } from "../shared/Loading.js";
+import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -208,7 +208,7 @@ const FormatData = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }

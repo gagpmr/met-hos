@@ -8,7 +8,7 @@ import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import { Link } from "react-router-dom";
-import { Loading } from "../shared/Loading.js";
+import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import gql from "graphql-tag";
@@ -88,19 +88,11 @@ const renderList = array => (
   </div>
 );
 
-export const RoomResidents = ({ loading, array }) => {
-  if (loading) {
-    return (
-      <div style={Middle}>
-        <Loading />
-      </div>
-    );
-  }
+export const RoomResidents = ({ array }) => {
   return renderList(array);
 };
 
 RoomResidents.propTypes = {
-  loading: PropTypes.bool.isRequired,
   array: PropTypes.array.isRequired
 };
 
@@ -108,13 +100,12 @@ const FormatData = props => {
   if (props.loading) {
     return (
       <div style={Middle}>
-        <Loading />
+        <MDSpinner />
       </div>
     );
   }
   return (
     <RoomResidents
-      loading={props.loading}
       array={props.roomResidents}
       client={props.client}
       refetch={props.refetch}
