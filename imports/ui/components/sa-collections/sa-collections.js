@@ -9,7 +9,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { Pagination } from "react-bootstrap";
+import Pagination from "react-js-pagination";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -112,16 +112,10 @@ class SaCollections extends React.Component {
               <tr>
                 <th colSpan="10" className="text-center" style={PaginationRow}>
                   <Pagination
-                    prev
-                    next
-                    first
-                    last
-                    ellipsis
-                    boundaryLinks
-                    items={this.pagesNo(this.props.count)}
-                    maxButtons={9}
                     activePage={this.state.activePage}
-                    onSelect={this.handleSelect}
+                    itemsCountPerPage={15}
+                    totalItemsCount={this.props.count}
+                    onChange={this.handleSelect}
                   />
                 </th>
               </tr>

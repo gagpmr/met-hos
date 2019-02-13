@@ -139,8 +139,7 @@ export class EditPaDetail extends React.Component {
     }
   }
 
-  handleChange(event) {
-    const target = event.target;
+  handleChange({ target }) {
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     this.setState({
@@ -172,7 +171,7 @@ export class EditPaDetail extends React.Component {
                 >
                   <DatePicker
                     autoFocus
-                    tabIndex={1}
+                    tabIndex={-1}
                     dateFormat="dd-MM-yyyy"
                     selected={this.state.ReceiptDate}
                     onChange={this.rcptChange}
@@ -189,7 +188,7 @@ export class EditPaDetail extends React.Component {
                   className="text-center"
                 >
                   <DatePicker
-                    tabIndex={1}
+                    tabIndex={-1}
                     dateFormat="dd-MM-yyyy"
                     selected={this.state.DepositDate}
                     onChange={this.deptChange}
@@ -202,7 +201,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex={-1}
                     name="ReceiptNumber"
                     defaultValue={this.state.ReceiptNumber}
                     onChange={this.handleChange}

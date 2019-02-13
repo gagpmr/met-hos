@@ -26,7 +26,7 @@ class EffectiveDate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: moment(props.date.EffectiveDate),
+      startDate: moment(props.date.EffectiveDate).toDate(),
       dateVisible: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -38,14 +38,14 @@ class EffectiveDate extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.date.EffectiveDateStr !== this.props.date.EffectiveDateStr) {
       this.setState({
-        startDate: moment(nextProps.date.EffectiveDate),
+        startDate: moment(nextProps.date.EffectiveDate).toDate(),
         dateVisible: false
       });
     }
   }
 
   handleChange(date) {
-    const value = date.format("DD-MMM-YYYY");
+    const value = moment(date).format("DD-MMM-YYYY");
     this.props.client
       .mutate({
         mutation: UPDATE_DATE,
@@ -117,9 +117,8 @@ class EffectiveDate extends React.Component {
           <th className="text-center width-effective-date">Change Date</th>
           <td className="text-center">
             <DatePicker
-              dateFormat="DD-MM-YYYY"
+              dateFormat="dd-MM-yyyy"
               selected={this.state.startDate}
-              ref="date"
               onKeyDown={this.keyPressed}
               onChange={this.handleChange}
             />
@@ -197,7 +196,7 @@ class EffectiveDate extends React.Component {
 EffectiveDate.propTypes = {
   loading: PropTypes.bool.isRequired,
   date: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired
 };
 
@@ -221,9 +220,9 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  effectiveDate: PropTypes.object.isRequired,
+  effectiveDate: PropTypes.object,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

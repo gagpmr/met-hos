@@ -3,7 +3,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
-import { Pagination } from "react-bootstrap";
+import Pagination from "react-js-pagination";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -88,16 +88,10 @@ class Holidays extends React.Component {
         </div>
         <div className="hPagination">
           <Pagination
-            prev
-            next
-            first
-            last
-            ellipsis
-            boundaryLinks
-            items={this.pagesNo(this.props.holidays.length)}
-            maxButtons={9}
             activePage={this.state.activePage}
-            onSelect={this.handleSelect}
+            itemsCountPerPage={15}
+            totalItemsCount={this.props.holidays.length}
+            onChange={this.handleSelect}
           />
         </div>
       </span>
@@ -107,7 +101,7 @@ class Holidays extends React.Component {
 
 Holidays.propTypes = {
   holidays: PropTypes.array.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -131,9 +125,9 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  holidays: PropTypes.array.isRequired,
+  holidays: PropTypes.array,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

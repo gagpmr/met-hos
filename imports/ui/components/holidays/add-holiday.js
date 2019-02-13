@@ -19,7 +19,7 @@ class AddHoliday extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: moment()
+      startDate: moment().toDate()
     };
     this.handleChange = this.handleChange.bind(this);
     this.saveToday = this.saveToday.bind(this);
@@ -27,7 +27,7 @@ class AddHoliday extends React.Component {
   }
 
   handleChange(date) {
-    const newdate = date.format("DD-MMM-YYYY");
+    const newdate = moment(date).format("DD-MMM-YYYY");
     this.insertDate(newdate);
   }
 
@@ -66,9 +66,9 @@ class AddHoliday extends React.Component {
             <tr>
               <td className="text-center">
                 <DatePicker
-                  dateFormat="DD-MMM-YYYY"
+                  dateFormat="dd-MMM-yyyy"
                   className="text-center"
-                  tabIndex={1}
+                  tabIndex={-1}
                   peekNextMonth
                   showMonthDropdown
                   showYearDropdown

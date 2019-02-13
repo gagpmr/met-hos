@@ -32,8 +32,8 @@ class NoticeDate extends React.Component {
     return (
       <DatePicker
         autoFocus
-        tabIndex={1}
-        dateFormat="DD-MM-YYYY"
+        tabIndex={-1}
+        dateFormat="dd-MM-yyyy"
         selected={this.state.NoticeDate}
         onChange={this.change}
       />
@@ -42,8 +42,8 @@ class NoticeDate extends React.Component {
 }
 
 NoticeDate.propTypes = {
-  noticeDate: PropTypes.string.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  noticeDate: PropTypes.string,
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 NoticeDate.defaultProps = {

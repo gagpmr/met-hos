@@ -92,8 +92,8 @@ class Continuation extends React.Component {
           <td>
             <DatePicker
               autoFocus
-              tabIndex={1}
-              dateFormat="DD-MM-YYYY"
+              tabIndex={-1}
+              dateFormat="dd-MM-yyyy"
               selected={this.state.StartDate}
               onChange={this.changeStartDate}
             />
@@ -103,8 +103,8 @@ class Continuation extends React.Component {
           <th>End Date</th>
           <td>
             <DatePicker
-              tabIndex={1}
-              dateFormat="DD-MM-YYYY"
+              tabIndex={-1}
+              dateFormat="dd-MM-yyyy"
               selected={this.state.EndDate}
               onChange={this.changeEndDate}
             />

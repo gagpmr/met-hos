@@ -9,7 +9,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { Pagination } from "react-bootstrap";
+import Pagination from "react-js-pagination";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -30,7 +30,7 @@ class PaCollections extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activePage: parseInt(this.props.match.params.pageNo, 10),
+      activePage: parseInt(props.match.params.pageNo, 10),
       range: 15
     };
     this.delete = this.delete.bind(this);
@@ -112,16 +112,10 @@ class PaCollections extends React.Component {
               <tr>
                 <th colSpan="10" className="text-center" style={PaginationRow}>
                   <Pagination
-                    prev
-                    next
-                    first
-                    last
-                    ellipsis
-                    boundaryLinks
-                    items={this.pagesNo(this.props.count)}
-                    maxButtons={9}
                     activePage={this.state.activePage}
-                    onSelect={this.handleSelect}
+                    itemsCountPerPage={15}
+                    totalItemsCount={this.props.count}
+                    onChange={this.handleSelect}
                   />
                 </th>
               </tr>
@@ -141,6 +135,7 @@ class PaCollections extends React.Component {
                   <th style={WidthTwentyPaddingThreeCenter}>
                     <a
                       target="_blank"
+                      rel="noopener noreferrer"
                       href={`/pa-date-details/${moment
                         .utc(detail.DepositDate)
                         .format("DD-MM-YYYY")}`}
@@ -217,7 +212,7 @@ PaCollections.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -243,11 +238,11 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  paDayTotalsByPage: PropTypes.object.isRequired,
+  paDayTotalsByPage: PropTypes.object,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

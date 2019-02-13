@@ -1,9 +1,10 @@
-import { Col, Grid, Pagination, Row } from "react-bootstrap";
+import { Col, Grid, Row } from "react-bootstrap";
 import { gql, graphql } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
+import Pagination from "react-js-pagination";
 import { PropTypes } from "prop-types";
 import React from "react";
 
@@ -47,24 +48,12 @@ class Rooms extends React.Component {
       <Grid fluid>
         <Row className="text-center">
           <Col md={12} style={{ paddingBottom: "30px", paddingTop: "3%" }}>
-            <Pagination>
-              <Pagination.First />
-              <Pagination.Prev />
-              <Pagination.Item>{1}</Pagination.Item>
-              <Pagination.Ellipsis />
-
-              <Pagination.Item>{10}</Pagination.Item>
-              <Pagination.Item>{11}</Pagination.Item>
-              <Pagination.Item active>{12}</Pagination.Item>
-              <Pagination.Item>{13}</Pagination.Item>
-              <Pagination.Item disabled>{14}</Pagination.Item>
-
-              <Pagination.Ellipsis />
-              <Pagination.Item>{20}</Pagination.Item>
-              <Pagination.Next />
-              <Pagination.Last />
-            </Pagination>
-            ;
+            <Pagination
+              activePage={this.state.activePage}
+              itemsCountPerPage={60}
+              totalItemsCount={this.props.rooms.length}
+              onChange={this.handleSelect}
+            />
           </Col>
           <Col md={12} xs={12} sm={12}>
             {this.roomsFiltered(this.props.rooms).map(room => (

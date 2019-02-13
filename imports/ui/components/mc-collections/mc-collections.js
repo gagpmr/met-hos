@@ -9,7 +9,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { Pagination } from "react-bootstrap";
+import Pagination from "react-js-pagination";
 import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
@@ -112,16 +112,10 @@ export class McCollections extends React.Component {
               <tr>
                 <th colSpan="10" className="text-center" style={PaginationRow}>
                   <Pagination
-                    prev
-                    next
-                    first
-                    last
-                    ellipsis
-                    boundaryLinks
-                    items={this.pagesNo(this.props.count)}
-                    maxButtons={9}
                     activePage={this.state.activePage}
-                    onSelect={this.handleSelect}
+                    itemsCountPerPage={15}
+                    totalItemsCount={this.props.count}
+                    onChange={this.handleSelect}
                   />
                 </th>
               </tr>
@@ -144,6 +138,7 @@ export class McCollections extends React.Component {
                         .utc(detail.DepositDate)
                         .format("DD-MM-YYYY")}`}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
                     </a>
@@ -217,7 +212,7 @@ McCollections.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -243,11 +238,11 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  mcDayTotalsByPage: PropTypes.object.isRequired,
+  mcDayTotalsByPage: PropTypes.object,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

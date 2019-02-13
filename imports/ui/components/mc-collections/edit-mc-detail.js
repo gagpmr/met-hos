@@ -188,8 +188,8 @@ export class EditMcDetail extends React.Component {
                 >
                   <DatePicker
                     autoFocus
-                    tabIndex={1}
-                    dateFormat="DD-MM-YYYY"
+                    tabIndex={-1}
+                    dateFormat="dd-MM-yyyy"
                     selected={this.state.ReceiptDate}
                     onChange={this.rcptChange}
                   />
@@ -205,8 +205,8 @@ export class EditMcDetail extends React.Component {
                   className="text-center"
                 >
                   <DatePicker
-                    tabIndex={1}
-                    dateFormat="DD-MM-YYYY"
+                    tabIndex={-1}
+                    dateFormat="dd-MM-yyyy"
                     selected={this.state.DepositDate}
                     onChange={this.deptChange}
                   />
