@@ -30,6 +30,7 @@ Meteor.startup(() => {
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>,
+    // eslint-disable-next-line no-undef
     document.getElementById("react-root")
   );
 });
