@@ -1,126 +1,148 @@
-import { Button, Grid, Input, TextField } from "@material-ui/core";
-import { Col, Row } from "react-bootstrap";
-import React, { Component } from "react";
+import { gql, withApollo } from "react-apollo";
 
+import ApolloClient from "apollo-client";
+import Avatar from "@material-ui/core/Avatar";
 import { Bert } from "meteor/themeteorchef:bert";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControl from "@material-ui/core/FormControl";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { Meteor } from "meteor/meteor";
-import Validator from "react-forms-validator";
-import { withStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
+import React from "react";
+import Typography from "@material-ui/core/Typography";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-const styles = {
-  root: {
-    background: "black"
+const styles = theme => ({
+  main: {
+    width: "auto",
+    display: "block", // Fix IE 11 issue.
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+      width: 400,
+      marginLeft: "auto",
+      marginRight: "auto"
+    }
+  },
+  paper: {
+    marginTop: theme.spacing.unit * 8,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
+      .spacing.unit * 3}px`
+  },
+  avatar: {
+    margin: theme.spacing.unit,
+    backgroundColor: theme.palette.secondary.main
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing.unit
+  },
+  submit: {
+    marginTop: theme.spacing.unit * 3,
+    fontSize: 15
+  },
+  label: {
+    fontSize: 19
   },
   input: {
-    fontSize: "25px"
+    fontSize: 19
   }
+});
+
+const SIGN_IN_STATE = gql`
+  query {
+    email
+    password
+  }
+`;
+
+const handleChange = (e, client) => {
+  const { name, value } = e.target;
+  client.writeData({
+    data: { [name]: value }
+  });
 };
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      isFormValidationErrors: true,
-      submitted: false
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.isValidationError = this.isValidationError.bind(this);
-    this.flag = true;
-  }
-
-  handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-    const { submitted } = this.state;
-  }
-
-  isValidationError(flag) {
-    this.setState({ isFormValidationErrors: flag });
-  }
-
-  handleFormSubmit(event) {
-    event.preventDefault();
-    this.setState({ submitted: true });
-    const { email, password, isFormValidationErrors } = this.state;
-    if (!isFormValidationErrors) {
-      // you are ready to perform your action here like dispatch
-      // let { dispatch, login } = this.props;
-      // dispatch( login( { params:{},data:{ contact_no, password } } ) );
-      Meteor.loginWithPassword(email, password, error => {
-        if (error) {
-          Bert.alert(error.reason, "danger");
-        } else {
-          Bert.alert("Welcome back!", "success");
-        }
-      });
+const handleSubmit = (e, client) => {
+  e.preventDefault();
+  const state = client.readQuery({
+    query: SIGN_IN_STATE
+  });
+  Meteor.loginWithPassword(state.email, state.password, error => {
+    if (error) {
+      Bert.alert(error.reason, "danger");
+    } else {
+      Bert.alert("Welcome back!", "success");
     }
-  }
+  });
+  client.writeData({
+    data: { email: "", password: "" }
+  });
+};
 
-  render() {
-    const { email, password, submitted } = this.state;
-    return (
-      <Grid
-        container
-        justify="center"
-        align="center"
-        direction="column"
-        spacing={0}
-      >
-        <Grid item md={4}>
-          <form noValidate onSubmit={this.handleFormSubmit}>
+const SignIn = ({ classes, client }) => {
+  return (
+    <main className={classes.main}>
+      <CssBaseline />
+      <Paper className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h3">
+          Sign in
+        </Typography>
+        <form className={classes.form} onSubmit={e => handleSubmit(e, client)}>
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="email" className={classes.label}>
+              Email Address
+            </InputLabel>
             <Input
-              type="text"
+              id="email"
               name="email"
-              placeholder="Email"
-              className={this.props.classes.input}
-              value={email}
-              onChange={this.handleChange}
+              autoComplete="email"
+              onChange={e => handleChange(e, client)}
+              className={classes.input}
+              autoFocus
             />
-            <Validator
-              isValidationError={this.isValidationError}
-              isFormSubmitted={submitted}
-              reference={{ email }}
-              validationRules={{
-                required: true
-              }}
-              validationMessages={{
-                required: "This field is required"
-              }}
-            />
+          </FormControl>
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="password" className={classes.label}>
+              Password
+            </InputLabel>
             <Input
-              type="password"
               name="password"
-              label="Password"
-              placeholder="Password"
-              className={this.props.classes.input}
-              value={password}
-              onChange={this.handleChange}
+              type="password"
+              id="password"
+              className={classes.input}
+              onChange={e => handleChange(e, client)}
+              autoComplete="current-password"
             />
-            <Validator
-              isValidationError={this.isValidationError}
-              isFormSubmitted={submitted}
-              reference={{ password }}
-              validationRules={{ required: true }}
-              validationMessages={{ required: "This field is required" }}
-            />
-            <div>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.handleFormSubmit}
-                margin="normal"
-              >
-                Sign In
-              </Button>
-            </div>
-          </form>
-        </Grid>
-      </Grid>
-    );
-  }
-}
+          </FormControl>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign in
+          </Button>
+        </form>
+      </Paper>
+    </main>
+  );
+};
 
-export default withStyles(styles)(Login);
+SignIn.propTypes = {
+  classes: PropTypes.object.isRequired,
+  client: PropTypes.instanceOf(ApolloClient).isRequired
+};
+
+export default withApollo(withStyles(styles)(SignIn));

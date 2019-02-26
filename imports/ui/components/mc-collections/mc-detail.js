@@ -36,7 +36,7 @@ const RESIDENT_DETAILS = gql`
   }
 `;
 
-export class McDetail extends React.Component {
+class McDetail extends React.Component {
   constructor(props) {
     super(props);
     this.copyEdit = this.copyEdit.bind(this);
@@ -229,6 +229,8 @@ export class McDetail extends React.Component {
 McDetail.propTypes = {
   detail: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   fetchMcDetails: PropTypes.func.isRequired
 };
+
+export default McDetail;

@@ -1,8 +1,8 @@
-import Accounts from "../../../data/accounts/accounts";
+import Accounts from "../../accounts/accounts";
 import dbFinesMc from "../../../db/dbFinesMc";
 import dbMcBills from "../../../db/dbMcBills";
 import dbSessions from "../../../db/dbSessions";
-import updateFinesMc from "../../../data/finesMc/finesMc";
+import updateFinesMc from "../../finesMc/finesMc";
 
 const setDefaultValues = async () => {
   const nBill = {};
@@ -39,7 +39,7 @@ const updateMcFullBill = async args => {
       sess.FoodSubsidy +
       sess.CelebrationFund;
     if (args.billPeriod.includes("/2")) {
-      hy = hy / 2;
+      hy /= 2;
       dBill.Type = "Quarterly";
     }
     dBill.HalfYearly = hy;

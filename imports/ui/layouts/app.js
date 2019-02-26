@@ -355,7 +355,8 @@ const App = props => (
 App.defaultProps = {
   userId: "",
   emailAddress: "",
-  exact: true
+  exact: true,
+  children: React.createElement("div")
 };
 
 App.propTypes = {
@@ -364,7 +365,7 @@ App.propTypes = {
   userId: PropTypes.string,
   emailAddress: PropTypes.string,
   emailVerified: PropTypes.bool.isRequired,
-  exact: PropTypes.bool.isRequired
+  exact: PropTypes.bool
 };
 
 const getUserName = name =>

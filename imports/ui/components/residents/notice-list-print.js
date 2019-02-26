@@ -102,9 +102,9 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  noticeList: PropTypes.array.isRequired,
+  noticeList: PropTypes.array,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

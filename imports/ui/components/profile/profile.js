@@ -4,12 +4,11 @@ import { Button, Col, ControlLabel, FormGroup, Row } from "react-bootstrap";
 
 import { Accounts } from "meteor/accounts-base";
 import { Bert } from "meteor/themeteorchef:bert";
-import InputHint from "../../components/InputHint/InputHint";
+import InputHint from "../InputHint/InputHint";
 import { Meteor } from "meteor/meteor";
 import PropTypes from "prop-types";
 import React from "react";
 import { createContainer } from "meteor/react-meteor-data";
-import validate from "../../../modules/validate";
 
 class Profile extends React.Component {
   constructor(props) {

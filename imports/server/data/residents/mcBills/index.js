@@ -10,7 +10,7 @@ import updateFinesMc from "../../../data/finesMc/finesMc";
 import updateMcBill from "./updateMcBill";
 import updateMcBillType from "./updateMcBillType";
 
-export const editMcBill = async args => {
+const editMcBill = async args => {
   await updateFinesMc();
   const resident = await dbResidents.getById(args.resId);
   const mcmonths = await dbMonthsMc.getAll();

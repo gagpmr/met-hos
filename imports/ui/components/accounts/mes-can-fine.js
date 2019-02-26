@@ -31,14 +31,13 @@ class MesCanFine extends React.Component {
     this.props.refetch;
   }
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+  handleChange(e) {
+    const { name, value, checked, type } = e.target;
+    const nValue = type === "checkbox" ? checked : value;
     this.setState({
-      [name]: value
+      [name]: nValue
     });
-    this.getFine(value);
+    this.getFine(nValue);
   }
 
   render() {

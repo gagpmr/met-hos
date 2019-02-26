@@ -1,56 +1,62 @@
 import { gql, graphql, withApollo } from "react-apollo";
 
-import { Actions } from "./actions/actions.js";
+import { Actions } from "./actions/actions";
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import MessCanteenAccount from "./accounts/mess-canteen/mess-canteen-account.js";
+import MessCanteenAccount from "./accounts/mess-canteen/mess-canteen-account";
 import { Middle } from "../../../modules/styles";
-import PrivateAccount from "./accounts/private-account/private-account.js";
+import PrivateAccount from "./accounts/private-account/private-account";
 import PropTypes from "prop-types";
 import React from "react";
-import Transaction from "./accounts/transaction/transaction.js";
+import Transaction from "./accounts/transaction/transaction";
 import { withRouter } from "react-router-dom";
 
-const ResidentDetails = props => {
-  if (props.loading) {
+const ResidentDetails = ({
+  residentDetails,
+  fetchResident,
+  history,
+  loading,
+  client
+}) => {
+  if (loading) {
     return (
       <div style={Middle}>
         <MDSpinner />
       </div>
     );
   }
-  const resident = props.residentDetails.resident;
-  const date = props.residentDetails.effectiveDate;
+  const resident = residentDetails.resident;
+  const date = residentDetails.effectiveDate;
   return (
     <span>
       <Actions
         resident={resident}
-        history={props.history}
+        history={history}
         date={date}
-        fetchResident={props.fetchResident}
-        loadingResident={props.loading}
-        client={props.client}
+        fetchResident={fetchResident}
+        loadingResident={loading}
+        client={client}
       />
       <PrivateAccount
         resident={resident}
-        history={props.history}
-        fetchResident={props.fetchResident}
-        loadingResident={props.loading}
-        client={props.client}
+        history={history}
+        fetchResident={fetchResident}
+        loadingResident={loading}
+        client={client}
       />
       <MessCanteenAccount
         resident={resident}
-        history={props.history}
-        fetchResident={props.fetchResident}
-        loadingResident={props.loading}
-        client={props.client}
+        history={history}
+        fetchResident={fetchResident}
+        loadingResident={loading}
+        client={client}
       />
       <Transaction
         resident={resident}
-        history={props.history}
-        fetchResident={props.fetchResident}
-        loadingResident={props.loading}
-        client={props.client}
+        history={history}
+        fetchResident={fetchResident}
+        loadingResident={loading}
+        client={client}
       />
     </span>
   );
@@ -58,10 +64,10 @@ const ResidentDetails = props => {
 
 ResidentDetails.propTypes = {
   loading: PropTypes.bool.isRequired,
-  residentDetails: PropTypes.object,
+  residentDetails: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   fetchResident: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const RESIDENT_DETAILS = gql`

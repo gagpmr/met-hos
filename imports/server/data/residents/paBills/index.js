@@ -10,7 +10,7 @@ import updateMonthsPa from "../../monthsPa/monthsPa";
 import updatePaBill from "./updatePaBill";
 import updatePaBillType from "./updatePaBillType";
 
-export const editPaBill = async args => {
+const editPaBill = async args => {
   const resident = await dbResidents.getById(args.resId);
   const pamonths = await dbMonthsPa.getAll();
   const bill = await dbPaBills.getBillForResident(args.resId, args.billId);
