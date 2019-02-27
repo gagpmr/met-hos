@@ -53,17 +53,17 @@ const AuthWithNav = ({
                 key: "2"
               },
               <span>
-                <Link target="_blank" to={"/"}>
+                <Link target="_blank" to="/">
                   <i className="fa fa-home" aria-hidden="true" />
                 </Link>
                 <hr />
                 <Logout />
                 <hr />
-                <Link target="_blank" to={"/profile"}>
+                <Link target="_blank" to="/profile">
                   <i className="fa fa-address-card-o" aria-hidden="true" />
                 </Link>
                 <hr />
-                <Link target="_blank" to={"/effective-date"}>
+                <Link target="_blank" to="/effective-date">
                   <i className="fa fa-clock-o" aria-hidden="true" />
                 </Link>
               </span>

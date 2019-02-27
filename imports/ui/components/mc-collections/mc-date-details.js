@@ -7,7 +7,7 @@ import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { McDetail } from "./mc-detail.js";
+import McDetail from "./mc-detail";
 import PropTypes from "prop-types";
 import React from "react";
 import { withRouter } from "react-router-dom";
@@ -55,9 +55,9 @@ const McDateDetails = ({
                 Actions
               </th>
             </tr>
-            {details.map((item, index) => (
+            {details.map(item => (
               <McDetail
-                key={index}
+                key={item._id}
                 detail={item}
                 history={history}
                 client={client}
@@ -65,12 +65,12 @@ const McDateDetails = ({
               />
             ))}
             <tr key={dayCollection._id}>
-              <td style={PrintTableBorderBold}>{""}</td>
-              <td style={PrintTableBorderBold}>{""}</td>
-              <td style={PrintTableBorderBold}>{""}</td>
-              <td style={PrintTableBorderBold}>{""}</td>
-              <td style={PrintTableBorderBold}>{""}</td>
-              <td style={PrintTableBorderBold}>{""}</td>
+              <td style={PrintTableBorderBold} />
+              <td style={PrintTableBorderBold} />
+              <td style={PrintTableBorderBold} />
+              <td style={PrintTableBorderBold} />
+              <td style={PrintTableBorderBold} />
+              <td style={PrintTableBorderBold} />
               <td style={PrintTableBorderBold}>{dayCollection.MessOne}</td>
               <td style={PrintTableBorderBold}>{dayCollection.MessTwo}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Canteen}</td>
@@ -102,7 +102,7 @@ McDateDetails.propTypes = {
   details: PropTypes.array.isRequired,
   dayCollection: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired
 };
 
@@ -128,8 +128,8 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  mcDateDetails: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  mcDateDetails: PropTypes.object,
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };

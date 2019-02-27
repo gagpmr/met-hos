@@ -2,7 +2,6 @@ import ApolloClient from "apollo-client";
 import { PrintTableBorder } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
-import ReactDOM from "react-dom";
 import { gql } from "react-apollo";
 import moment from "moment";
 
@@ -49,7 +48,7 @@ class McDetail extends React.Component {
   componentDidMount() {
     if (this.props.detail !== undefined) {
       if (this.props.detail.Focus) {
-        ReactDOM.findDOMNode(this.refs[this.props.detail._id]).scrollIntoView();
+        this.node.scrollIntoView();
       }
     }
   }
@@ -143,7 +142,8 @@ class McDetail extends React.Component {
   render() {
     return (
       <tr
-        ref={this.props.detail._id}
+        // eslint-disable-next-line no-return-assign
+        ref={node => (this.node = node)}
         id={this.props.detail._id}
         className="text-center"
       >

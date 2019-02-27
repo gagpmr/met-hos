@@ -8,6 +8,7 @@ import ApolloClient from "apollo-client";
 import PropTypes from "prop-types";
 import React from "react";
 import gqls from "./sharedGqls";
+import { loadResident } from "../../../../../cache/methods";
 
 class ReduceMessOne extends React.Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class ReduceMessOne extends React.Component {
           }
         })
         .then(() => {
-          this.props.client.resetStore();
+          loadResident(this.props.resident._id, this.props.client);
           this.props.history.push(
             `/resident-details/${this.props.resident._id}`
           );
@@ -71,12 +72,11 @@ class ReduceMessOne extends React.Component {
     }
   }
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+  handleChange({ target }) {
+    const { value, checked, type, name } = target;
+    const nValue = type === "checkbox" ? checked : value;
     this.setState({
-      [name]: value
+      [name]: nValue
     });
   }
 

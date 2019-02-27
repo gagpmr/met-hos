@@ -8,6 +8,7 @@ import ApolloClient from "apollo-client";
 import PropTypes from "prop-types";
 import React from "react";
 import gqls from "./sharedGqls";
+import { loadResident } from "../../../../../cache/methods";
 
 class ReduceMessTwo extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class ReduceMessTwo extends React.Component {
     this.field.select();
   }
 
-  submitForm(e) {
+  async submitForm(e) {
     e.preventDefault();
     if (this.props.resident && this.props.bill) {
       this.props.client
@@ -48,13 +49,10 @@ class ReduceMessTwo extends React.Component {
           }
         })
         .then(() => {
-          this.props.client.resetStore();
+          loadResident(this.props.resident._id, this.props.client);
           this.props.history.push(
             `/resident-details/${this.props.resident._id}`
           );
-        })
-        .catch(error => {
-          console.log("there was an error sending the query", error);
         });
     }
   }
@@ -71,12 +69,11 @@ class ReduceMessTwo extends React.Component {
     }
   }
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+  handleChange({ target }) {
+    const { type, value, checked, name } = target;
+    const nValue = type === "checkbox" ? checked : value;
     this.setState({
-      [name]: value
+      [name]: nValue
     });
   }
 
@@ -137,7 +134,7 @@ ReduceMessTwo.propTypes = {
   resident: PropTypes.object,
   bill: PropTypes.object,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 export default ReduceMessTwo;

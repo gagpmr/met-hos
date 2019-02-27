@@ -95,14 +95,14 @@ export class EditMcDetail extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-    const depositDate = this.state.DepositDate.format("DD-MM-YYYY");
+    const depositDate = moment.utc(this.state.DepositDate).format("DD-MM-YYYY");
     this.props.client
       .mutate({
         mutation: UPDATE_MC_DETAIL,
         variables: {
           depositDate,
           detId: this.props.detail._id,
-          receiptDate: this.state.ReceiptDate.format("DD-MM-YYYY"),
+          receiptDate: moment.utc(this.state.ReceiptDate).format("DD-MM-YYYY"),
           receiptNumber: this.state.ReceiptNumber,
           studentName: this.state.StudentName,
           roomNumber: this.state.RoomNumber,

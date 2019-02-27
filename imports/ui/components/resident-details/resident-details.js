@@ -25,14 +25,13 @@ const ResidentDetails = ({
       </div>
     );
   }
-  const resident = residentDetails.resident;
-  const date = residentDetails.effectiveDate;
+  const { resident, effectiveDate } = residentDetails;
   return (
     <span>
       <Actions
         resident={resident}
         history={history}
-        date={date}
+        date={effectiveDate}
         fetchResident={fetchResident}
         loadingResident={loading}
         client={client}
