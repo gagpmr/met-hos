@@ -12,7 +12,7 @@ import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const REMOVE_CLASS = gql`
   mutation($classId: String!) {

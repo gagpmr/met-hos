@@ -2,7 +2,7 @@ import ApolloClient from "apollo-client";
 import { PrintTableBorder } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const COPY_EDIT = gql`

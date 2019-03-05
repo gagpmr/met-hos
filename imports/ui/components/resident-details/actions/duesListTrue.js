@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 import ApolloClient from "apollo-client";
 
 const DUES_LIST_TRUE = gql`

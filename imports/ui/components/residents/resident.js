@@ -4,13 +4,14 @@ import {
   WidthHundredPaddingThree,
   WidthTwentyThreePaddingFourLeftBold
 } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const UPDATE_RESIDENT = gql`
@@ -330,9 +331,7 @@ export class Resident extends React.Component {
               </td>
             </tr>
             <tr>
-              <td style={WidthTwentyThreePaddingFourLeftBold}>
-                Telephone Number
-              </td>
+              <td style={WidthTwentyThreePaddingFourLeftBold}>Telephone Number</td>
               <td style={PaddingZeroLeft}>
                 <input
                   onChange={this.getTelephoneNumber}

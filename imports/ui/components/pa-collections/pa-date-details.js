@@ -1,24 +1,15 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { PaDetail } from "./pa-detail.js";
+import { PaDetail } from "./pa-detail";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
-const PaDateDetails = ({
-  history,
-  details,
-  dayCollection,
-  client,
-  refetch
-}) => {
+const PaDateDetails = ({ history, details, dayCollection, client, refetch }) => {
   return (
     <div className="row">
       <div className="col-md-12">
@@ -26,12 +17,10 @@ const PaDateDetails = ({
           <thead>
             <tr>
               <th colSpan="18" style={PrintTableBorder}>
-                RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                Number &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp; EC:
-                Electricity Charges
+                RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; RR: Room Rent &nbsp; WC:
+                Water Charges &nbsp; EC: Electricity Charges
                 <br />
-                DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance
-                Charges &nbsp; Misc: Miscellaneous &nbsp;
+                DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance Charges &nbsp; Misc: Miscellaneous &nbsp;
               </th>
             </tr>
             <tr>
@@ -55,13 +44,7 @@ const PaDateDetails = ({
           </thead>
           <tbody>
             {details.map((item, index) => (
-              <PaDetail
-                key={index}
-                detail={item}
-                history={history}
-                client={client}
-                fetchPaDetails={refetch}
-              />
+              <PaDetail key={index} detail={item} history={history} client={client} fetchPaDetails={refetch} />
             ))}
             <tr className="text-center">
               <td colSpan="6" style={PrintTableBorder}>
@@ -69,18 +52,10 @@ const PaDateDetails = ({
               </td>
               <td style={PrintTableBorderBold}>{dayCollection.RoomRent}</td>
               <td style={PrintTableBorderBold}>{dayCollection.WaterCharges}</td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.ElectricityCharges}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.DevelopmentFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.RutineHstlMaintnceCharges}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.Miscellaneous}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.ElectricityCharges}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.DevelopmentFund}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.RutineHstlMaintnceCharges}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.Miscellaneous}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
               <td colSpan="5" style={PrintTableBorderBold}>
                 {""}

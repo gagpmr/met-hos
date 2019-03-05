@@ -1,11 +1,12 @@
 import { Middle, h4 } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 

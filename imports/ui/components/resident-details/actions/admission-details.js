@@ -10,15 +10,16 @@ import {
   WidthThirteenPaddingThreeLeft,
   WidthTwentySevenPaddingThreeLeft
 } from "../../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { McDetail } from "../../mc-collections/mc-detail";
+import McDetail from "../../mc-collections/mc-detail";
 import { PaDetail } from "../../pa-collections/pa-detail";
 import PropTypes from "prop-types";
 import React from "react";
 import { SaDetail } from "../../sa-collections/sa-detail";
+import gql from "graphql-tag";
 
 const AdmissionDetails = props => {
   if (props.loading || !props.admissionDetails) {
@@ -46,11 +47,7 @@ const AdmissionDetails = props => {
                   <Link to={`/resident/${props.admissionDetails.resident._id}`}>
                     <i className="fa fa-pencil-square-o" />
                   </Link>
-                  <a
-                    onClick={this.closeModal}
-                    href=""
-                    style={{ float: "right", marginRight: "10px" }}
-                  >
+                  <a onClick={this.closeModal} href="" style={{ float: "right", marginRight: "10px" }}>
                     <i className="fa fa-times fa-lg" aria-hidden="true" />
                   </a>
                 </th>
@@ -59,23 +56,15 @@ const AdmissionDetails = props => {
             <tbody>
               <tr>
                 <td style={WidthTenPaddingThreeLeftBold}>Roll Number</td>
-                <td style={WidthThirteenPaddingThreeLeft}>
-                  {props.admissionDetails.resident.RollNumber}
-                </td>
+                <td style={WidthThirteenPaddingThreeLeft}>{props.admissionDetails.resident.RollNumber}</td>
                 <td style={WidthTenPaddingThreeLeftBold}>Tel Num</td>
-                <td style={WidthTwentySevenPaddingThreeLeft}>
-                  {props.admissionDetails.resident.TelephoneNumber}
-                </td>
+                <td style={WidthTwentySevenPaddingThreeLeft}>{props.admissionDetails.resident.TelephoneNumber}</td>
                 <td style={WidthTenPaddingThreeLeftBold}>Category</td>
-                <td style={WidthTwentySevenPaddingThreeLeft}>
-                  {props.admissionDetails.resident.Category.Value}
-                </td>
+                <td style={WidthTwentySevenPaddingThreeLeft}>{props.admissionDetails.resident.Category.Value}</td>
               </tr>
               <tr>
                 <td style={PaddingThreeLeftBold}>Room</td>
-                <td style={PaddingThreeLeft}>
-                  {props.admissionDetails.resident.Room.Value}
-                </td>
+                <td style={PaddingThreeLeft}>{props.admissionDetails.resident.Room.Value}</td>
                 <td style={PaddingThreeLeftBold}>Class</td>
                 <td style={PaddingThreeLeft} colSpan="5">
                   {props.admissionDetails.resident.Class.Value}
@@ -91,12 +80,10 @@ const AdmissionDetails = props => {
             <thead>
               <tr>
                 <th colSpan="18" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp;
-                  EC: Electricity Charges
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; RR: Room Rent &nbsp; WC:
+                  Water Charges &nbsp; EC: Electricity Charges
                   <br />
-                  DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance
-                  Charges &nbsp; Misc: Miscellaneous &nbsp;
+                  DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance Charges &nbsp; Misc: Miscellaneous &nbsp;
                 </th>
               </tr>
               <tr>
@@ -138,12 +125,11 @@ const AdmissionDetails = props => {
             <tbody>
               <tr>
                 <th colSpan="21" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT:
-                  Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; M-1: Mess One &nbsp; M-2:
+                  Mess Two &nbsp; CNT: Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
                   <br />
-                  PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
-                  Servant Welfare Fund &nbsp; CF: Celebration Fund
+                  PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen Servant Welfare Fund &nbsp; CF: Celebration
+                  Fund
                 </th>
               </tr>
               <tr style={{ fontSize: "larger" }}>
@@ -186,9 +172,8 @@ const AdmissionDetails = props => {
             <thead>
               <tr>
                 <th colSpan="14" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; HS: Hostel Security &nbsp; MS: Mess Security
-                  &nbsp; CS: Canteen Security
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; HS: Hostel Security &nbsp;
+                  MS: Mess Security &nbsp; CS: Canteen Security
                 </th>
               </tr>
               <tr>

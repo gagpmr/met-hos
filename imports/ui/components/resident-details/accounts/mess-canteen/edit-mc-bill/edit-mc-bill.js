@@ -1,19 +1,17 @@
-import {
-  Middle,
-  PaddingThreeCenterLargeBold
-} from "../../../../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PaddingThreeCenterLargeBold } from "../../../../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
-import FullBill from "./full-bill.js";
-import HalfYearly from "../../halfYearly.js";
+import FullBill from "./full-bill";
+import HalfYearly from "../../halfYearly";
 import MDSpinner from "react-md-spinner";
-import McActions from "./mcActions.js";
+import McActions from "./mcActions";
 import PropTypes from "prop-types";
 import React from "react";
-import ReduceCanteen from "./reduce-canteen.js";
-import ReduceMessOne from "./reduce-mess-one.js";
-import ReduceMessTwo from "./reduce-mess-two.js";
+import ReduceCanteen from "./reduce-canteen";
+import ReduceMessOne from "./reduce-mess-one";
+import ReduceMessTwo from "./reduce-mess-two";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const EditMcBill = props => {

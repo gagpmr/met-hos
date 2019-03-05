@@ -1,11 +1,12 @@
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
-import { Session } from "./session.js";
+import { Session } from "./session";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const Sessions = ({ history, sessions, client, refetch }) => {
@@ -13,14 +14,8 @@ const Sessions = ({ history, sessions, client, refetch }) => {
     <span>
       <div className="row">
         <div className="col-md-offset-3 col-md-6">
-          {sessions.map((element, index) => (
-            <Session
-              key={index}
-              session={element}
-              history={history}
-              client={client}
-              fetchSessions={refetch}
-            />
+          {sessions.map(element => (
+            <Session key={element._id} session={element} history={history} client={client} fetchSessions={refetch} />
           ))}
         </div>
       </div>

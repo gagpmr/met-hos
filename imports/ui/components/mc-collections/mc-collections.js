@@ -1,17 +1,13 @@
 import { Link, withRouter } from "react-router-dom";
-import {
-  Middle,
-  PaddingThreeCenter,
-  PaginationRow,
-  WidthTwentyPaddingThreeCenter
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PaddingThreeCenter, PaginationRow, WidthTwentyPaddingThreeCenter } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import Pagination from "react-js-pagination";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const REMOVE_MC_DAY_TOTAL = gql`
@@ -46,9 +42,7 @@ export class McCollections extends React.Component {
 
   delete(e) {
     e.preventDefault();
-    const depositDate = moment
-      .utc(e.currentTarget.dataset.date)
-      .format("DD-MM-YYYY");
+    const depositDate = moment.utc(e.currentTarget.dataset.date).format("DD-MM-YYYY");
     this.props.client
       .mutate({
         mutation: REMOVE_MC_DAY_TOTAL,
@@ -68,9 +62,7 @@ export class McCollections extends React.Component {
       this.setState({ activePage: pageNo });
       this.props.history.push(`/mc-collections/${pageNo}`);
     } else {
-      this.props.history.push(
-        `/mc-collections/${this.props.match.params.pageNo}`
-      );
+      this.props.history.push(`/mc-collections/${this.props.match.params.pageNo}`);
     }
   }
 
@@ -134,9 +126,7 @@ export class McCollections extends React.Component {
                 <tr key={detail.DepositDate}>
                   <th style={WidthTwentyPaddingThreeCenter}>
                     <a
-                      href={`/mc-date-details/${moment
-                        .utc(detail.DepositDate)
-                        .format("DD-MM-YYYY")}`}
+                      href={`/mc-date-details/${moment.utc(detail.DepositDate).format("DD-MM-YYYY")}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -147,9 +137,7 @@ export class McCollections extends React.Component {
                     <Link
                       data-toggle="tooltip"
                       title="Edit Mc Day Total"
-                      to={`/edit-mc-day-total/${detail._id}/${
-                        this.props.match.params.pageNo
-                      }`}
+                      to={`/edit-mc-day-total/${detail._id}/${this.props.match.params.pageNo}`}
                     >
                       <i className="fa fa-pencil-square-o" />
                     </Link>
@@ -159,9 +147,7 @@ export class McCollections extends React.Component {
                       target="_blank"
                       data-toggle="tooltip"
                       title="Print Mc Day Total"
-                      to={`/mc-date-details-print/${moment
-                        .utc(detail.DepositDate)
-                        .format("DD-MM-YYYY")}`}
+                      to={`/mc-date-details-print/${moment.utc(detail.DepositDate).format("DD-MM-YYYY")}`}
                     >
                       <i className="fa fa-print" />
                     </Link>
@@ -179,23 +165,13 @@ export class McCollections extends React.Component {
                     </a>
                   </td>
                   <td style={PaddingThreeCenter}>
-                    <a
-                      href=""
-                      data-date={detail.DepositDate}
-                      onClick={this.delete}
-                    >
+                    <a href="" data-date={detail.DepositDate} onClick={this.delete}>
                       <i className="fa fa-trash-o" />
                     </a>
                   </td>
-                  <td style={WidthTwentyPaddingThreeCenter}>
-                    &#8377; {detail.Total}
-                  </td>
-                  <td style={WidthTwentyPaddingThreeCenter}>
-                    &#8377; {detail.Deposit}
-                  </td>
-                  <td style={WidthTwentyPaddingThreeCenter}>
-                    &#8377; {detail.ExcessDeposit}
-                  </td>
+                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Total}</td>
+                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Deposit}</td>
+                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.ExcessDeposit}</td>
                 </tr>
               ))}
             </tbody>

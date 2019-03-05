@@ -1,13 +1,10 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const SaDateDetailsPrint = ({ details, dayCollection }) => {
@@ -18,8 +15,8 @@ const SaDateDetailsPrint = ({ details, dayCollection }) => {
           <tbody>
             <tr>
               <th colSpan="14" style={PrintTableBorder}>
-                DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; HS: Hostel
-                Security &nbsp; MS: Mess Security &nbsp; CS: Canteen Security
+                DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; HS: Hostel Security &nbsp; MS: Mess Security &nbsp;
+                CS: Canteen Security
               </th>
             </tr>
             <tr style={{ fontSize: "larger" }}>
@@ -35,9 +32,7 @@ const SaDateDetailsPrint = ({ details, dayCollection }) => {
             {details.map(detail => (
               <tr key={detail._id}>
                 <td style={PrintTableBorder}>{detail.RollNumber}</td>
-                <td style={PrintTableBorder}>
-                  {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
-                </td>
+                <td style={PrintTableBorder}>{moment.utc(detail.DepositDate).format("DD-MM-YYYY")}</td>
                 <td style={PrintTableBorder}>{detail.ReceiptNumber}</td>
                 <td style={PrintTableBorder}>{detail.StudentName}</td>
                 <td style={PrintTableBorder}>{detail.HostelSecurity}</td>
@@ -51,13 +46,9 @@ const SaDateDetailsPrint = ({ details, dayCollection }) => {
               <td style={PrintTableBorderBold}>{""}</td>
               <td style={PrintTableBorderBold}>{""}</td>
               <td style={PrintTableBorderBold}>{""}</td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.HostelSecurity}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.HostelSecurity}</td>
               <td style={PrintTableBorderBold}>{dayCollection.MessSecurity}</td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.CanteenSecurity}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.CanteenSecurity}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
             </tr>
           </tbody>

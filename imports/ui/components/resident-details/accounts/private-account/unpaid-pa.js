@@ -7,7 +7,7 @@ import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
 import PropTypes from "prop-types";
 import React from "react";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const REMOVE_PA_BILL = gql`
   mutation($resId: String!, $billId: String!) {

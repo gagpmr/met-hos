@@ -1,17 +1,13 @@
 import { Link, withRouter } from "react-router-dom";
-import {
-  Middle,
-  PaddingThreeCenter,
-  PaginationRow,
-  WidthTwentyPaddingThreeCenter
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PaddingThreeCenter, PaginationRow, WidthTwentyPaddingThreeCenter } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import { Pagination } from "react-bootstrap";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 
 const AUTO_DEPOSIT = gql`
   mutation($month: String!) {
@@ -124,9 +120,7 @@ class PaMonthCollections extends React.Component {
             <tbody>
               {this.props.monthTotals.map(detail => (
                 <tr key={detail.DepositDate}>
-                  <th style={WidthTwentyPaddingThreeCenter}>
-                    {detail.DepositMonth}
-                  </th>
+                  <th style={WidthTwentyPaddingThreeCenter}>{detail.DepositMonth}</th>
                   <td style={PaddingThreeCenter}>
                     <Link
                       target="_blank"
@@ -150,23 +144,13 @@ class PaMonthCollections extends React.Component {
                     </a>
                   </td>
                   <td style={PaddingThreeCenter}>
-                    <a
-                      href=""
-                      data-month={detail.DepositMonth}
-                      onClick={this.delete}
-                    >
+                    <a href="" data-month={detail.DepositMonth} onClick={this.delete}>
                       <i className="fa fa-trash-o" />
                     </a>
                   </td>
-                  <td style={WidthTwentyPaddingThreeCenter}>
-                    &#8377; {detail.Total}
-                  </td>
-                  <td style={WidthTwentyPaddingThreeCenter}>
-                    &#8377; {detail.Deposit}
-                  </td>
-                  <td style={WidthTwentyPaddingThreeCenter}>
-                    &#8377; {detail.ExcessDeposit}
-                  </td>
+                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Total}</td>
+                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Deposit}</td>
+                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.ExcessDeposit}</td>
                 </tr>
               ))}
             </tbody>

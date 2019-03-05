@@ -1,13 +1,10 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const PaDateDetailsPrint = ({ details, dayCollection }) => {
@@ -18,12 +15,10 @@ const PaDateDetailsPrint = ({ details, dayCollection }) => {
           <tbody>
             <tr>
               <th colSpan="14" style={PrintTableBorder}>
-                DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; Sec: Security
-                &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp; EC:
-                Electricity Charges &nbsp; CF: Celebration Fund
+                DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; Sec: Security &nbsp; RR: Room Rent &nbsp; WC: Water
+                Charges &nbsp; EC: Electricity Charges &nbsp; CF: Celebration Fund
                 <br />
-                DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance
-                Charges &nbsp; Misc: Miscellaneous &nbsp;
+                DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance Charges &nbsp; Misc: Miscellaneous &nbsp;
               </th>
             </tr>
             <tr style={{ fontSize: "larger" }}>
@@ -42,18 +37,14 @@ const PaDateDetailsPrint = ({ details, dayCollection }) => {
             {details.map(detail => (
               <tr key={detail._id}>
                 <td style={PrintTableBorder}>{detail.RollNumber}</td>
-                <td style={PrintTableBorder}>
-                  {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
-                </td>
+                <td style={PrintTableBorder}>{moment.utc(detail.DepositDate).format("DD-MM-YYYY")}</td>
                 <td style={PrintTableBorder}>{detail.ReceiptNumber}</td>
                 <td style={PrintTableBorder}>{detail.Name}</td>
                 <td style={PrintTableBorder}>{detail.RoomRent}</td>
                 <td style={PrintTableBorder}>{detail.WaterCharges}</td>
                 <td style={PrintTableBorder}>{detail.ElectricityCharges}</td>
                 <td style={PrintTableBorder}>{detail.DevelopmentFund}</td>
-                <td style={PrintTableBorder}>
-                  {detail.RutineHstlMaintnceCharges}
-                </td>
+                <td style={PrintTableBorder}>{detail.RutineHstlMaintnceCharges}</td>
                 <td style={PrintTableBorder}>{detail.Miscellaneous}</td>
                 <td style={PrintTableBorderBold}>{detail.Total}</td>
               </tr>
@@ -65,18 +56,10 @@ const PaDateDetailsPrint = ({ details, dayCollection }) => {
               <td style={PrintTableBorderBold}>{""}</td>
               <td style={PrintTableBorderBold}>{dayCollection.RoomRent}</td>
               <td style={PrintTableBorderBold}>{dayCollection.WaterCharges}</td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.ElectricityCharges}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.DevelopmentFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.RutineHstlMaintnceCharges}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.Miscellaneous}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.ElectricityCharges}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.DevelopmentFund}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.RutineHstlMaintnceCharges}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.Miscellaneous}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
             </tr>
           </tbody>

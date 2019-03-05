@@ -9,9 +9,9 @@ import EditReturnAmount from "./edit-return-amount";
 import PaBillsHeader from "../PabillsHeader";
 import PropTypes from "prop-types";
 import React from "react";
-import UnpaidPa from "./unpaid-pa.js";
-import UnpaidPaTotal from "./unpaid-pa-total.js";
-import { gql } from "react-apollo";
+import UnpaidPa from "./unpaid-pa";
+import UnpaidPaTotal from "./unpaid-pa-total";
+import gql from "graphql-tag";
 
 const EDIT_PA_BILL = gql`
   query($resId: String!, $billId: String!) {

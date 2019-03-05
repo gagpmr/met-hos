@@ -1,11 +1,12 @@
 import { Middle, PrintTableBorder } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
-import { SaDetail } from "./sa-detail.js";
+import { SaDetail } from "./sa-detail";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const ResidentSaDetails = ({ history, details, client, refetch }) => {
@@ -17,9 +18,8 @@ const ResidentSaDetails = ({ history, details, client, refetch }) => {
             <thead>
               <tr>
                 <th colSpan="14" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; HS: Hostel Security &nbsp; MS: Mess Security
-                  &nbsp; CS: Canteen Security
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; HS: Hostel Security &nbsp;
+                  MS: Mess Security &nbsp; CS: Canteen Security
                 </th>
               </tr>
               <tr>
@@ -40,13 +40,7 @@ const ResidentSaDetails = ({ history, details, client, refetch }) => {
             </thead>
             <tbody>
               {details.map((element, index) => (
-                <SaDetail
-                  key={index}
-                  detail={element}
-                  history={history}
-                  client={client}
-                  fetchSaDetails={refetch}
-                />
+                <SaDetail key={index} detail={element} history={history} client={client} fetchSaDetails={refetch} />
               ))}
             </tbody>
           </table>

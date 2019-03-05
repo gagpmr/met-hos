@@ -5,13 +5,14 @@ import {
   WidthFifteenPaddingThreeCenterBoldLarger,
   WidthHundredPaddingThreeLeftNormal
 } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const UPDATE_CLASS = gql`
@@ -71,9 +72,7 @@ export class EditClass extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <td style={WidthFifteenPaddingThreeCenterBoldLarger}>
-                  Class Name
-                </td>
+                <td style={WidthFifteenPaddingThreeCenterBoldLarger}>Class Name</td>
                 <td style={PaddingZeroCenter}>
                   <input
                     id="class-value"

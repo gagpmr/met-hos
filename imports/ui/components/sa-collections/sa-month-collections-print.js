@@ -1,13 +1,10 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 
@@ -19,9 +16,8 @@ const SaMonthlyPrint = ({ details, monthCollection }) => {
           <tbody>
             <tr>
               <th colSpan="14" style={PrintTableBorder}>
-                DD: Deposit Date &nbsp; RNo:Receipt Number; ED: Excess Deposit
-                &nbsp; HS: Hostel Security &nbsp; MS: Mess Security &nbsp; CS:
-                Canteen Security
+                DD: Deposit Date &nbsp; RNo:Receipt Number; ED: Excess Deposit &nbsp; HS: Hostel Security &nbsp; MS:
+                Mess Security &nbsp; CS: Canteen Security
               </th>
             </tr>
             <tr>
@@ -39,9 +35,7 @@ const SaMonthlyPrint = ({ details, monthCollection }) => {
             </tr>
             {details.map(detail => (
               <tr key={detail._id}>
-                <td style={PrintTableBorder}>
-                  {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
-                </td>
+                <td style={PrintTableBorder}>{moment.utc(detail.DepositDate).format("DD-MM-YYYY")}</td>
                 <td style={PrintTableBorder}>{detail.HostelSecurity}</td>
                 <td style={PrintTableBorder}>{detail.MessSecurity}</td>
                 <td style={PrintTableBorder}>{detail.CanteenSecurity}</td>
@@ -51,19 +45,11 @@ const SaMonthlyPrint = ({ details, monthCollection }) => {
             ))}
             <tr>
               <td style={PrintTableBorderBold}>{""}</td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.HostelSecurity}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.MessSecurity}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.CanteenSecurity}
-              </td>
+              <td style={PrintTableBorderBold}>{monthCollection.HostelSecurity}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.MessSecurity}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.CanteenSecurity}</td>
               <td style={PrintTableBorderBold}>{monthCollection.Total}</td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.ExcessDeposit}
-              </td>
+              <td style={PrintTableBorderBold}>{monthCollection.ExcessDeposit}</td>
             </tr>
           </tbody>
         </table>
@@ -86,10 +72,7 @@ const FormatData = props => {
     );
   }
   return (
-    <SaMonthlyPrint
-      details={props.saMonthlyPrint.details}
-      monthCollection={props.saMonthlyPrint.monthCollection}
-    />
+    <SaMonthlyPrint details={props.saMonthlyPrint.details} monthCollection={props.saMonthlyPrint.monthCollection} />
   );
 };
 

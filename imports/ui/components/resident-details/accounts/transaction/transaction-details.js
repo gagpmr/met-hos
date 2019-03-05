@@ -1,16 +1,13 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { McDetail } from "../../../mc-collections/mc-detail";
+import McDetail from "../../../mc-collections/mc-detail";
 import { PaDetail } from "../../../pa-collections/pa-detail";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const TRANSACTION_DETAILS = gql`
@@ -28,12 +25,10 @@ const TransactionDetails = props => {
             <thead>
               <tr>
                 <th colSpan="18" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp;
-                  EC: Electricity Charges
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; RR: Room Rent &nbsp; WC:
+                  Water Charges &nbsp; EC: Electricity Charges
                   <br />
-                  DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance
-                  Charges &nbsp; Misc: Miscellaneous &nbsp;
+                  DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance Charges &nbsp; Misc: Miscellaneous &nbsp;
                 </th>
               </tr>
               <tr>
@@ -74,12 +69,11 @@ const TransactionDetails = props => {
             <tbody>
               <tr>
                 <th colSpan="21" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT:
-                  Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; M-1: Mess One &nbsp; M-2:
+                  Mess Two &nbsp; CNT: Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
                   <br />
-                  PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
-                  Servant Welfare Fund &nbsp; CF: Celebration Fund
+                  PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen Servant Welfare Fund &nbsp; CF: Celebration
+                  Fund
                 </th>
               </tr>
               <tr style={{ fontSize: "larger" }}>

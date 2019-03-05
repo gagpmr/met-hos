@@ -1,24 +1,15 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import McDetail from "./mc-detail";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
-const McDateDetails = ({
-  history,
-  details,
-  dayCollection,
-  client,
-  refetch
-}) => {
+const McDateDetails = ({ history, details, dayCollection, client, refetch }) => {
   return (
     <div className="row">
       <div className="col-md-12">
@@ -26,12 +17,11 @@ const McDateDetails = ({
           <tbody>
             <tr>
               <th colSpan="21" style={PrintTableBorder}>
-                RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                Number &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT:
-                Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
+                RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; M-1: Mess One &nbsp; M-2:
+                Mess Two &nbsp; CNT: Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
                 <br />
-                PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
-                Servant Welfare Fund &nbsp; CF: Celebration Fund
+                PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen Servant Welfare Fund &nbsp; CF: Celebration
+                Fund
               </th>
             </tr>
             <tr style={{ fontSize: "larger" }}>
@@ -56,13 +46,7 @@ const McDateDetails = ({
               </th>
             </tr>
             {details.map(item => (
-              <McDetail
-                key={item._id}
-                detail={item}
-                history={history}
-                client={client}
-                fetchMcDetails={refetch}
-              />
+              <McDetail key={item._id} detail={item} history={history} client={client} fetchMcDetails={refetch} />
             ))}
             <tr key={dayCollection._id}>
               <td style={PrintTableBorderBold} />
@@ -77,15 +61,9 @@ const McDateDetails = ({
               <td style={PrintTableBorderBold}>{dayCollection.Fines}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Amenity}</td>
               <td style={PrintTableBorderBold}>{dayCollection.FoodSubsidy}</td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.PoorStuWelFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.McServantWelFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.CelebrationFund}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.PoorStuWelFund}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.McServantWelFund}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.CelebrationFund}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
               <td colSpan={5} style={PrintTableBorderBold}>
                 {""}

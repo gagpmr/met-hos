@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import UnpaidMc from "./unpaid-mc.js";
 import UnpaidMcTotal from "./unpaid-mc-total.js";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const ADD_MC_BILL = gql`
   mutation($id: String!) {

@@ -1,14 +1,10 @@
-import {
-  Middle,
-  PrintMonthName,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintMonthName, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 
@@ -20,11 +16,10 @@ const PaMonthlyPrint = ({ details, monthCollection }) => {
           <tbody>
             <tr>
               <th colSpan="14" style={PrintTableBorder}>
-                DD: Deposit Date &nbsp; RR: Room Rent &nbsp; WC: Water Charges
-                &nbsp; EC: Electricity Charges &nbsp; DF: Development Fund
+                DD: Deposit Date &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp; EC: Electricity Charges &nbsp; DF:
+                Development Fund
                 <br />
-                ED: Excess Deposit &nbsp; RHMC: Routine Hostel Maintenance
-                Charges &nbsp; Misc: Miscellaneous
+                ED: Excess Deposit &nbsp; RHMC: Routine Hostel Maintenance Charges &nbsp; Misc: Miscellaneous
               </th>
             </tr>
             <tr>
@@ -45,16 +40,12 @@ const PaMonthlyPrint = ({ details, monthCollection }) => {
             </tr>
             {details.map(detail => (
               <tr key={detail._id}>
-                <td style={PrintTableBorder}>
-                  {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
-                </td>
+                <td style={PrintTableBorder}>{moment.utc(detail.DepositDate).format("DD-MM-YYYY")}</td>
                 <td style={PrintTableBorder}>{detail.RoomRent}</td>
                 <td style={PrintTableBorder}>{detail.WaterCharges}</td>
                 <td style={PrintTableBorder}>{detail.ElectricityCharges}</td>
                 <td style={PrintTableBorder}>{detail.DevelopmentFund}</td>
-                <td style={PrintTableBorder}>
-                  {detail.RutineHstlMaintnceCharges}
-                </td>
+                <td style={PrintTableBorder}>{detail.RutineHstlMaintnceCharges}</td>
                 <td style={PrintTableBorder}>{detail.Miscellaneous}</td>
                 <td style={PrintTableBorderBold}>{detail.Total}</td>
                 <td style={PrintTableBorderBold}>{detail.ExcessDeposit}</td>
@@ -63,25 +54,13 @@ const PaMonthlyPrint = ({ details, monthCollection }) => {
             <tr>
               <td style={PrintTableBorderBold}>{""}</td>
               <td style={PrintTableBorderBold}>{monthCollection.RoomRent}</td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.WaterCharges}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.ElectricityCharges}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.DevelopmentFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.RutineHstlMaintnceCharges}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.Miscellaneous}
-              </td>
+              <td style={PrintTableBorderBold}>{monthCollection.WaterCharges}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.ElectricityCharges}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.DevelopmentFund}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.RutineHstlMaintnceCharges}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.Miscellaneous}</td>
               <td style={PrintTableBorderBold}>{monthCollection.Total}</td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.ExcessDeposit}
-              </td>
+              <td style={PrintTableBorderBold}>{monthCollection.ExcessDeposit}</td>
             </tr>
           </tbody>
         </table>
@@ -104,10 +83,7 @@ const FormatData = props => {
     );
   }
   return (
-    <PaMonthlyPrint
-      details={props.paMonthlyPrint.details}
-      monthCollection={props.paMonthlyPrint.monthCollection}
-    />
+    <PaMonthlyPrint details={props.paMonthlyPrint.details} monthCollection={props.paMonthlyPrint.monthCollection} />
   );
 };
 

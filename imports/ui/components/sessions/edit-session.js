@@ -1,11 +1,12 @@
 import { Middle, paddingThree } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import $ from "jquery";
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const UPDATE_SESSION = gql`
@@ -134,25 +135,14 @@ export class EditSession extends React.Component {
       if (this.props.session.IsCurrentSession) {
         iscurrent.push(
           <td key={1} style={paddingThree}>
-            <input
-              type="checkbox"
-              tabIndex="1"
-              onChange={this.alter}
-              id="IsCurrentSession"
-              defaultChecked
-            />
+            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" defaultChecked />
             &nbsp; True
           </td>
         );
       } else {
         iscurrent.push(
           <td key={2} style={paddingThree}>
-            <input
-              type="checkbox"
-              tabIndex="1"
-              onChange={this.alter}
-              id="IsCurrentSession"
-            />
+            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" />
             &nbsp; False
           </td>
         );
@@ -161,25 +151,14 @@ export class EditSession extends React.Component {
       if (this.state.iscurrent) {
         iscurrent.push(
           <td key={1} style={paddingThree}>
-            <input
-              type="checkbox"
-              tabIndex="1"
-              onChange={this.alter}
-              id="IsCurrentSession"
-              defaultChecked
-            />
+            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" defaultChecked />
             &nbsp; True
           </td>
         );
       } else {
         iscurrent.push(
           <td key={2} style={paddingThree}>
-            <input
-              type="checkbox"
-              tabIndex="1"
-              onChange={this.alter}
-              id="IsCurrentSession"
-            />
+            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" />
             &nbsp; False
           </td>
         );
@@ -445,12 +424,7 @@ export class EditSession extends React.Component {
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a
-                    tabIndex="1"
-                    id="save-form"
-                    onClick={this.submitForm}
-                    href=""
-                  >
+                  <a tabIndex="1" id="save-form" onClick={this.submitForm} href="">
                     Save
                   </a>
                 </th>

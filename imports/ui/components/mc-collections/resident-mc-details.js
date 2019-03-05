@@ -1,11 +1,12 @@
 import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import McDetail from "./mc-detail";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const ResidentMcDetails = ({ history, details, client, refetch }) => {

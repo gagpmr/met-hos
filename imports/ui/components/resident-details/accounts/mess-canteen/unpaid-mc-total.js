@@ -3,7 +3,7 @@ import { Bert } from "meteor/themeteorchef:bert";
 import { PaddingThreeCenterBold } from "../../../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const TXN_ADD_ALL_MC = gql`
   mutation($resId: String!) {

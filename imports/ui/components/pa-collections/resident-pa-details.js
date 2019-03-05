@@ -1,11 +1,12 @@
 import { Middle, PrintTableBorder } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { PaDetail } from "./pa-detail.js";
+import { PaDetail } from "./pa-detail";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const ResidentPaDetails = ({ history, details, client, refetch }) => {
@@ -17,12 +18,10 @@ const ResidentPaDetails = ({ history, details, client, refetch }) => {
             <tbody>
               <tr>
                 <th colSpan="18" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; RR: Room Rent &nbsp; WC: Water Charges &nbsp;
-                  EC: Electricity Charges
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; RR: Room Rent &nbsp; WC:
+                  Water Charges &nbsp; EC: Electricity Charges
                   <br />
-                  DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance
-                  Charges &nbsp; Misc: Miscellaneous &nbsp;
+                  DF: Development Fund &nbsp; RHMC: Routine Hostel Maintenance Charges &nbsp; Misc: Miscellaneous &nbsp;
                 </th>
               </tr>
               <tr>
@@ -44,13 +43,7 @@ const ResidentPaDetails = ({ history, details, client, refetch }) => {
                 </th>
               </tr>
               {details.map((element, index) => (
-                <PaDetail
-                  key={index}
-                  detail={element}
-                  history={history}
-                  client={client}
-                  fetchPaDetails={refetch}
-                />
+                <PaDetail key={index} detail={element} history={history} client={client} fetchPaDetails={refetch} />
               ))}
             </tbody>
           </table>

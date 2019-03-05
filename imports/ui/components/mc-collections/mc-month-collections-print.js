@@ -1,14 +1,10 @@
-import {
-  Middle,
-  PrintMonthName,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintMonthName, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 
@@ -20,12 +16,11 @@ const McMonthlyPrint = ({ details, monthCollection }) => {
           <tbody>
             <tr>
               <th colSpan="14" style={PrintTableBorder}>
-                DD: Deposit Date &nbsp; M-1: Mess One &nbsp; M-2: Mess Two
-                &nbsp; CNT: Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
-                &nbsp; ED: Excess Deposit
+                DD: Deposit Date &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT: Canteen &nbsp; AMNT: Amenity
+                &nbsp; FS: Food Subsidy &nbsp; ED: Excess Deposit
                 <br />
-                PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
-                Servant Welfare Fund &nbsp; CF: Celebration Fund
+                PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen Servant Welfare Fund &nbsp; CF: Celebration
+                Fund
               </th>
             </tr>
             <tr>
@@ -49,9 +44,7 @@ const McMonthlyPrint = ({ details, monthCollection }) => {
             </tr>
             {details.map(detail => (
               <tr key={detail._id}>
-                <td style={PrintTableBorder}>
-                  {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
-                </td>
+                <td style={PrintTableBorder}>{moment.utc(detail.DepositDate).format("DD-MM-YYYY")}</td>
                 <td style={PrintTableBorder}>{detail.MessOne}</td>
                 <td style={PrintTableBorder}>{detail.MessTwo}</td>
                 <td style={PrintTableBorder}>{detail.Canteen}</td>
@@ -72,22 +65,12 @@ const McMonthlyPrint = ({ details, monthCollection }) => {
               <td style={PrintTableBorderBold}>{monthCollection.Canteen}</td>
               <td style={PrintTableBorderBold}>{monthCollection.Fines}</td>
               <td style={PrintTableBorderBold}>{monthCollection.Amenity}</td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.FoodSubsidy}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.PoorStuWelFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.McServantWelFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.CelebrationFund}
-              </td>
+              <td style={PrintTableBorderBold}>{monthCollection.FoodSubsidy}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.PoorStuWelFund}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.McServantWelFund}</td>
+              <td style={PrintTableBorderBold}>{monthCollection.CelebrationFund}</td>
               <td style={PrintTableBorderBold}>{monthCollection.Total}</td>
-              <td style={PrintTableBorderBold}>
-                {monthCollection.ExcessDeposit}
-              </td>
+              <td style={PrintTableBorderBold}>{monthCollection.ExcessDeposit}</td>
             </tr>
           </tbody>
         </table>
@@ -110,10 +93,7 @@ const FormatData = props => {
     );
   }
   return (
-    <McMonthlyPrint
-      details={props.mcMonthlyPrint.details}
-      monthCollection={props.mcMonthlyPrint.monthCollection}
-    />
+    <McMonthlyPrint details={props.mcMonthlyPrint.details} monthCollection={props.mcMonthlyPrint.monthCollection} />
   );
 };
 

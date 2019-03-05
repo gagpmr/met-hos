@@ -101,6 +101,7 @@
     "formik": "^1.5.1",
     "graphql": "^0.13.2",
     "graphql-server-express": "^1.4.0",
+    "graphql-tag": "^2.10.1",
     "graphql-tools": "^4.0.0",
     "graphql-type-json": "^0.2.1",
     "invariant": "^2.2.2",

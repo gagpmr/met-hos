@@ -8,7 +8,7 @@ import ApolloClient from "apollo-client";
 import McBillsHeader from "../McbillsHeader";
 import PropTypes from "prop-types";
 import React from "react";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const TXN_REMOVE_MC_BILL = gql`
   mutation($resId: String!, $billId: String!) {

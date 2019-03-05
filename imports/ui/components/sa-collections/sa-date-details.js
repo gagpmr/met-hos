@@ -1,24 +1,15 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
-import { SaDetail } from "./sa-detail.js";
+import { SaDetail } from "./sa-detail";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
-const SaDateDetails = ({
-  history,
-  details,
-  dayCollection,
-  client,
-  refetch
-}) => {
+const SaDateDetails = ({ history, details, dayCollection, client, refetch }) => {
   return (
     <div className="row">
       <div className="col-md-12">
@@ -26,9 +17,8 @@ const SaDateDetails = ({
           <thead>
             <tr>
               <th colSpan="14" style={PrintTableBorder}>
-                RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                Number &nbsp; HS: Hostel Security &nbsp; MS: Mess Security
-                &nbsp; CS: Canteen Security
+                RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; HS: Hostel Security &nbsp;
+                MS: Mess Security &nbsp; CS: Canteen Security
               </th>
             </tr>
             <tr>
@@ -49,25 +39,15 @@ const SaDateDetails = ({
           </thead>
           <tbody>
             {details.map((element, index) => (
-              <SaDetail
-                key={index}
-                detail={element}
-                history={history}
-                client={client}
-                fetchSaDetails={refetch}
-              />
+              <SaDetail key={index} detail={element} history={history} client={client} fetchSaDetails={refetch} />
             ))}
             <tr className="text-center">
               <td colSpan="6" style={PrintTableBorderBold}>
                 {""}
               </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.HostelSecurity}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.HostelSecurity}</td>
               <td style={PrintTableBorderBold}>{dayCollection.MessSecurity}</td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.CanteenSecurity}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.CanteenSecurity}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
               <td colSpan="4" style={PrintTableBorderBold}>
                 {""}

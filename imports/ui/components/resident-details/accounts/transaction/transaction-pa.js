@@ -8,7 +8,7 @@ import ApolloClient from "apollo-client";
 import PaBillsHeader from "../PabillsHeader";
 import PropTypes from "prop-types";
 import React from "react";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const TXN_REMOVE_PA_BILL = gql`
   mutation($resId: String!, $billId: String!) {

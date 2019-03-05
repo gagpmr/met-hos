@@ -1,13 +1,14 @@
 import "../../layouts/datepicker.css";
 
 import { Middle, h4 } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 
@@ -84,13 +85,14 @@ export class EditPaDetail extends React.Component {
   submitForm(e) {
     e.preventDefault();
     const depositDate = moment.utc(this.state.DepositDate).format("DD-MM-YYYY");
+    const receiptDate = moment.utc(this.state.ReceiptDate).format("DD-MM-YYYY");
     this.props.client
       .mutate({
         mutation: UPDATE_PA_DETAIL,
         variables: {
           depositDate,
           detId: this.props.detail._id,
-          receiptDate: this.state.ReceiptDate,
+          receiptDate,
           receiptNumber: this.state.ReceiptNumber,
           name: this.state.Name,
           roomNumber: this.state.RoomNumber,
@@ -327,12 +329,7 @@ export class EditPaDetail extends React.Component {
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a
-                    tabIndex="10"
-                    id="save-form"
-                    onClick={this.submitForm}
-                    href=""
-                  >
+                  <a tabIndex="10" id="save-form" onClick={this.submitForm} href="">
                     Save
                   </a>
                 </th>

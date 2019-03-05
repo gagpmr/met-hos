@@ -1,10 +1,11 @@
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 
@@ -47,9 +48,7 @@ export class EditSaDayTotal extends React.Component {
       })
       .then(() => {
         this.props.client.resetStore();
-        this.props.history.push(
-          `/sa-collections/${this.props.match.params.pageNo}`
-        );
+        this.props.history.push(`/sa-collections/${this.props.match.params.pageNo}`);
       })
       .catch(error => {
         console.log("there was an error sending the query", error);
@@ -86,11 +85,7 @@ export class EditSaDayTotal extends React.Component {
             <tbody>
               <tr>
                 <th className="text-center">Deposit Date</th>
-                <td className="text-center">
-                  {moment
-                    .utc(this.props.detail.DepositDate)
-                    .format("DD-MM-YYYY")}
-                </td>
+                <td className="text-center">{moment.utc(this.props.detail.DepositDate).format("DD-MM-YYYY")}</td>
               </tr>
               <tr>
                 <th className="text-center">Receipts Total</th>

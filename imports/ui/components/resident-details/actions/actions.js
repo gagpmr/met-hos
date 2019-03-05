@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import RemoveResident from "../../shared/RemoveResident";
 import Resident from "./resident";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const RESIDENT_PA_DETAILS = gql`

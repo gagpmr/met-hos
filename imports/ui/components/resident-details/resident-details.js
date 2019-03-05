@@ -1,4 +1,4 @@
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import { Actions } from "./actions/actions";
 import ApolloClient from "apollo-client";
@@ -9,15 +9,10 @@ import PrivateAccount from "./accounts/private-account/private-account";
 import PropTypes from "prop-types";
 import React from "react";
 import Transaction from "./accounts/transaction/transaction";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
-const ResidentDetails = ({
-  residentDetails,
-  fetchResident,
-  history,
-  loading,
-  client
-}) => {
+const ResidentDetails = ({ residentDetails, fetchResident, history, loading, client }) => {
   if (loading) {
     return (
       <div style={Middle}>

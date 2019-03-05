@@ -1,13 +1,10 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const McDateDetailsPrint = ({ details, dayCollection }) => {
@@ -18,12 +15,11 @@ const McDateDetailsPrint = ({ details, dayCollection }) => {
           <tbody>
             <tr>
               <th colSpan="21" style={PrintTableBorder}>
-                RD: Receipt Date &nbsp; RNo: Receipt Number &nbsp; M-1: Mess One
-                &nbsp; M-2: Mess Two &nbsp; CNT: Canteen &nbsp; AMNT: Amenity
-                &nbsp; FS: Food Subsidy
+                RD: Receipt Date &nbsp; RNo: Receipt Number &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT:
+                Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
                 <br />
-                PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
-                Servant Welfare Fund &nbsp; CF: Celebration Fund
+                PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen Servant Welfare Fund &nbsp; CF: Celebration
+                Fund
               </th>
             </tr>
             <tr style={{ fontSize: "larger" }}>
@@ -45,9 +41,7 @@ const McDateDetailsPrint = ({ details, dayCollection }) => {
             </tr>
             {details.map((item, index) => (
               <tr key={index} className="text-center">
-                <td style={PrintTableBorder}>
-                  {moment.utc(item.ReceiptDate).format("DD-MM-YYYY")}
-                </td>
+                <td style={PrintTableBorder}>{moment.utc(item.ReceiptDate).format("DD-MM-YYYY")}</td>
                 <td style={PrintTableBorder}>{item.ReceiptNumber}</td>
                 <td style={PrintTableBorder}>{item.RoomNumber}</td>
                 <td style={PrintTableBorder}>{item.RollNumber}</td>
@@ -76,15 +70,9 @@ const McDateDetailsPrint = ({ details, dayCollection }) => {
               <td style={PrintTableBorderBold}>{dayCollection.Fines}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Amenity}</td>
               <td style={PrintTableBorderBold}>{dayCollection.FoodSubsidy}</td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.PoorStuWelFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.McServantWelFund}
-              </td>
-              <td style={PrintTableBorderBold}>
-                {dayCollection.CelebrationFund}
-              </td>
+              <td style={PrintTableBorderBold}>{dayCollection.PoorStuWelFund}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.McServantWelFund}</td>
+              <td style={PrintTableBorderBold}>{dayCollection.CelebrationFund}</td>
               <td style={PrintTableBorderBold}>{dayCollection.Total}</td>
             </tr>
           </tbody>

@@ -1,11 +1,12 @@
 import { Middle, PaddingThreeCenterLargeBold } from "../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
-import { Class } from "./class.js";
+import { Class } from "./class";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 
 const Classes = props => {
   if (props.loading) {
@@ -28,12 +29,7 @@ const Classes = props => {
           </thead>
           <tbody>
             {props.classes.map((element, index) => (
-              <Class
-                key={index}
-                clas={element}
-                client={props.client}
-                fetchClasses={props.refetch}
-              />
+              <Class key={index} clas={element} client={props.client} fetchClasses={props.refetch} />
             ))}
           </tbody>
         </table>

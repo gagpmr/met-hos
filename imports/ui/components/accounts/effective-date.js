@@ -1,6 +1,6 @@
 import "../../layouts/datepicker.css";
 
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
@@ -8,6 +8,7 @@ import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const UPDATE_DATE = gql`
@@ -132,32 +133,22 @@ class EffectiveDate extends React.Component {
           <thead>
             <tr>
               <th colSpan="3" className="text-center h4 font-bolder">
-                <strong>
-                  Effective Date &nbsp; ({this.props.date.EffectiveDateStr})
-                </strong>
+                <strong>Effective Date &nbsp; ({this.props.date.EffectiveDateStr})</strong>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th className="text-center width-effective-date">String Value</th>
-              <td className="text-center">
-                {this.props.date.EffectiveDateStr}
-              </td>
+              <td className="text-center">{this.props.date.EffectiveDateStr}</td>
             </tr>
             <tr>
-              <th className="text-center width-effective-date">
-                Date with Time
-              </th>
+              <th className="text-center width-effective-date">Date with Time</th>
               <td className="text-center">{this.state.startDate.toString()}</td>
             </tr>
             <tr>
-              <th className="text-center width-effective-date">
-                Auto Generate
-              </th>
-              <td className="text-center">
-                {this.props.date.AutoGenerate.toString()}
-              </td>
+              <th className="text-center width-effective-date">Auto Generate</th>
+              <td className="text-center">{this.props.date.AutoGenerate.toString()}</td>
             </tr>
             <tr>
               <td colSpan="2" className="text-center h4 font-bolder">
@@ -209,12 +200,7 @@ const FormatData = props => {
     );
   }
   return (
-    <EffectiveDate
-      loading={props.loading}
-      date={props.effectiveDate}
-      client={props.client}
-      refetch={props.refetch}
-    />
+    <EffectiveDate loading={props.loading} date={props.effectiveDate} client={props.client} refetch={props.refetch} />
   );
 };
 

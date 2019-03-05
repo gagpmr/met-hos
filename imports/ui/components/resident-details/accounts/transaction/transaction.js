@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import TransactionMc from "./transaction-mc";
 import TransactionPa from "./transaction-pa";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const TXN_DETAIL_MC = gql`
   mutation($resId: String!) {

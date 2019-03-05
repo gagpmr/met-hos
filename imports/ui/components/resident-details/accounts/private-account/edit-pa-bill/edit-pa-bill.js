@@ -1,8 +1,5 @@
-import {
-  Middle,
-  PaddingThreeCenterLargeBold
-} from "../../../../../../modules/styles";
-import { gql, graphql, withApollo } from "react-apollo";
+import { Middle, PaddingThreeCenterLargeBold } from "../../../../../../modules/styles";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import Continuation from "./continuation";
@@ -18,6 +15,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import Regular from "./regular";
 import Security from "./security";
+import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 
 const EditPaBill = props => {

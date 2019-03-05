@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";
-import { gql } from "react-apollo";
+import gql from "graphql-tag";
 
 const EDIT_SESSION = gql`
   query($sessId: String!) {

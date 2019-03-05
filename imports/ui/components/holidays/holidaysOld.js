@@ -1,4 +1,4 @@
-import { gql, graphql, withApollo } from "react-apollo";
+import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
@@ -6,6 +6,7 @@ import { Middle } from "../../../modules/styles";
 import Pagination from "react-js-pagination";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 
 const REMOVE_HOLIDAY = gql`
   mutation($id: ID!) {
@@ -50,8 +51,7 @@ class Holidays extends React.Component {
   render() {
     const rows = [];
     if (this.props.holidays.length > 0) {
-      let startIndex =
-        this.state.activePage * this.state.range - this.state.range;
+      let startIndex = this.state.activePage * this.state.range - this.state.range;
       for (let index = 0; index < this.state.range; index++) {
         const element = this.props.holidays[startIndex];
         if (element !== undefined) {
