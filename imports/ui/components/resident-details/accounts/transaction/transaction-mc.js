@@ -77,10 +77,7 @@ const TransactionMc = props => {
 
 TransactionMc.propTypes = {
   resident: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  fetchResident: PropTypes.func.isRequired,
-  loadingResident: PropTypes.bool.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  loadingResident: PropTypes.bool.isRequired
 };
 
 export default TransactionMc;

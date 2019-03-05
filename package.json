@@ -98,6 +98,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "formik": "^1.5.1",
     "graphql": "^0.13.2",
     "graphql-server-express": "^1.4.0",
     "graphql-tools": "^4.0.0",
@@ -123,6 +124,7 @@
     "react-modal": "^3.1.13",
     "react-router-bootstrap": "^0.24.3",
     "react-router-dom": "^4.2.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "yup": "^0.26.10"
   }
 }

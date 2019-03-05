@@ -1,13 +1,9 @@
-import {
-  Middle,
-  PrintTableBorder,
-  PrintTableBorderBold
-} from "../../../modules/styles";
+import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import { McDetail } from "./mc-detail.js";
+import McDetail from "./mc-detail";
 import PropTypes from "prop-types";
 import React from "react";
 import { withRouter } from "react-router-dom";
@@ -21,12 +17,11 @@ const ResidentMcDetails = ({ history, details, client, refetch }) => {
             <tbody>
               <tr>
                 <th colSpan="21" style={PrintTableBorder}>
-                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt
-                  Number &nbsp; M-1: Mess One &nbsp; M-2: Mess Two &nbsp; CNT:
-                  Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
+                  RD: Receipt Date &nbsp; DD: Deposit Date &nbsp; RNo: Receipt Number &nbsp; M-1: Mess One &nbsp; M-2:
+                  Mess Two &nbsp; CNT: Canteen &nbsp; AMNT: Amenity &nbsp; FS: Food Subsidy
                   <br />
-                  PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen
-                  Servant Welfare Fund &nbsp; CF: Celebration Fund
+                  PSWF: Poor Student Welfare Fund &nbsp; MSWF: Mess Canteen Servant Welfare Fund &nbsp; CF: Celebration
+                  Fund
                 </th>
               </tr>
               <tr style={{ fontSize: "larger" }}>
@@ -50,9 +45,9 @@ const ResidentMcDetails = ({ history, details, client, refetch }) => {
                   Actions
                 </th>
               </tr>
-              {details.map((element, index) => (
+              {details.map(element => (
                 <McDetail
-                  key={index}
+                  key={element._id}
                   detail={element}
                   history={history}
                   client={client}
@@ -70,7 +65,7 @@ const ResidentMcDetails = ({ history, details, client, refetch }) => {
 ResidentMcDetails.propTypes = {
   details: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired
 };
 

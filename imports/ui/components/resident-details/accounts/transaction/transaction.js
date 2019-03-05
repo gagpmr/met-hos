@@ -4,11 +4,10 @@ import {
 } from "../../../../../modules/styles";
 
 import ApolloClient from "apollo-client";
-import { Bert } from "meteor/themeteorchef:bert";
 import PropTypes from "prop-types";
 import React from "react";
-import TransactionMc from "./transaction-mc.js";
-import TransactionPa from "./transaction-pa.js";
+import TransactionMc from "./transaction-mc";
+import TransactionPa from "./transaction-pa";
 import { gql } from "react-apollo";
 
 const TXN_DETAIL_MC = gql`
@@ -27,7 +26,6 @@ const createMcDetail = (props, e) => {
       }
     })
     .then(({ data }) => {
-      props.client.resetStore();
       props.history.push(`/edit-mc-detail/${data.txnDetailMc}`);
     });
 };
@@ -48,7 +46,6 @@ const createPaDetail = (props, e) => {
       }
     })
     .then(({ data }) => {
-      props.client.resetStore();
       props.history.push(`/edit-pa-detail/${data.txnDetailPa}`);
     });
 };

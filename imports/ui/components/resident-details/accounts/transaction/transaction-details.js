@@ -123,7 +123,7 @@ TransactionDetails.propTypes = {
   paDetail: PropTypes.object.isRequired,
   mcDetail: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {

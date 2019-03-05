@@ -15,8 +15,8 @@ class Continuation extends React.Component {
     this.changeStartDate = this.changeStartDate.bind(this);
     this.changeEndDate = this.changeEndDate.bind(this);
     this.state = {
-      StartDate: moment(props.bill.StartDate),
-      EndDate: moment(props.bill.EndDate),
+      StartDate: moment.utc(props.bill.StartDate).toDate(),
+      EndDate: moment.utc(props.bill.EndDate).toDate(),
       Modified: false
     };
   }
@@ -37,8 +37,8 @@ class Continuation extends React.Component {
             billType: "continuation",
             resId: this.props.resident._id,
             billId: this.props.bill._id,
-            startDate: this.state.StartDate.format("DD-MM-YYYY"),
-            endDate: this.state.EndDate.format("DD-MM-YYYY"),
+            startDate: moment.utc(this.state.StartDate).format("DD-MM-YYYY"),
+            endDate: moment.utc(this.state.EndDate).format("DD-MM-YYYY"),
             electricity: 0,
             billPeriod: "",
             misc: 0,
@@ -123,10 +123,10 @@ class Continuation extends React.Component {
 }
 
 Continuation.propTypes = {
-  bill: PropTypes.object,
-  resident: PropTypes.object,
+  bill: PropTypes.object.isRequired,
+  resident: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 export default Continuation;

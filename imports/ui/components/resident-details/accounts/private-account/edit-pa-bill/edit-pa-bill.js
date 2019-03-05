@@ -5,19 +5,19 @@ import {
 import { gql, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
-import Continuation from "./continuation.js";
-import Daily from "./daily.js";
-import Electricity from "./electricity.js";
-import FineWarden from "./fine-warden.js";
-import HalfYearly from "../../halfYearly.js";
+import Continuation from "./continuation";
+import Daily from "./daily";
+import Electricity from "./electricity";
+import FineWarden from "./fine-warden";
+import HalfYearly from "../../halfYearly";
 import MDSpinner from "react-md-spinner";
-import NightStay from "./night-stay.js";
-import PaActions from "./paActions.js";
-import PhdHra from "./phd-hra.js";
+import NightStay from "./night-stay";
+import PaActions from "./paActions";
+import PhdHra from "./phd-hra";
 import PropTypes from "prop-types";
 import React from "react";
-import Regular from "./regular.js";
-import Security from "./security.js";
+import Regular from "./regular";
+import Security from "./security";
 import { withRouter } from "react-router-dom";
 
 const EditPaBill = props => {
