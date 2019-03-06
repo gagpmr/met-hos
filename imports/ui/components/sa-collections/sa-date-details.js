@@ -64,7 +64,7 @@ SaDateDetails.propTypes = {
   details: PropTypes.array.isRequired,
   dayCollection: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired
 };
 
@@ -91,7 +91,7 @@ const FormatData = props => {
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
   saDateDetails: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };

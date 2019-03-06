@@ -56,7 +56,7 @@ const ResidentPaDetails = ({ history, details, client, refetch }) => {
 ResidentPaDetails.propTypes = {
   details: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired
 };
 
@@ -82,7 +82,7 @@ const FormatData = props => {
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
   residentPaDetails: PropTypes.array.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };

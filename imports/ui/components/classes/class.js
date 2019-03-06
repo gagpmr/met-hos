@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
-import ReactDOM from "react-dom";
 import gql from "graphql-tag";
 
 const REMOVE_CLASS = gql`
@@ -57,7 +56,7 @@ export class Class extends React.Component {
   componentDidMount() {
     if (this.props.clas !== undefined) {
       if (this.props.clas.Focus) {
-        ReactDOM.findDOMNode(this.refs[this.props.clas._id]).scrollIntoView();
+        this.node.scrollIntoView();
       }
     }
   }
@@ -165,7 +164,8 @@ export class Class extends React.Component {
       );
     }
     return (
-      <tr ref={this.props.clas._id} className="text-left">
+      // eslint-disable-next-line no-return-assign
+      <tr ref={node => (this.node = node)} id={this.props.detail._id} className="text-left">
         <td style={WidthFivePaddingFourCenterBold}>{this.props.clas.SrNo}</td>
         <td style={PaddingFourCenterBold}>
           <a
@@ -219,11 +219,7 @@ export class Class extends React.Component {
           </a>
         </td>
         <td style={PaddingFourCenter}>
-          <Link
-            data-toggle="tooltip"
-            title="Edit Class"
-            to={`/edit-class/${this.props.clas._id}`}
-          >
+          <Link data-toggle="tooltip" title="Edit Class" to={`/edit-class/${this.props.clas._id}`}>
             <i className="fa fa-pencil-square-o" />
           </Link>
         </td>
@@ -238,9 +234,7 @@ export class Class extends React.Component {
             <i className="fa fa-trash-o" aria-hidden="true" />
           </a>
         </td>
-        <td style={WidthSeventyFivePaddingFourCenterBold}>
-          {this.props.clas.Value}
-        </td>
+        <td style={WidthSeventyFivePaddingFourCenterBold}>{this.props.clas.Value}</td>
       </tr>
     );
   }
@@ -251,7 +245,7 @@ Class.defaultProps = {
 };
 
 Class.propTypes = {
-  clas: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  clas: PropTypes.object,
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   fetchClasses: PropTypes.func.isRequired
 };

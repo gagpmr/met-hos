@@ -26,7 +26,7 @@ const Sessions = ({ history, sessions, client, refetch }) => {
 Sessions.propTypes = {
   sessions: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired
 };
 
@@ -52,7 +52,7 @@ const FormatData = props => {
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
   sessions: PropTypes.array.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };

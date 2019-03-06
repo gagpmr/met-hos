@@ -300,6 +300,6 @@ export class Session extends React.Component {
 Session.propTypes = {
   session: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   fetchSessions: PropTypes.func.isRequired
 };

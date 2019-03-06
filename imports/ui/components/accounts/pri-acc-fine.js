@@ -93,7 +93,7 @@ PriAccFine.propTypes = {
   fines: PropTypes.array.isRequired,
   months: PropTypes.array.isRequired,
   date: PropTypes.string.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   latestMonth: PropTypes.string.isRequired,
   latestFine: PropTypes.number.isRequired
 };

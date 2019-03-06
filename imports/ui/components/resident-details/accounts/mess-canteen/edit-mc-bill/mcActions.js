@@ -160,7 +160,7 @@ McActions.propTypes = {
   resident: PropTypes.object,
   bill: PropTypes.object,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   fetchEditMcBill: PropTypes.func.isRequired
 };
 

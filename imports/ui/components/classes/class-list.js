@@ -28,8 +28,8 @@ const Classes = props => {
             </tr>
           </thead>
           <tbody>
-            {props.classes.map((element, index) => (
-              <Class key={index} clas={element} client={props.client} fetchClasses={props.refetch} />
+            {props.classes.map(element => (
+              <Class key={element._id} clas={element} client={props.client} fetchClasses={props.refetch} />
             ))}
           </tbody>
         </table>
@@ -49,8 +49,8 @@ Classes.propTypes = {
       _id: PropTypes.string.isRequired,
       Value: PropTypes.string.isRequired
     })
-  ).isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  ),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired
 };
 

@@ -112,7 +112,7 @@ MessCanteenAccount.propTypes = {
   history: PropTypes.object.isRequired,
   fetchResident: PropTypes.func.isRequired,
   loadingResident: PropTypes.bool.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 export default MessCanteenAccount;

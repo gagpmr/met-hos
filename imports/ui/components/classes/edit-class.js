@@ -76,6 +76,7 @@ export class EditClass extends React.Component {
                 <td style={PaddingZeroCenter}>
                   <input
                     id="class-value"
+                    // eslint-disable-next-line jsx-a11y/no-autofocus
                     autoFocus
                     ref={input => {
                       this.field = input;
@@ -105,7 +106,7 @@ export class EditClass extends React.Component {
 EditClass.propTypes = {
   clas: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -129,10 +130,10 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  editClass: PropTypes.object.isRequired,
+  editClass: PropTypes.object,
   refetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

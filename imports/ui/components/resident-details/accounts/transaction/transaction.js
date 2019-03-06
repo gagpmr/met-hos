@@ -216,7 +216,7 @@ Transaction.propTypes = {
   resident: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   fetchResident: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   loadingResident: PropTypes.bool.isRequired
 };
 

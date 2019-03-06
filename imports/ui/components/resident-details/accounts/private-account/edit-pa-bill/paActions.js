@@ -268,7 +268,7 @@ PaActions.propTypes = {
   resident: PropTypes.object,
   bill: PropTypes.object,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   fetchEditPaBill: PropTypes.func.isRequired
 };
 

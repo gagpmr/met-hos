@@ -166,7 +166,7 @@ UnpaidMc.propTypes = {
   resident: PropTypes.object,
   fetchResident: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   loadingResident: PropTypes.bool.isRequired
 };
 

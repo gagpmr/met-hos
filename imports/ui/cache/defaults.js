@@ -1,6 +1,7 @@
 const defaults = {
   email: "",
-  password: ""
+  password: "",
+  deposit: ""
 };
 
 export default defaults;

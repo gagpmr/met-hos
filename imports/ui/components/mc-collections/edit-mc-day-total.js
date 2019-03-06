@@ -1,4 +1,5 @@
 import { graphql, withApollo } from "react-apollo";
+import { handleChange, keyPressed } from "../shared/Functions";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
@@ -21,16 +22,22 @@ const UPDATE_MC_DAY_TOTAL = gql`
   }
 `;
 
+const STATE = gql`
+  query {
+    deposit
+  }
+`;
+
 class EditMcDayTotal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       Deposit: props.detail.Deposit
     };
-    this.submitForm = this.submitForm.bind(this);
-    this.keyPressed = this.keyPressed.bind(this);
+    this.submitForm = this.handleSubmit.bind(this);
+    // this.keyPressed = this.keyPressed.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   handleFocus(e) {
@@ -42,14 +49,17 @@ class EditMcDayTotal extends React.Component {
     }
   }
 
-  submitForm(e) {
+  handleSubmit(e, client) {
     e.preventDefault();
+    const state = client.readQuery({
+      query: STATE
+    });
     this.props.client
       .mutate({
         mutation: UPDATE_MC_DAY_TOTAL,
         variables: {
           detId: this.props.detail._id,
-          deposit: this.state.Deposit
+          deposit: state.deposit
         }
       })
       .then(() => {
@@ -74,20 +84,20 @@ class EditMcDayTotal extends React.Component {
       });
   }
 
-  keyPressed(event) {
-    if (event.key === "Enter") {
-      this.submitForm(event);
-    }
-  }
+  // keyPressed(event, client) {
+  //   if (event.key === "Enter") {
+  //     this.submitForm(event, client);
+  //   }
+  // }
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value
-    });
-  }
+  // handleChange(event) {
+  //   const target = event.target;
+  //   const value = target.type === "checkbox" ? target.checked : target.value;
+  //   const name = target.name;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // }
 
   render() {
     return (
@@ -116,18 +126,18 @@ class EditMcDayTotal extends React.Component {
                   <input
                     autoFocus
                     onFocus={this.handleFocus}
-                    onChange={this.handleChange}
-                    onKeyDown={this.keyPressed}
+                    onChange={e => handleChange(e, this.props.client)}
+                    onKeyDown={e => keyPressed(e, this.props.client, this)}
                     type="text"
-                    tabIndex="1"
-                    name="Deposit"
+                    tabIndex="-1"
+                    name="deposit"
                     defaultValue={this.state.Deposit}
                   />
                 </td>
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a id="save-form" onClick={this.submitForm} href="">
+                  <a id="save-form" onClick={e => handleSubmit(e, this.props.client)} href="">
                     Save
                   </a>
                 </th>
@@ -144,7 +154,7 @@ EditMcDayTotal.propTypes = {
   detail: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -168,11 +178,11 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  editMcDayTotal: PropTypes.object.isRequired,
+  editMcDayTotal: PropTypes.object,
   history: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
   match: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

@@ -92,7 +92,7 @@ const FormatData = props => {
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
   residentMcDetails: PropTypes.array.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   refetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };

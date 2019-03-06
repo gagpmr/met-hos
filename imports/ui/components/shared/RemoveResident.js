@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { gql, withApollo } from "react-apollo";
+import gql from "graphql-tag";
+import { withApollo } from "react-apollo";
 import { withRouter } from "react-router-dom";
 import ApolloClient from "apollo-client";
 
@@ -63,7 +64,7 @@ const RemoveResident = props => {
 
 RemoveResident.propTypes = {
   resident: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient),
+  client: PropTypes.instanceOf(ApolloClient).isRequired,
   callingComponent: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
   fetchAllResidents: PropTypes.func
