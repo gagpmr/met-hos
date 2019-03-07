@@ -101,195 +101,62 @@ export const WidthEightyPaddingZeroLeft = Object.assign({}, PaddingZero, Left, {
 // Padding Four Styles
 export const PaddingFourCenter = Object.assign({}, PaddingFour, Center);
 
-export const PaddingFourCenterBold = Object.assign(
-  {},
-  PaddingFour,
-  Center,
-  Bold
-);
+export const PaddingFourCenterBold = Object.assign({}, PaddingFour, Center, Bold);
 
-export const PaddingFourCenterLargeBold = Object.assign(
-  {},
-  PaddingFour,
-  Center,
-  Bold,
-  Large
-);
+export const PaddingFourCenterLargeBold = Object.assign({}, PaddingFour, Center, Bold, Large);
 
-export const WidthThreePaddingFourCenterBold = Object.assign(
-  {},
-  PaddingFour,
-  Center,
-  Bold,
-  { width: "3%" }
-);
+export const WidthThreePaddingFourCenterBold = Object.assign({}, PaddingFour, Center, Bold, { width: "3%" });
 
-export const WidthFivePaddingFourCenterBold = Object.assign(
-  {},
-  PaddingFour,
-  Center,
-  Bold,
-  { width: "5%" }
-);
+export const WidthFivePaddingFourCenterBold = Object.assign({}, PaddingFour, Center, Bold, { width: "5%" });
 
-export const WidthTenPaddingFourCenter = Object.assign(
-  {},
-  PaddingFour,
-  Center,
-  {
-    width: "10%"
-  }
-);
+export const WidthTenPaddingFourCenter = Object.assign({}, PaddingFour, Center, {
+  width: "10%"
+});
 
-export const WidthTwentyThreePaddingFourLeftBold = Object.assign(
-  {},
-  PaddingFour,
-  Left,
-  Bold,
-  { width: "23%" }
-);
+export const WidthTwentyThreePaddingFourLeftBold = Object.assign({}, PaddingFour, Left, Bold, { width: "23%" });
 
 export const WidthHundredPaddingThree = Object.assign({}, PaddingThree, Left, {
   width: "100%"
 });
 
-export const WidthSeventyFivePaddingFourCenterBold = Object.assign(
-  {},
-  PaddingFour,
-  Center,
-  Bold,
-  { width: "75%" }
-);
+export const WidthSeventyFivePaddingFourCenterBold = Object.assign({}, PaddingFour, Center, Bold, { width: "75%" });
 
 // Padding Three Styles
 export const PaddingThreeLeft = Object.assign({}, PaddingThree, Left);
 export const PaddingThreeCenter = Object.assign({}, PaddingThree, Center);
 export const PaddingThreeLeftBold = Object.assign({}, PaddingThree, Left, Bold);
-export const PaddingThreeCenterBold = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  Bold
-);
+export const PaddingThreeCenterBold = Object.assign({}, PaddingThree, Center, Bold);
 
-export const PaddingThreeCenterLargeBold = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  Bold,
-  Large
-);
+export const PaddingThreeCenterLargeBold = Object.assign({}, PaddingThree, Center, Bold, Large);
 
-export const PaddingThreeLeftLargerBold = Object.assign(
-  {},
-  PaddingThree,
-  Left,
-  Larger,
-  Bold
-);
+export const PaddingThreeLeftLargerBold = Object.assign({}, PaddingThree, Left, Larger, Bold);
 
-export const PaddingThreeCenterLargerBold = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  Bold,
-  Larger
-);
+export const PaddingThreeCenterLargerBold = Object.assign({}, PaddingThree, Center, Bold, Larger);
 
 // Padding Three Width
-export const WidthSevenPaddingThreeLeft = Object.assign(
-  {},
-  PaddingThree,
-  Left,
-  Normal,
-  { width: "7%" }
-);
+export const WidthSevenPaddingThreeLeft = Object.assign({}, PaddingThree, Left, Normal, { width: "7%" });
 
-export const WidthThirteenPaddingThreeLeft = Object.assign(
-  {},
-  PaddingThree,
-  Left,
-  Normal,
-  { width: "13%" }
-);
+export const WidthThirteenPaddingThreeLeft = Object.assign({}, PaddingThree, Left, Normal, { width: "13%" });
 
-export const WidthHundredPaddingThreeLeftNormal = Object.assign(
-  {},
-  PaddingThree,
-  Left,
-  Normal,
-  { width: "100%" }
-);
+export const WidthHundredPaddingThreeLeftNormal = Object.assign({}, PaddingThree, Left, Normal, { width: "100%" });
 
-export const WidthTwentyFivePaddingThreeCenter = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  Normal,
-  { width: "25%" }
-);
+export const WidthTwentyFivePaddingThreeCenter = Object.assign({}, PaddingThree, Center, Normal, { width: "25%" });
 
-export const WidthTwentyPaddingThreeCenter = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  Normal,
-  { width: "20%" }
-);
+export const WidthTwentyPaddingThreeCenter = Object.assign({}, PaddingThree, Center, Normal, { width: "20%" });
 
-export const WidthTwentySevenPaddingThreeLeft = Object.assign(
-  {},
-  PaddingThree,
-  Left,
-  Normal,
-  { width: "27%" }
-);
+export const WidthTwentySevenPaddingThreeLeft = Object.assign({}, PaddingThree, Left, Normal, { width: "27%" });
 
-export const WidthFiftyPaddingThreeCenter = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  { width: "50%" }
-);
+export const WidthFiftyPaddingThreeCenter = Object.assign({}, PaddingThree, Center, { width: "50%" });
 
-export const WidthThirtyPaddingThreeCenter = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  { width: "30%" }
-);
+export const WidthThirtyPaddingThreeCenter = Object.assign({}, PaddingThree, Center, { width: "30%" });
 
-export const WidthThirtyFivePaddingThreeCenter = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  { width: "35%" }
-);
+export const WidthThirtyFivePaddingThreeCenter = Object.assign({}, PaddingThree, Center, { width: "35%" });
 
 // Padding Three Width Bold
-export const WidthFifteenPaddingThreeLeftBold = Object.assign(
-  {},
-  PaddingThree,
-  Left,
-  Normal,
-  Bold,
-  { width: "15%" }
-);
+export const WidthFifteenPaddingThreeLeftBold = Object.assign({}, PaddingThree, Left, Normal, Bold, { width: "15%" });
 
-export const WidthTenPaddingThreeLeftBold = Object.assign(
-  {},
-  PaddingThree,
-  Left,
-  Normal,
-  Bold,
-  { width: "10%" }
-);
+export const WidthTenPaddingThreeLeftBold = Object.assign({}, PaddingThree, Left, Normal, Bold, { width: "10%" });
 
-export const WidthFifteenPaddingThreeCenterBoldLarger = Object.assign(
-  {},
-  PaddingThree,
-  Center,
-  Larger,
-  Bold,
-  { width: "15%" }
-);
+export const WidthFifteenPaddingThreeCenterBoldLarger = Object.assign({}, PaddingThree, Center, Larger, Bold, {
+  width: "15%"
+});

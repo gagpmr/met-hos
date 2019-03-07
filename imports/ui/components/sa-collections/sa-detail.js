@@ -2,7 +2,6 @@ import ApolloClient from "apollo-client";
 import { PrintTableBorder } from "../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
-import ReactDOM from "react-dom";
 import gql from "graphql-tag";
 import moment from "moment";
 
@@ -36,7 +35,7 @@ export class SaDetail extends React.Component {
   componentDidMount() {
     if (this.props.detail !== undefined) {
       if (this.props.detail.Focus) {
-        ReactDOM.findDOMNode(this.refs[this.props.detail._id]).scrollIntoView();
+        this.node.scrollIntoView();
       }
     }
   }
@@ -88,9 +87,7 @@ export class SaDetail extends React.Component {
         }
       })
       .then(() => {
-        this.props.history.push(
-          `/resident-details/${this.props.detail.ResidentId}`
-        );
+        this.props.history.push(`/resident-details/${this.props.detail.ResidentId}`);
       })
       .catch(error => {
         console.log("there was an error sending the query", error);
@@ -105,16 +102,13 @@ export class SaDetail extends React.Component {
   render() {
     return (
       <tr
-        ref={this.props.detail._id}
+        // eslint-disable-next-line no-return-assign
+        ref={node => (this.node = node)}
         id={this.props.detail._id}
         className="text-center"
       >
-        <td style={PrintTableBorder}>
-          {moment.utc(this.props.detail.ReceiptDate).format("DD-MM-YYYY")}
-        </td>
-        <td style={PrintTableBorder}>
-          {moment.utc(this.props.detail.DepositDate).format("DD-MM-YYYY")}
-        </td>
+        <td style={PrintTableBorder}>{moment.utc(this.props.detail.ReceiptDate).format("DD-MM-YYYY")}</td>
+        <td style={PrintTableBorder}>{moment.utc(this.props.detail.DepositDate).format("DD-MM-YYYY")}</td>
         <td style={PrintTableBorder}>{this.props.detail.ReceiptNumber}</td>
         <td style={PrintTableBorder}>{this.props.detail.RoomNumber}</td>
         <td style={PrintTableBorder}>{this.props.detail.RollNumber}</td>
@@ -124,45 +118,22 @@ export class SaDetail extends React.Component {
         <td style={PrintTableBorder}>{this.props.detail.CanteenSecurity}</td>
         <td style={PrintTableBorder}>{this.props.detail.Total}</td>
         <td style={PrintTableBorder} className="text-center">
-          <a
-            target="_blank"
-            data-toggle="tooltip"
-            title="Edit Detail"
-            onClick={this.editDetail}
-            href=""
-          >
+          <a target="_blank" data-toggle="tooltip" title="Edit Detail" onClick={this.editDetail} href="">
             <i className="fa fa-pencil-square-o" />
           </a>
         </td>
         <td style={PrintTableBorder} className="text-center">
-          <a
-            data-toggle="tooltip"
-            title="Delete Detail"
-            id="remove-detail"
-            onClick={this.remove}
-            href=""
-          >
+          <a data-toggle="tooltip" title="Delete Detail" id="remove-detail" onClick={this.remove} href="">
             <i className="fa fa-trash-o" aria-hidden="true" />
           </a>
         </td>
         <td style={PrintTableBorder} className="text-center">
-          <a
-            data-toggle="tooltip"
-            title="Add Cancelled Detail"
-            onClick={this.insertCancelled}
-            href=""
-          >
+          <a data-toggle="tooltip" title="Add Cancelled Detail" onClick={this.insertCancelled} href="">
             <i className="fa fa-strikethrough" aria-hidden="true" />
           </a>
         </td>
         <td style={PrintTableBorder} className="text-center">
-          <a
-            target="_blank"
-            data-toggle="tooltip"
-            title="Resident Details"
-            onClick={this.residentDetails}
-            href=""
-          >
+          <a target="_blank" data-toggle="tooltip" title="Resident Details" onClick={this.residentDetails} href="">
             <i className="fa fa-user-circle" aria-hidden="true" />
           </a>
         </td>

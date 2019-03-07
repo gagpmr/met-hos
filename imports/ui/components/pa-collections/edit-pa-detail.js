@@ -216,7 +216,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="-1"
                     name="Name"
                     defaultValue={this.state.Name}
                     onChange={this.handleChange}
@@ -229,7 +229,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="-1"
                     name="RoomNumber"
                     defaultValue={this.state.RoomNumber}
                     onChange={this.handleChange}
@@ -242,7 +242,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="-1"
                     name="RollNumber"
                     defaultValue={this.state.RollNumber}
                     onChange={this.handleChange}
@@ -255,7 +255,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="10"
+                    tabIndex="-10"
                     name="RoomRent"
                     defaultValue={this.state.RoomRent}
                     onChange={this.handleChange}
@@ -268,7 +268,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="10"
+                    tabIndex="-10"
                     name="WaterCharges"
                     defaultValue={this.state.WaterCharges}
                     onChange={this.handleChange}
@@ -281,7 +281,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="10"
+                    tabIndex="-10"
                     name="ElectricityCharges"
                     defaultValue={this.state.ElectricityCharges}
                     onChange={this.handleChange}
@@ -294,7 +294,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="10"
+                    tabIndex="-10"
                     name="Miscellaneous"
                     defaultValue={this.state.Miscellaneous}
                     onChange={this.handleChange}
@@ -307,7 +307,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="10"
+                    tabIndex="-10"
                     name="DevelopmentFund"
                     defaultValue={this.state.DevelopmentFund}
                     onChange={this.handleChange}
@@ -320,7 +320,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="10"
+                    tabIndex="-10"
                     name="RutineHstlMaintnceCharges"
                     defaultValue={this.state.RutineHstlMaintnceCharges}
                     onChange={this.handleChange}
@@ -329,7 +329,7 @@ export class EditPaDetail extends React.Component {
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a tabIndex="10" id="save-form" onClick={this.submitForm} href="">
+                  <a tabIndex="-10" id="save-form" onClick={this.submitForm} href="">
                     Save
                   </a>
                 </th>
@@ -347,7 +347,7 @@ EditPaDetail.propTypes = {
   detail: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -371,10 +371,10 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  editPaDetail: PropTypes.object.isRequired,
+  editPaDetail: PropTypes.object,
   history: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

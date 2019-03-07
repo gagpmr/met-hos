@@ -1,4 +1,4 @@
-import { Middle, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
+import { Middle, PrintMonthName, PrintTableBorder, PrintTableBorderBold } from "../../../modules/styles";
 import { graphql, withApollo } from "react-apollo";
 
 import MDSpinner from "react-md-spinner";
@@ -44,7 +44,7 @@ const SaMonthlyPrint = ({ details, monthCollection }) => {
               </tr>
             ))}
             <tr>
-              <td style={PrintTableBorderBold}>{""}</td>
+              <td style={PrintTableBorderBold} />
               <td style={PrintTableBorderBold}>{monthCollection.HostelSecurity}</td>
               <td style={PrintTableBorderBold}>{monthCollection.MessSecurity}</td>
               <td style={PrintTableBorderBold}>{monthCollection.CanteenSecurity}</td>
