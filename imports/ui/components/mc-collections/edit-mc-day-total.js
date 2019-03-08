@@ -35,9 +35,7 @@ class EditMcDayTotal extends React.Component {
       Deposit: props.detail.Deposit
     };
     this.submitForm = this.handleSubmit.bind(this);
-    // this.keyPressed = this.keyPressed.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
   }
 
   handleFocus(e) {
@@ -84,21 +82,6 @@ class EditMcDayTotal extends React.Component {
       });
   }
 
-  // keyPressed(event, client) {
-  //   if (event.key === "Enter") {
-  //     this.submitForm(event, client);
-  //   }
-  // }
-
-  // handleChange(event) {
-  //   const target = event.target;
-  //   const value = target.type === "checkbox" ? target.checked : target.value;
-  //   const name = target.name;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // }
-
   render() {
     return (
       <div className="row">
@@ -137,7 +120,7 @@ class EditMcDayTotal extends React.Component {
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a id="save-form" onClick={e => handleSubmit(e, this.props.client)} href="">
+                  <a id="save-form" onClick={e => this.handleSubmit(e, this.props.client)} href="">
                     Save
                   </a>
                 </th>

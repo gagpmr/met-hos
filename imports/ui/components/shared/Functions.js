@@ -10,4 +10,4 @@ export const keyPressed = (e, client, component) => {
   if (e.key === "Enter") {
     component.handleSubmit(e, client);
   }
-}
+};

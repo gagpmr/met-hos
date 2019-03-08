@@ -158,7 +158,7 @@ export class EditSaDetail extends React.Component {
                   <DatePicker
                     autoFocus
                     name="RcptDate"
-                    tabIndex={-1}
+                    tabIndex={1}
                     dateFormat="dd-MM-yyyy"
                     selected={this.state.ReceiptDate}
                     onChange={this.rcptChange}
@@ -175,7 +175,7 @@ export class EditSaDetail extends React.Component {
                   className="text-center"
                 >
                   <DatePicker
-                    tabIndex={-1}
+                    tabIndex={1}
                     dateFormat="dd-MM-yyyy"
                     name="DeptDate"
                     selected={this.state.DepositDate}
@@ -276,7 +276,7 @@ export class EditSaDetail extends React.Component {
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a id="save-form" onClick={this.submitForm} href="">
+                  <a tabIndex="1" id="save-form" onClick={this.submitForm} href="">
                     Save
                   </a>
                 </th>
@@ -292,8 +292,7 @@ export class EditSaDetail extends React.Component {
 EditSaDetail.propTypes = {
   detail: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -317,10 +316,10 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  editSaDetail: PropTypes.object.isRequired,
+  editSaDetail: PropTypes.object,
   history: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {
