@@ -68,281 +68,61 @@ const App = props => (
       <Switch>
         <AuthWithNav exact path="/" component={Home} {...props} />
         <AuthWithNav exact path="/profile" component={Profile} {...props} />
-        <AuthWithNav
-          exact
-          path="/admission-details/:resId"
-          component={AdmissionDetails}
-          {...props}
-        />
+        <AuthWithNav exact path="/admission-details/:resId" component={AdmissionDetails} {...props} />
         <AuthWithNav exact path="/rooms" component={RoomsList} {...props} />
-        <AuthWithNav
-          exact
-          path="/sa-collections/:pageNo"
-          component={SaCollections}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/mes-can-fine"
-          component={MesCanFine}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/pri-acc-fine"
-          component={PriAccFine}
-          {...props}
-        />
+        <AuthWithNav exact path="/sa-collections/:pageNo" component={SaCollections} {...props} />
+        <AuthWithNav exact path="/mes-can-fine" component={MesCanFine} {...props} />
+        <AuthWithNav exact path="/pri-acc-fine" component={PriAccFine} {...props} />
         <AuthWithNav exact path="/sessions" component={Sessions} {...props} />
-        <AuthWithNav
-          exact
-          path="/edit-session/:sessId"
-          component={EditSession}
-          {...props}
-        />
+        <AuthWithNav exact path="/edit-session/:sessId" component={EditSession} {...props} />
         <AuthWithNav exact path="/holidays" component={Holidays} {...props} />
-        <AuthWithNav
-          exact
-          path="/add-holiday"
-          component={AddHoliday}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/residents"
-          component={ResidentsAll}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/room-residents/:roomId"
-          component={RoomResidents}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/resident-details/:resid"
-          component={ResidentDetails}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/dues-regular-residents"
-          component={DuesRegularResidents}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/dues-mess-one"
-          component={DuesMessOne}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/dues-mess-two"
-          component={DuesMessTwo}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/dues-canteen"
-          component={DuesCanteen}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/dues-regular-print"
-          component={DuesRegularPrint}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/notice-list"
-          component={NoticeListResidents}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/notice-list-print"
-          component={NoticeListPrint}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/effective-date"
-          component={EffectiveDate}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-mc-bill/:resId/:billId"
-          component={EditMcBill}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-pa-bill/:resId/:billId"
-          component={EditPaBill}
-          {...props}
-        />
+        <AuthWithNav exact path="/add-holiday" component={AddHoliday} {...props} />
+        <AuthWithNav exact path="/residents" component={ResidentsAll} {...props} />
+        <AuthWithNav exact path="/room-residents/:roomId" component={RoomResidents} {...props} />
+        <AuthWithNav exact path="/resident-details/:resid" component={ResidentDetails} {...props} />
+        <AuthWithNav exact path="/dues-regular-residents" component={DuesRegularResidents} {...props} />
+        <Authenticated exact path="/dues-mess-one" component={DuesMessOne} {...props} />
+        <Authenticated exact path="/dues-mess-two" component={DuesMessTwo} {...props} />
+        <Authenticated exact path="/dues-canteen" component={DuesCanteen} {...props} />
+        <Authenticated exact path="/dues-regular-print" component={DuesRegularPrint} {...props} />
+        <AuthWithNav exact path="/notice-list" component={NoticeListResidents} {...props} />
+        <Authenticated exact path="/notice-list-print" component={NoticeListPrint} {...props} />
+        <AuthWithNav exact path="/effective-date" component={EffectiveDate} {...props} />
+        <AuthWithNav exact path="/edit-mc-bill/:resId/:billId" component={EditMcBill} {...props} />
+        <AuthWithNav exact path="/edit-pa-bill/:resId/:billId" component={EditPaBill} {...props} />
         <AuthWithNav exact path="/resident" component={Resident} {...props} />
-        <AuthWithNav
-          exact
-          path="/resident/:resId"
-          component={Resident}
-          {...props}
-        />
+        <AuthWithNav exact path="/resident/:resId" component={Resident} {...props} />
         <AuthWithNav exact path="/classes" component={Classes} {...props} />
-        <AuthWithNav
-          exact
-          path="/edit-class/:classId"
-          component={EditClass}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/sa-date-details/:date"
-          component={SaDateDetails}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-sa-detail/:detId"
-          component={EditSaDetail}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/sa-date-details-print/:date"
-          component={SaDateDetailsPrint}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-sa-day-total/:detId/:pageNo"
-          component={EditSaDayTotal}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/sa-month-collections/:pageNo"
-          component={SaMonthCollections}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/sa-month-collections-print/:monthId"
-          component={SaMonthlyPrint}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/resident-sa-details/:resId"
-          component={ResidentSaDetails}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/pa-collections/:pageNo"
-          component={PaCollections}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/pa-date-details/:date"
-          component={PaDateDetails}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-pa-detail/:detId"
-          component={EditPaDetail}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-pa-day-total/:detId/:pageNo"
-          component={EditPaDayTotal}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/pa-date-details-print/:date"
-          component={PaDateDetailsPrint}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/pa-month-collections/:pageNo"
-          component={PaMonthCollections}
-          {...props}
-        />
+        <AuthWithNav exact path="/edit-class/:classId" component={EditClass} {...props} />
+        <AuthWithNav exact path="/sa-date-details/:date" component={SaDateDetails} {...props} />
+        <AuthWithNav exact path="/edit-sa-detail/:detId" component={EditSaDetail} {...props} />
+        <Authenticated exact path="/sa-date-details-print/:date" component={SaDateDetailsPrint} {...props} />
+        <AuthWithNav exact path="/edit-sa-day-total/:detId/:pageNo" component={EditSaDayTotal} {...props} />
+        <AuthWithNav exact path="/sa-month-collections/:pageNo" component={SaMonthCollections} {...props} />
+        <Authenticated exact path="/sa-month-collections-print/:monthId" component={SaMonthlyPrint} {...props} />
+        <AuthWithNav exact path="/resident-sa-details/:resId" component={ResidentSaDetails} {...props} />
+        <AuthWithNav exact path="/pa-collections/:pageNo" component={PaCollections} {...props} />
+        <AuthWithNav exact path="/pa-date-details/:date" component={PaDateDetails} {...props} />
+        <AuthWithNav exact path="/edit-pa-detail/:detId" component={EditPaDetail} {...props} />
+        <AuthWithNav exact path="/edit-pa-day-total/:detId/:pageNo" component={EditPaDayTotal} {...props} />
+        <Authenticated exact path="/pa-date-details-print/:date" component={PaDateDetailsPrint} {...props} />
+        <AuthWithNav exact path="/pa-month-collections/:pageNo" component={PaMonthCollections} {...props} />
         <Authenticated
           exact
           path="/pa-month-collections-print/:monthId"
           component={PaMonthCollectionsPrint}
           {...props}
         />
-        <AuthWithNav
-          exact
-          path="/resident-pa-details/:resId"
-          component={ResidentPaDetails}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/mc-collections/:pageNo"
-          component={McCollections}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/mc-date-details/:date"
-          component={McDateDetails}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-mc-detail/:detId"
-          component={EditMcDetail}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/edit-mc-day-total/:detId/:pageNo"
-          component={EditMcDayTotal}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/mc-date-details-print/:date"
-          component={McDateDetailsPrint}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/mc-month-collections/:pageNo"
-          component={McMonthCollections}
-          {...props}
-        />
-        <Authenticated
-          exact
-          path="/mc-month-collections-print/:monthId"
-          component={McMonthlyPrint}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/resident-mc-details/:resId"
-          component={ResidentMcDetails}
-          {...props}
-        />
-        <AuthWithNav
-          exact
-          path="/transaction-details/:paDetId/:mcDetId"
-          component={TransactionDetails}
-          {...props}
-        />
+        <AuthWithNav exact path="/resident-pa-details/:resId" component={ResidentPaDetails} {...props} />
+        <AuthWithNav exact path="/mc-collections/:pageNo" component={McCollections} {...props} />
+        <AuthWithNav exact path="/mc-date-details/:date" component={McDateDetails} {...props} />
+        <AuthWithNav exact path="/edit-mc-detail/:detId" component={EditMcDetail} {...props} />
+        <AuthWithNav exact path="/edit-mc-day-total/:detId/:pageNo" component={EditMcDayTotal} {...props} />
+        <Authenticated exact path="/mc-date-details-print/:date" component={McDateDetailsPrint} {...props} />
+        <AuthWithNav exact path="/mc-month-collections/:pageNo" component={McMonthCollections} {...props} />
+        <Authenticated exact path="/mc-month-collections-print/:monthId" component={McMonthlyPrint} {...props} />
+        <AuthWithNav exact path="/resident-mc-details/:resId" component={ResidentMcDetails} {...props} />
+        <AuthWithNav exact path="/transaction-details/:paDetId/:mcDetId" component={TransactionDetails} {...props} />
         <Public exact path="/login" component={Login} {...props} />
         <Route component={NotFound} />
       </Switch>
@@ -355,12 +135,10 @@ const App = props => (
 App.defaultProps = {
   userId: "",
   emailAddress: "",
-  exact: true,
-  children: React.createElement("div")
+  exact: true
 };
 
 App.propTypes = {
-  children: PropTypes.element,
   loading: PropTypes.bool.isRequired,
   userId: PropTypes.string,
   emailAddress: PropTypes.string,
@@ -379,8 +157,7 @@ export default withTracker(() => {
   const user = Meteor.user();
   const userId = Meteor.userId();
   const loading = !Roles.subscription.ready();
-  const name =
-    user && user.profile && user.profile.name && getUserName(user.profile.name);
+  const name = user && user.profile && user.profile.name && getUserName(user.profile.name);
   const emailAddress = user && user.emails && user.emails[0].address;
   return {
     loading,
@@ -390,9 +167,6 @@ export default withTracker(() => {
     roles: !loading && Roles.getRolesForUser(userId),
     userId,
     emailAddress,
-    emailVerified:
-      user && user.emails
-        ? user && user.emails && user.emails[0].verified
-        : true
+    emailVerified: user && user.emails ? user && user.emails && user.emails[0].verified : true
   };
 })(App);

@@ -1,9 +1,8 @@
-import {
-  PaddingThreeCenterLargeBold,
-  WidthTwentyPaddingThreeCenter
-} from "../../../modules/styles";
+import { PaddingThreeCenterLargeBold, WidthTwentyPaddingThreeCenter } from "../../../modules/styles";
 
+import ApolloClient from "apollo-client";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import React from "react";
 import { chunk } from "lodash";
 
@@ -127,8 +126,9 @@ const TableRow = ({ cells }) => {
   );
 };
 
-const Home = () => {
+const Home = ({ client }) => {
   const rows = getArrays();
+  console.log(client);
   return (
     <div className="row">
       <div className="col-md-12">
@@ -149,6 +149,10 @@ const Home = () => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 export default Home;

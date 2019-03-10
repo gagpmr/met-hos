@@ -35,9 +35,7 @@ class EditMcDayTotal extends React.Component {
       Deposit: props.detail.Deposit
     };
     this.submitForm = this.handleSubmit.bind(this);
-    // this.keyPressed = this.keyPressed.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
   }
 
   handleFocus(e) {
@@ -83,21 +81,6 @@ class EditMcDayTotal extends React.Component {
         console.log("Error:- UPDATE_MC_DAY_TOTAL", error);
       });
   }
-
-  // keyPressed(event, client) {
-  //   if (event.key === "Enter") {
-  //     this.submitForm(event, client);
-  //   }
-  // }
-
-  // handleChange(event) {
-  //   const target = event.target;
-  //   const value = target.type === "checkbox" ? target.checked : target.value;
-  //   const name = target.name;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // }
 
   render() {
     return (

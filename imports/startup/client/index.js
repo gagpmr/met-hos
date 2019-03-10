@@ -10,7 +10,7 @@ import { render } from "react-dom";
 Meteor.startup(() => {
   render(
     <ApolloProvider client={client}>
-      <App />
+      <App client={client} />
     </ApolloProvider>,
     // eslint-disable-next-line no-undef
     document.getElementById("react-root")

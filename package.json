@@ -6,7 +6,7 @@
     "deploy": "DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy met-hos.meteorapp.com --settings settings.json",
     "remove": "meteor deploy --delete met-hos.meteorapp.com",
     "test": "MONGO_URL=mongodb://127.0.0.1:27017/hos_18_19 meteor --release 1.8.0.2 --port 4000",
-    "debug": "MONGO_URL=mongodb://127.0.0.1:27017/MetHosTest meteor --release 1.8.0.2 --port 4000"
+    "dev": "MONGO_URL=mongodb://127.0.0.1:27017/MetHosTest meteor --release 1.8.0.2 --port 7000"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -82,6 +82,7 @@
   "dependencies": {
     "@babel/runtime": "^7.3.1",
     "@cleverbeagle/seeder": "^1.3.0",
+    "@date-io/moment": "^1.1.0",
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "apollo-cache-inmemory": "^1.2.10",
@@ -99,7 +100,6 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "formik": "^1.5.1",
     "graphql": "^0.13.2",
     "graphql-server-express": "^1.4.0",
     "graphql-tag": "^2.10.1",
@@ -109,6 +109,7 @@
     "jquery": "^3.3.1",
     "jquery-validation": "^1.15.1",
     "lodash": "^4.17.5",
+    "material-ui-pickers": "^2.2.4",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.20.1",
     "mongodb": "^2.2.34",

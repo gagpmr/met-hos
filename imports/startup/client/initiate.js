@@ -24,14 +24,10 @@ const stateLink = withClientState({
 
 const errorLink = onError(({ networkErrors, graphQLErrors }) => {
   if (graphQLErrors) {
-    graphQLErrors.map(({ message }) =>
-      console.log(`Graphql Error from initiate.js: ${message}`)
-    );
+    graphQLErrors.map(({ message }) => console.log(`Graphql Error from initiate.js: ${message}`));
   }
   if (networkErrors) {
-    graphQLErrors.map(({ message }) =>
-      console.log(`Network Error from initiate.js: ${message}`)
-    );
+    graphQLErrors.map(({ message }) => console.log(`Network Error from initiate.js: ${message}`));
   }
 });
 
@@ -45,5 +41,6 @@ export const client = new ApolloClient({
       uri: "/graphql"
     })
   ]),
-  cache
+  cache,
+  connectToDevTools: true
 });

@@ -1,13 +1,25 @@
+import gql from "graphql-tag";
+import moment from "moment";
+
 export const handleChange = (e, client) => {
-  const { type, checked, value, name } = e.target;
-  const nValue = type === "checkbox" ? checked : value;
-  client.writeData({
-    data: { [name]: nValue }
-  });
+  if (e.target) {
+    const { type, checked, value, name } = e.target;
+    const nValue = type === "checkbox" ? checked : value;
+    client.writeData({
+      data: { [name]: nValue }
+    });
+  }
 };
 
-export const keyPressed = (e, client, component) => {
+export const keyPressed = (e, client, history, submit) => {
   if (e.key === "Enter") {
-    component.handleSubmit(e, client);
+    submit(e, client, history);
   }
-}
+};
+
+export const changeDate = (date, client, name) => {
+  const nDate = moment.utc(date).format("DD-MM-YYYY");
+  client.writeData({
+    data: { [name]: nDate }
+  });
+};
