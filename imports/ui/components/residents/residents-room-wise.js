@@ -6,14 +6,15 @@ import {
   WidthTenPaddingFourCenter,
   WidthThreePaddingFourCenterBold
 } from "../../../modules/styles";
-import { gql, graphql } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import { Link } from "react-router-dom";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
-import RemoveResident from "../shared/RemoveResident.js";
+import RemoveResident from "../shared/RemoveResident";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
 const renderResident = (props, element, index) => {
   if (element) {
@@ -29,29 +30,15 @@ const renderResident = (props, element, index) => {
         </td>
         <td style={PaddingFourCenter}>{element.Class.Value}</td>
         <td style={WidthThreePaddingFourCenterBold}>
-          <Link
-            data-toggle="tooltip"
-            target="_blank"
-            title="Edit Resident"
-            to={`/resident/${element._id}`}
-          >
+          <Link data-toggle="tooltip" target="_blank" title="Edit Resident" to={`/resident/${element._id}`}>
             <i className="fa fa-pencil-square-o" />
           </Link>
         </td>
         <td style={WidthThreePaddingFourCenterBold}>
-          <RemoveResident
-            resident={element}
-            fetchAllResidents={props.refetch}
-            callingComponent="ResidentsRoomWise"
-          />
+          <RemoveResident resident={element} fetchAllResidents={props.refetch} callingComponent="ResidentsRoomWise" />
         </td>
         <td style={WidthThreePaddingFourCenterBold}>
-          <Link
-            target="_blank"
-            data-toggle="tooltip"
-            title="Resident Details"
-            to={`/resident-details/${element._id}`}
-          >
+          <Link target="_blank" data-toggle="tooltip" title="Resident Details" to={`/resident-details/${element._id}`}>
             <i className="fa fa-user-circle" aria-hidden="true" />
           </Link>
         </td>
@@ -76,15 +63,12 @@ const ResidentsRoomWise = props => {
           <thead>
             <tr>
               <th style={PaddingFourCenterLargeBold} colSpan="9">
-                Residents &nbsp; &nbsp; Return Amount: &#8377;{" "}
-                {props.residentsRoomWise.returnAmount}
+                Residents &nbsp; &nbsp; Return Amount: &#8377; {props.residentsRoomWise.returnAmount}
               </th>
             </tr>
           </thead>
           <tbody>
-            {props.residentsRoomWise.residents.map((element, index) =>
-              renderResident(props, element, index)
-            )}
+            {props.residentsRoomWise.residents.map((element, index) => renderResident(props, element, index))}
           </tbody>
         </table>
       </div>

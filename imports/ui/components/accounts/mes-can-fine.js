@@ -1,11 +1,12 @@
 import { Middle, PaddingThreeCenterBold } from "../../../modules/styles";
-import { gql, graphql } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
 import { _ } from "underscore";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
 class MesCanFine extends React.Component {
   constructor(props) {
@@ -20,9 +21,7 @@ class MesCanFine extends React.Component {
   }
 
   getFine(value) {
-    const fine = _.first(
-      _.filter(this.props.fines, item => item.McMonth === value)
-    );
+    const fine = _.first(_.filter(this.props.fines, item => item.McMonth === value));
     this.setState({ Fine: fine.Mc });
   }
 
@@ -62,14 +61,9 @@ class MesCanFine extends React.Component {
             <tr>
               <th className="text-center mes-can-fine">Bill Month</th>
               <td className="text-center">
-                <select
-                  autoFocus
-                  value={this.state.BillPeriod}
-                  onChange={this.handleChange}
-                  name="BillPeriod"
-                >
-                  {this.props.months.map((element, index) => (
-                    <option key={index} value={element.Value}>
+                <select autoFocus value={this.state.BillPeriod} onChange={this.handleChange} name="BillPeriod">
+                  {this.props.months.map(element => (
+                    <option key={element._id} value={element.Value}>
                       {element.Value}
                     </option>
                   ))}
@@ -88,7 +82,6 @@ class MesCanFine extends React.Component {
 }
 
 MesCanFine.propTypes = {
-  loading: PropTypes.bool.isRequired,
   fines: PropTypes.array.isRequired,
   months: PropTypes.array.isRequired,
   date: PropTypes.string.isRequired,

@@ -1,15 +1,11 @@
-import {
-  Middle,
-  PaddingFourCenter,
-  PaddingFourCenterBold,
-  PaddingFourCenterLargeBold
-} from "../../../modules/styles";
-import { compose, gql, graphql, withApollo } from "react-apollo";
+import { Middle, PaddingFourCenter, PaddingFourCenterBold, PaddingFourCenterLargeBold } from "../../../modules/styles";
+import { compose, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const renderList = props => (
@@ -44,12 +40,8 @@ const renderList = props => (
               <td style={PaddingFourCenter}>{resident.Room.Value}</td>
               <td style={PaddingFourCenter}>{resident.RollNumber}</td>
               <td style={PaddingFourCenter}>{resident.Name}</td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidMcTotal.Total}
-              </td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidPaTotal.Total}
-              </td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidMcTotal.Total}</td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidPaTotal.Total}</td>
               <td style={PaddingFourCenterBold}>{resident.UnpaidTotal}</td>
             </tr>
           ))}
@@ -91,12 +83,7 @@ const FormatData = props => {
     );
   }
   return (
-    <NoticeList
-      loading={props.loading}
-      refetch={props.refetch}
-      client={props.client}
-      residents={props.noticeList}
-    />
+    <NoticeList loading={props.loading} refetch={props.refetch} client={props.client} residents={props.noticeList} />
   );
 };
 

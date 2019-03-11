@@ -1,9 +1,9 @@
-import { gql, graphql } from "react-apollo";
-
 import $ from "jquery";
 import { PaddingThreeCenterLargeBold } from "../../../../../modules/styles";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
 const enableInput = e => {
   if (e === undefined) {
@@ -61,11 +61,7 @@ const EditReturnAmount = props => {
         disabled="disabled"
       />
       &nbsp;
-      <a
-        href=""
-        onClick={e => enableInput(e)}
-        style={PaddingThreeCenterLargeBold}
-      >
+      <a href="" onClick={e => enableInput(e)} style={PaddingThreeCenterLargeBold}>
         <i className="fa fa-pencil-square-o" />
       </a>
     </span>

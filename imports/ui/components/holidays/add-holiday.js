@@ -1,12 +1,12 @@
 import "../../layouts/datepicker.css";
 
-import { gql, withApollo } from "react-apollo";
-
 import ApolloClient from "apollo-client";
 import DatePicker from "react-datepicker";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
+import { withApollo } from "react-apollo";
 import { withRouter } from "react-router-dom";
 
 const INSERT_HOLIDAY = gql`

@@ -1,5 +1,3 @@
-import { gql, withApollo } from "react-apollo";
-
 import ApolloClient from "apollo-client";
 import Avatar from "@material-ui/core/Avatar";
 import { Bert } from "meteor/themeteorchef:bert";
@@ -14,6 +12,8 @@ import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import React from "react";
 import Typography from "@material-ui/core/Typography";
+import gql from "graphql-tag";
+import { withApollo } from "react-apollo";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = theme => ({
@@ -33,8 +33,7 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
-      .spacing.unit * 3}px`
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`
   },
   avatar: {
     margin: theme.spacing.unit,
@@ -125,13 +124,7 @@ const SignIn = ({ classes, client }) => {
               autoComplete="current-password"
             />
           </FormControl>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
             Sign in
           </Button>
         </form>

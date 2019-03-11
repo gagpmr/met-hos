@@ -1,15 +1,11 @@
-import {
-  Middle,
-  PaddingFourCenter,
-  PaddingFourCenterBold,
-  PaddingFourCenterLargeBold
-} from "../../../modules/styles";
-import { compose, gql, graphql, withApollo } from "react-apollo";
+import { Middle, PaddingFourCenter, PaddingFourCenterBold, PaddingFourCenterLargeBold } from "../../../modules/styles";
+import { compose, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 export const DUES_MESS_ONE = gql`
@@ -57,9 +53,7 @@ const renderList = props => (
               <td style={PaddingFourCenter}>
                 <span>{resident.Name}</span>
               </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.MessOne}
-              </td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.MessOne}</td>
             </tr>
           ))}
           {renderDuesTotal(props.duesTotal)}

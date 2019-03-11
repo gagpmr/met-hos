@@ -1,10 +1,5 @@
-import {
-  Middle,
-  PaddingFourCenter,
-  PaddingFourCenterBold,
-  PaddingFourCenterLargeBold
-} from "../../../modules/styles";
-import { compose, gql, graphql, withApollo } from "react-apollo";
+import { Middle, PaddingFourCenter, PaddingFourCenterBold, PaddingFourCenterLargeBold } from "../../../modules/styles";
+import { compose, graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import { Bert } from "meteor/themeteorchef:bert";
@@ -12,6 +7,7 @@ import { Link } from "react-router-dom";
 import MDSpinner from "react-md-spinner";
 import PropTypes from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
 import moment from "moment";
 
 const DUES_LIST_FALSE = gql`
@@ -169,47 +165,23 @@ const renderList = props => (
               <td style={PaddingFourCenter}>
                 <span>{resident.Name}</span>
               </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.MessOne}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.MessTwo}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.Canteen}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.Amenity}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.HalfYearly}
-              </td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.MessOne}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.MessTwo}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.Canteen}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.Amenity}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.HalfYearly}</td>
               <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.MessFine +
                   resident.UnpaidMcTotal.CanteenFine +
                   resident.UnpaidMcTotal.HalfYearlyFine}
               </td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidMcTotal.Total}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.RoomRent}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.WaterCharges}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.ElectricityCharges}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.HalfYearly}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.Miscellaneous}
-              </td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidPaTotal.Total}
-              </td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidMcTotal.Total}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.RoomRent}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.WaterCharges}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.ElectricityCharges}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.HalfYearly}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.Miscellaneous}</td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidPaTotal.Total}</td>
               <td style={PaddingFourCenterBold}>{resident.UnpaidTotal}</td>
               <td style={PaddingFourCenterBold}>
                 <a id="refresh" onClick={e => refresh(props, e)} href="">
@@ -249,12 +221,7 @@ const renderList = props => (
                 </a>
               </td>
               <td style={PaddingFourCenterBold}>
-                <Link
-                  target="_blank"
-                  to={`/notice-list`}
-                  data-toggle="tooltip"
-                  title="View Notice List"
-                >
+                <Link target="_blank" to={`/notice-list`} data-toggle="tooltip" title="View Notice List">
                   <i className="fa fa-eye" aria-hidden="true" />
                 </Link>
               </td>

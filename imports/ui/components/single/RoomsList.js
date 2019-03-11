@@ -1,5 +1,4 @@
 import { Col, Grid, Row } from "react-bootstrap";
-import { gql, graphql } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
@@ -7,6 +6,8 @@ import { Middle } from "../../../modules/styles";
 import Pagination from "react-js-pagination";
 import { PropTypes } from "prop-types";
 import React from "react";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
 class Rooms extends React.Component {
   constructor() {
@@ -58,11 +59,7 @@ class Rooms extends React.Component {
           <Col md={12} xs={12} sm={12}>
             {this.roomsFiltered(this.props.rooms).map(room => (
               <Col md={1} sm={2} xs={3} key={room._id} className="h4">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={`room-residents/${room._id}`}
-                >
+                <a target="_blank" rel="noopener noreferrer" href={`room-residents/${room._id}`}>
                   {room.Value}
                 </a>
               </Col>
@@ -91,9 +88,7 @@ const FormatData = props => {
       </div>
     );
   }
-  return (
-    <Rooms rooms={props.rooms} client={props.client} refetch={props.refetch} />
-  );
+  return <Rooms rooms={props.rooms} client={props.client} refetch={props.refetch} />;
 };
 
 FormatData.propTypes = {
