@@ -44,7 +44,7 @@ class HalfYearly extends React.Component {
         <tr>
           <th className="text-center" colSpan="2">
             <a
-              tabIndex="1"
+              tabIndex="0"
               onClick={this.submitForm}
               ref={a => {
                 this.halfYearly = a;

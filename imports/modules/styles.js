@@ -1,9 +1,11 @@
 const Center = {
-  textAlign: "center"
+  textAlign: "center",
+  verticalAlign: "middle"
 };
 
 const Left = {
-  textAlign: "left"
+  textAlign: "left",
+  verticalAlign: "middle"
 };
 
 const PaddingZero = {
@@ -37,6 +39,10 @@ const PaddingThree = {
   padding: "3px"
 };
 
+const PaddingTwo = {
+  padding: "2px"
+};
+
 export const Middle = {
   position: "absolute",
   top: "50%",
@@ -51,7 +57,7 @@ export const h4 = {
   verticalAlign: "middle",
   margin: "0px",
   textAlign: "center",
-  padding: "3px",
+  padding: "2px",
   fontWeight: "bold",
   color: "black"
 };
@@ -76,16 +82,34 @@ export const TableHeader = {
 };
 
 export const PrintTableBorder = Object.assign({}, Center, {
-  border: "1px solid black"
+  border: "1px solid black",
+  padding: 5
 });
 
 export const PrintTableBorderBold = Object.assign({}, Center, Bold, {
-  border: "1px solid black"
+  border: "1px solid black",
+  padding: 5
 });
 
 export const PrintMonthName = Object.assign({}, Center, Bold, {
   border: "1px solid black",
   fontSize: "200%"
+});
+
+export const DateTableCell = Object.assign({}, Center, {
+  paddingLeft: "51px",
+  paddingRight: "51px",
+  paddingTop: "2px",
+  paddingBottom: "2px"
+});
+
+// Padding Two
+export const PaddingTwoCenter = Object.assign({}, Center, {
+  padding: "2px"
+});
+
+export const WidthFiftyPaddingTwoCenter = Object.assign({}, PaddingTwo, Center, {
+  width: "50%"
 });
 
 // Padding Zero

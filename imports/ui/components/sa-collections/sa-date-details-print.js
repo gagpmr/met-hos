@@ -10,7 +10,7 @@ import moment from "moment";
 const SaDateDetailsPrint = ({ details, dayCollection }) => {
   return (
     <div className="row">
-      <div className="col-md-offset-1 col-md-10">
+      <div className="col-md-12">
         <table className="table table-bordered table-condensed table-striped text-center">
           <tbody>
             <tr>

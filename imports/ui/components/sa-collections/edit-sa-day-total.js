@@ -100,7 +100,7 @@ export class EditSaDayTotal extends React.Component {
                     onKeyDown={this.keyPressed}
                     onChange={this.handleChange}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     name="Deposit"
                     defaultValue={this.props.detail.Deposit}
                   />

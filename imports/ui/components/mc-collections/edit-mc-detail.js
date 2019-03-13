@@ -1,6 +1,6 @@
 import "../../layouts/datepicker.css";
 
-import { Middle, h4 } from "../../../modules/styles";
+import { DateTableCell, Middle, PaddingTwoCenter, WidthFiftyPaddingTwoCenter, h4 } from "../../../modules/styles";
 import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
@@ -167,243 +167,234 @@ export class EditMcDetail extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-6 col-md-offset-3">
-          <table className="table table-bordered table-condensed table-striped text-center">
-            <thead>
-              <tr>
-                <th colSpan="2">
-                  <h4 style={h4}>Edit Mess Canteen Detail</h4>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th className="text-center width-fifty">Receipt Date</th>
-                <td
-                  style={{
-                    paddingLeft: 51,
-                    paddingRight: 51
-                  }}
-                  className="text-center"
-                >
-                  <DatePicker
-                    autoFocus
-                    tabIndex={-1}
-                    dateFormat="dd-MM-yyyy"
-                    selected={this.state.ReceiptDate}
-                    onChange={this.rcptChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center width-fifty">Deposit Date</th>
-                <td
-                  style={{
-                    paddingLeft: 51,
-                    paddingRight: 51
-                  }}
-                  className="text-center"
-                >
-                  <DatePicker
-                    tabIndex={-1}
-                    dateFormat="dd-MM-yyyy"
-                    selected={this.state.DepositDate}
-                    onChange={this.deptChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center width-fifty">Receipt Number</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="ReceiptNumber"
-                    defaultValue={this.state.ReceiptNumber}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Student Name</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="StudentName"
-                    defaultValue={this.state.StudentName}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Room Number</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="RoomNumber"
-                    defaultValue={this.state.RoomNumber}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Roll Number</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="RollNumber"
-                    defaultValue={this.state.RollNumber}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Month Name</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="MonthName"
-                    defaultValue={this.state.MonthName}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Mess One</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="MessOne"
-                    defaultValue={this.state.MessOne}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Mess Two</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="MessTwo"
-                    defaultValue={this.state.MessTwo}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Canteen</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="Canteen"
-                    defaultValue={this.state.Canteen}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Fines</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="Fines"
-                    defaultValue={this.state.Fines}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Amenity</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="Amenity"
-                    defaultValue={this.state.Amenity}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Poor Stu Wel Fund</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="PoorStuWelFund"
-                    defaultValue={this.state.PoorStuWelFund}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Mc Servant Wel Fund</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="McServantWelFund"
-                    defaultValue={this.state.McServantWelFund}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Food Subsidy</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="FoodSubsidy"
-                    defaultValue={this.state.FoodSubsidy}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center">Celebration Fund</th>
-                <td className="text-center">
-                  <input
-                    onKeyDown={this.keyPressed}
-                    type="text"
-                    tabIndex="1"
-                    name="CelebrationFund"
-                    defaultValue={this.state.CelebrationFund}
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th className="text-center" colSpan="2">
-                  <a id="save-form" onClick={this.submitForm} href="">
-                    Save
-                  </a>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-3" />
+          <div className="col-md-6">
+            <table className="table table-bordered table-condensed table-striped text-center">
+              <thead>
+                <tr>
+                  <th style={PaddingTwoCenter} colSpan="2">
+                    <h4 style={h4}>Edit Mess Canteen Detail</h4>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Receipt Date</th>
+                  <td style={DateTableCell}>
+                    <DatePicker
+                      autoFocus
+                      tabIndex={0}
+                      dateFormat="dd-MM-yyyy"
+                      selected={this.state.ReceiptDate}
+                      onChange={this.rcptChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Deposit Date</th>
+                  <td style={DateTableCell}>
+                    <DatePicker
+                      tabIndex={0}
+                      dateFormat="dd-MM-yyyy"
+                      selected={this.state.DepositDate}
+                      onChange={this.deptChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Receipt Number</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="ReceiptNumber"
+                      defaultValue={this.state.ReceiptNumber}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Student Name</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="StudentName"
+                      defaultValue={this.state.StudentName}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Room Number</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="RoomNumber"
+                      defaultValue={this.state.RoomNumber}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Roll Number</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="RollNumber"
+                      defaultValue={this.state.RollNumber}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Month Name</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="MonthName"
+                      defaultValue={this.state.MonthName}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Mess One</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="MessOne"
+                      defaultValue={this.state.MessOne}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Mess Two</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="MessTwo"
+                      defaultValue={this.state.MessTwo}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Canteen</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="Canteen"
+                      defaultValue={this.state.Canteen}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Fines</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="Fines"
+                      defaultValue={this.state.Fines}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Amenity</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="Amenity"
+                      defaultValue={this.state.Amenity}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Poor Stu Wel Fund</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="PoorStuWelFund"
+                      defaultValue={this.state.PoorStuWelFund}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Mc Servant Wel Fund</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="McServantWelFund"
+                      defaultValue={this.state.McServantWelFund}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Food Subsidy</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="FoodSubsidy"
+                      defaultValue={this.state.FoodSubsidy}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={WidthFiftyPaddingTwoCenter}>Celebration Fund</th>
+                  <td style={WidthFiftyPaddingTwoCenter}>
+                    <input
+                      onKeyDown={this.keyPressed}
+                      type="text"
+                      tabIndex="0"
+                      name="CelebrationFund"
+                      defaultValue={this.state.CelebrationFund}
+                      onChange={this.handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th style={PaddingTwoCenter} colSpan="2">
+                    <a id="save-form" onClick={this.submitForm} href="">
+                      Save
+                    </a>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     );
@@ -411,11 +402,9 @@ export class EditMcDetail extends React.Component {
 }
 
 EditMcDetail.propTypes = {
-  loading: PropTypes.bool.isRequired,
   detail: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 const FormatData = props => {
@@ -439,10 +428,10 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  editMcDetail: PropTypes.object.isRequired,
+  editMcDetail: PropTypes.object,
   history: PropTypes.object.isRequired,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

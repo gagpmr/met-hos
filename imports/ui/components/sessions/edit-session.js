@@ -135,14 +135,14 @@ export class EditSession extends React.Component {
       if (this.props.session.IsCurrentSession) {
         iscurrent.push(
           <td key={1} style={paddingThree}>
-            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" defaultChecked />
+            <input type="checkbox" tabIndex="0" onChange={this.alter} id="IsCurrentSession" defaultChecked />
             &nbsp; True
           </td>
         );
       } else {
         iscurrent.push(
           <td key={2} style={paddingThree}>
-            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" />
+            <input type="checkbox" tabIndex="0" onChange={this.alter} id="IsCurrentSession" />
             &nbsp; False
           </td>
         );
@@ -151,14 +151,14 @@ export class EditSession extends React.Component {
       if (this.state.iscurrent) {
         iscurrent.push(
           <td key={1} style={paddingThree}>
-            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" defaultChecked />
+            <input type="checkbox" tabIndex="0" onChange={this.alter} id="IsCurrentSession" defaultChecked />
             &nbsp; True
           </td>
         );
       } else {
         iscurrent.push(
           <td key={2} style={paddingThree}>
-            <input type="checkbox" tabIndex="1" onChange={this.alter} id="IsCurrentSession" />
+            <input type="checkbox" tabIndex="0" onChange={this.alter} id="IsCurrentSession" />
             &nbsp; False
           </td>
         );
@@ -184,7 +184,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="Value"
                     defaultValue={this.props.session.Value}
                   />
@@ -196,7 +196,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="SrNo"
                     defaultValue={this.props.session.SrNo}
                   />
@@ -212,7 +212,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="Suffix"
                     defaultValue={this.props.session.Suffix}
                   />
@@ -224,7 +224,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="RoomRent"
                     defaultValue={this.props.session.RoomRent}
                   />
@@ -236,7 +236,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="WaterCharges"
                     defaultValue={this.props.session.WaterCharges}
                   />
@@ -248,7 +248,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="ElectricityCharges"
                     defaultValue={this.props.session.ElectricityCharges}
                   />
@@ -260,7 +260,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="HostelSecurity"
                     defaultValue={this.props.session.HostelSecurity}
                   />
@@ -272,7 +272,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="MessSecurity"
                     defaultValue={this.props.session.MessSecurity}
                   />
@@ -284,7 +284,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="CanteenSecurity"
                     defaultValue={this.props.session.CanteenSecurity}
                   />
@@ -296,7 +296,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="TotalSecurity"
                     defaultValue={this.props.session.TotalSecurity}
                   />
@@ -308,7 +308,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="MessAmenity"
                     defaultValue={this.props.session.MessAmenity}
                   />
@@ -320,7 +320,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="CanteenAmenity"
                     defaultValue={this.props.session.CanteenAmenity}
                   />
@@ -332,7 +332,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="FoodSubsidy"
                     defaultValue={this.props.session.FoodSubsidy}
                   />
@@ -344,7 +344,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="PoorStuWelFund"
                     defaultValue={this.props.session.PoorStuWelFund}
                   />
@@ -356,7 +356,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="McServantWelFund"
                     defaultValue={this.props.session.McServantWelFund}
                   />
@@ -368,7 +368,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="CelebrationFund"
                     defaultValue={this.props.session.CelebrationFund}
                   />
@@ -380,7 +380,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="DevelopmentFund"
                     defaultValue={this.props.session.DevelopmentFund}
                   />
@@ -392,7 +392,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="RutineHstlMaintnceCharges"
                     defaultValue={this.props.session.RutineHstlMaintnceCharges}
                   />
@@ -404,7 +404,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="ContinuationCharges"
                     defaultValue={this.props.session.ContinuationCharges}
                   />
@@ -416,7 +416,7 @@ export class EditSession extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="1"
+                    tabIndex="0"
                     id="DailyCharges"
                     defaultValue={this.props.session.DailyCharges}
                   />
@@ -424,7 +424,7 @@ export class EditSession extends React.Component {
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a tabIndex="1" id="save-form" onClick={this.submitForm} href="">
+                  <a tabIndex="0" id="save-form" onClick={this.submitForm} href="">
                     Save
                   </a>
                 </th>

@@ -53,7 +53,7 @@ const EditReturnAmount = props => {
         onKeyDown={e => keyPressed(props, e)}
         autoFocus
         type="text"
-        tabIndex="1"
+        tabIndex="0"
         id="return-amount"
         data-resid={resident._id}
         style={{ width: 37, textAlign: "center", border: 0, height: 20 }}
