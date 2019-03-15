@@ -1,6 +1,6 @@
 import {
   PaddingThreeCenterLargerBold,
-  TableHeader
+  Table
 } from "../../../../../modules/styles";
 
 import ApolloClient from "apollo-client";
@@ -64,7 +64,7 @@ const MessCanteenAccount = props => {
       <div className="row">
         <div className="col-md-12">
           <table
-            style={TableHeader}
+            style={Table}
             className="table table-bordered table-condensed table-striped"
           >
             <thead>

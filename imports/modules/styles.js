@@ -64,7 +64,7 @@ export const h4 = {
 
 export const PaginationRow = {
   verticalAlign: "middle",
-  padding: "5px 0 0 0",
+  padding: "5px 0 5px 0",
   textAlign: "center"
 };
 
@@ -76,10 +76,17 @@ export const widthSixtyFive = {
 };
 
 // Resident Details Tables Header
-export const TableHeader = {
+export const Table = {
   marginBottom: "0",
-  borderTop: "0"
+  borderTop: "0",
+  borderCollapse: "collapse",
+  width: "100%",
+  color: "#212529"
 };
+
+export const TableHeader = Object.assign({}, { padding: "2px" });
+
+export const PaginationStyle = Object.assign({}, { marginBottom: 0, paddingLeft: "37%" });
 
 export const PrintTableBorder = Object.assign({}, Center, {
   border: "1px solid black",

@@ -1,7 +1,7 @@
 import {
   PaddingThreeCenter,
   PaddingThreeCenterBold,
-  TableHeader
+  Table
 } from "../../../../../modules/styles";
 
 import ApolloClient from "apollo-client";
@@ -38,7 +38,7 @@ const TransactionMc = props => {
   }
   return (
     <table
-      style={TableHeader}
+      style={Table}
       className="table table-bordered table-condensed table-striped"
     >
       <thead>

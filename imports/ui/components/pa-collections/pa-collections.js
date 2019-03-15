@@ -1,13 +1,23 @@
 import { Link, withRouter } from "react-router-dom";
-import { Middle, PaddingThreeCenter, PaginationRow, WidthTwentyPaddingThreeCenter } from "../../../modules/styles";
+import {
+  Middle,
+  PaddingThreeCenter,
+  PaginationRow,
+  PaginationStyle,
+  Table,
+  TableHeader,
+  WidthTwentyPaddingThreeCenter,
+  h4
+} from "../../../modules/styles";
 import { graphql, withApollo } from "react-apollo";
 
 import ApolloClient from "apollo-client";
 import MDSpinner from "react-md-spinner";
-import Pagination from "react-js-pagination";
+import Pagination from "rc-pagination";
 import PropTypes from "prop-types";
 import React from "react";
 import gql from "graphql-tag";
+import localeInfo from "rc-pagination/lib/locale/en_US";
 import moment from "moment";
 
 const REMOVE_PA_DAY_TOTAL = gql`
@@ -91,93 +101,90 @@ class PaCollections extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-12">
-          <table className="table table-bordered table-condensed table-striped text-center">
-            <thead>
-              <tr>
-                <th colSpan="10" className="text-center h4">
-                  <strong>Private A/c Collections</strong>
-                  &nbsp;
-                </th>
-              </tr>
-              <tr>
-                <th colSpan="10" className="text-center" style={PaginationRow}>
-                  <Pagination
-                    activePage={this.state.activePage}
-                    itemsCountPerPage={15}
-                    totalItemsCount={this.props.count}
-                    onChange={this.handleSelect}
-                  />
-                </th>
-              </tr>
-              <tr>
-                <th style={WidthTwentyPaddingThreeCenter}>Deposit Date</th>
-                <th colSpan="4" style={WidthTwentyPaddingThreeCenter}>
-                  Actions
-                </th>
-                <th style={WidthTwentyPaddingThreeCenter}>Receipts Total</th>
-                <th style={WidthTwentyPaddingThreeCenter}>Deposited Amount</th>
-                <th style={WidthTwentyPaddingThreeCenter}>Excess Deposit</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.props.dayTotals.map(detail => (
-                <tr key={detail.DepositDate}>
-                  <th style={WidthTwentyPaddingThreeCenter}>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={`/pa-date-details/${moment.utc(detail.DepositDate).format("DD-MM-YYYY")}`}
-                    >
-                      {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
-                    </a>
-                  </th>
-                  <td style={PaddingThreeCenter}>
-                    <Link
-                      data-toggle="tooltip"
-                      title="Edit Pa Day Total"
-                      to={`/edit-pa-day-total/${detail._id}/${this.props.match.params.pageNo}`}
-                    >
-                      <i className="fa fa-pencil-square-o" />
-                    </Link>
-                  </td>
-                  <td style={PaddingThreeCenter}>
-                    <Link
-                      target="_blank"
-                      data-toggle="tooltip"
-                      title="Print Pa Day Total"
-                      to={`/pa-date-details-print/${moment.utc(detail.DepositDate).format("DD-MM-YYYY")}`}
-                    >
-                      <i className="fa fa-print" />
-                    </Link>
-                  </td>
-                  <td style={PaddingThreeCenter}>
-                    <a
-                      target="_blank"
-                      data-toggle="tooltip"
-                      data-daytotalid={detail._id}
-                      title="Deposit Equals Receipts"
-                      href=""
-                      onClick={this.autoDeposit}
-                    >
-                      <i className="fa fa-arrows-h" aria-hidden="true" />
-                    </a>
-                  </td>
-                  <td style={PaddingThreeCenter}>
-                    <a href="" data-date={detail.DepositDate} onClick={this.delete}>
-                      <i className="fa fa-trash-o" />
-                    </a>
-                  </td>
-                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Total}</td>
-                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Deposit}</td>
-                  <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.ExcessDeposit}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <table style={Table}>
+        <thead>
+          <tr>
+            <th colSpan="10" style={TableHeader}>
+              <h4 style={h4}>Private A/c Collections</h4>
+            </th>
+          </tr>
+          <tr>
+            <th colSpan="10" style={PaginationRow}>
+              <Pagination
+                total={this.props.count}
+                onChange={this.handleSelect}
+                current={this.state.activePage}
+                locale={localeInfo}
+                defaultPageSize={15}
+                style={PaginationStyle}
+              />
+            </th>
+          </tr>
+          <tr>
+            <th style={WidthTwentyPaddingThreeCenter}>Deposit Date</th>
+            <th colSpan="4" style={WidthTwentyPaddingThreeCenter}>
+              Actions
+            </th>
+            <th style={WidthTwentyPaddingThreeCenter}>Receipts Total</th>
+            <th style={WidthTwentyPaddingThreeCenter}>Deposited Amount</th>
+            <th style={WidthTwentyPaddingThreeCenter}>Excess Deposit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.dayTotals.map(detail => (
+            <tr key={detail.DepositDate}>
+              <th style={WidthTwentyPaddingThreeCenter}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`/pa-date-details/${moment.utc(detail.DepositDate).format("DD-MM-YYYY")}`}
+                >
+                  {moment.utc(detail.DepositDate).format("DD-MM-YYYY")}
+                </a>
+              </th>
+              <td style={PaddingThreeCenter}>
+                <Link
+                  data-toggle="tooltip"
+                  title="Edit Pa Day Total"
+                  to={`/edit-pa-day-total/${detail._id}/${this.props.match.params.pageNo}`}
+                >
+                  <i className="fa fa-pencil-square-o" />
+                </Link>
+              </td>
+              <td style={PaddingThreeCenter}>
+                <Link
+                  target="_blank"
+                  data-toggle="tooltip"
+                  title="Print Pa Day Total"
+                  to={`/pa-date-details-print/${moment.utc(detail.DepositDate).format("DD-MM-YYYY")}`}
+                >
+                  <i className="fa fa-print" />
+                </Link>
+              </td>
+              <td style={PaddingThreeCenter}>
+                <a
+                  target="_blank"
+                  data-toggle="tooltip"
+                  data-daytotalid={detail._id}
+                  title="Deposit Equals Receipts"
+                  href=""
+                  onClick={this.autoDeposit}
+                >
+                  <i className="fa fa-arrows-h" aria-hidden="true" />
+                </a>
+              </td>
+              <td style={PaddingThreeCenter}>
+                <a href="" data-date={detail.DepositDate} onClick={this.delete}>
+                  <i className="fa fa-trash-o" />
+                </a>
+              </td>
+              <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Total}</td>
+              <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.Deposit}</td>
+              <td style={WidthTwentyPaddingThreeCenter}>&#8377; {detail.ExcessDeposit}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     );
   }
 }
