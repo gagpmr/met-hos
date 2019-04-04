@@ -140,10 +140,10 @@ export class EditPaDetail extends React.Component {
   }
 
   handleChange({ target }) {
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+    const { name, type, checked, value } = target;
+    const nValue = type === "checkbox" ? checked : value;
     this.setState({
-      [name]: value
+      [name]: nValue
     });
   }
 

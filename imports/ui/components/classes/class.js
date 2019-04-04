@@ -4,8 +4,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import MDSpinner from "react-md-spinner";
 import { Link } from "react-router-dom";
-import { Middle, PaddingFourCenter, PaddingFourCenterBold, WidthFivePaddingFourCenterBold, WidthSeventyFivePaddingFourCenterBold } from "../../../modules/styles";
-
+import {
+  Middle,
+  PaddingFourCenter,
+  PaddingFourCenterBold,
+  WidthFivePaddingFourCenterBold,
+  WidthSeventyFivePaddingFourCenterBold
+} from "../../../modules/styles";
 
 const REMOVE_CLASS = gql`
   mutation($classId: String!) {
