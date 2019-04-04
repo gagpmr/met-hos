@@ -1,26 +1,24 @@
+import ApolloClient from "apollo-client";
+import gql from "graphql-tag";
+import moment from "moment";
+import PropTypes from "prop-types";
+import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
-
+import localeInfo from "rc-pagination/lib/locale/en_US";
+import React from "react";
+import { graphql, withApollo } from "react-apollo";
+import MDSpinner from "react-md-spinner";
 import { Link, withRouter } from "react-router-dom";
 import {
+  h4,
   Middle,
   PaddingThreeCenter,
   PaginationRow,
   PaginationStyle,
   Table,
   TableHeader,
-  WidthTwentyPaddingThreeCenter,
-  h4
+  WidthTwentyPaddingThreeCenter
 } from "../../../modules/styles";
-import { graphql, withApollo } from "react-apollo";
-
-import ApolloClient from "apollo-client";
-import MDSpinner from "react-md-spinner";
-import Pagination from "rc-pagination";
-import PropTypes from "prop-types";
-import React from "react";
-import gql from "graphql-tag";
-import localeInfo from "rc-pagination/lib/locale/en_US";
-import moment from "moment";
 
 const REMOVE_MC_DAY_TOTAL = gql`
   mutation($depositDate: String!) {
@@ -43,7 +41,6 @@ export class McCollections extends React.Component {
     this.delete = this.delete.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.autoDeposit = this.autoDeposit.bind(this);
-    // this.itemRender = this.itemRender.bind(this);
   }
 
   handleSelect(eventKey) {
@@ -153,7 +150,9 @@ export class McCollections extends React.Component {
                   target="_blank"
                   data-toggle="tooltip"
                   title="Print Mc Day Total"
-                  to={`/mc-date-details-print/${moment.utc(detail.DepositDate).format("DD-MM-YYYY")}`}
+                  to={`/mc-date-details-print/${moment
+                    .utc(detail.DepositDate)
+                    .format("DD-MM-YYYY")}`}
                 >
                   <i className="fa fa-print" />
                 </Link>

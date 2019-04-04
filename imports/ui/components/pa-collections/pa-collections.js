@@ -1,3 +1,5 @@
+import "rc-pagination/assets/index.css";
+
 import { Link, withRouter } from "react-router-dom";
 import {
   Middle,
