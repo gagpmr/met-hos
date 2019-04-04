@@ -1,16 +1,14 @@
-import "../../layouts/datepicker.css";
-
-import { Middle, h4 } from "../../../modules/styles";
-import { graphql, withApollo } from "react-apollo";
-
 import ApolloClient from "apollo-client";
-import DatePicker from "react-datepicker";
-import MDSpinner from "react-md-spinner";
-import PropTypes from "prop-types";
-import React from "react";
 import gql from "graphql-tag";
 import moment from "moment";
+import PropTypes from "prop-types";
+import React from "react";
+import { graphql, withApollo } from "react-apollo";
+import DatePicker from "react-datepicker";
+import MDSpinner from "react-md-spinner";
 import { withRouter } from "react-router-dom";
+import { h4, Middle } from "../../../modules/styles";
+import "../../layouts/datepicker.css";
 
 const UPDATE_PA_DETAIL = gql`
   mutation(
@@ -255,7 +253,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="-10"
+                    tabIndex="0"
                     name="RoomRent"
                     defaultValue={this.state.RoomRent}
                     onChange={this.handleChange}
@@ -268,7 +266,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="-10"
+                    tabIndex="0"
                     name="WaterCharges"
                     defaultValue={this.state.WaterCharges}
                     onChange={this.handleChange}
@@ -281,7 +279,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="-10"
+                    tabIndex="0"
                     name="ElectricityCharges"
                     defaultValue={this.state.ElectricityCharges}
                     onChange={this.handleChange}
@@ -294,7 +292,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="-10"
+                    tabIndex="0"
                     name="Miscellaneous"
                     defaultValue={this.state.Miscellaneous}
                     onChange={this.handleChange}
@@ -307,7 +305,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="-10"
+                    tabIndex="0"
                     name="DevelopmentFund"
                     defaultValue={this.state.DevelopmentFund}
                     onChange={this.handleChange}
@@ -320,7 +318,7 @@ export class EditPaDetail extends React.Component {
                   <input
                     onKeyDown={this.keyPressed}
                     type="text"
-                    tabIndex="-10"
+                    tabIndex="0"
                     name="RutineHstlMaintnceCharges"
                     defaultValue={this.state.RutineHstlMaintnceCharges}
                     onChange={this.handleChange}
@@ -329,7 +327,7 @@ export class EditPaDetail extends React.Component {
               </tr>
               <tr>
                 <th className="text-center" colSpan="2">
-                  <a tabIndex="-10" id="save-form" onClick={this.submitForm} href="">
+                  <a tabIndex="0" id="save-form" onClick={this.submitForm} href="">
                     Save
                   </a>
                 </th>
@@ -343,10 +341,8 @@ export class EditPaDetail extends React.Component {
 }
 
 EditPaDetail.propTypes = {
-  loading: PropTypes.bool.isRequired,
   detail: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  refetch: PropTypes.func.isRequired,
   client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 

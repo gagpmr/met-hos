@@ -1,17 +1,11 @@
-import {
-  Middle,
-  PaddingFourCenter,
-  PaddingFourCenterBold,
-  WidthFivePaddingFourCenterBold,
-  WidthSeventyFivePaddingFourCenterBold
-} from "../../../modules/styles";
-
 import ApolloClient from "apollo-client";
-import { Link } from "react-router-dom";
-import MDSpinner from "react-md-spinner";
+import gql from "graphql-tag";
 import PropTypes from "prop-types";
 import React from "react";
-import gql from "graphql-tag";
+import MDSpinner from "react-md-spinner";
+import { Link } from "react-router-dom";
+import { Middle, PaddingFourCenter, PaddingFourCenterBold, WidthFivePaddingFourCenterBold, WidthSeventyFivePaddingFourCenterBold } from "../../../modules/styles";
+
 
 const REMOVE_CLASS = gql`
   mutation($classId: String!) {
@@ -165,7 +159,7 @@ export class Class extends React.Component {
     }
     return (
       // eslint-disable-next-line no-return-assign
-      <tr ref={node => (this.node = node)} id={this.props.detail._id} className="text-left">
+      <tr ref={node => (this.node = node)} id={this.props.clas._id} className="text-left">
         <td style={WidthFivePaddingFourCenterBold}>{this.props.clas.SrNo}</td>
         <td style={PaddingFourCenterBold}>
           <a
