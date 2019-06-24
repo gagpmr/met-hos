@@ -1,14 +1,13 @@
-import { graphql, withApollo } from "react-apollo";
-import { handleChange, keyPressed } from "../shared/Functions";
-
 import ApolloClient from "apollo-client";
-import MDSpinner from "react-md-spinner";
-import { Middle } from "../../../modules/styles";
-import PropTypes from "prop-types";
-import React from "react";
 import gql from "graphql-tag";
 import moment from "moment";
+import PropTypes from "prop-types";
+import React from "react";
+import { graphql, withApollo } from "react-apollo";
+import MDSpinner from "react-md-spinner";
 import { withRouter } from "react-router-dom";
+import { Middle } from "../../../modules/styles";
+import { handleChange, keyPressed } from "../shared/Functions";
 
 const MC_COLLECTIONS = gql`
   query($pageNo: Int!) {
@@ -34,7 +33,7 @@ class EditMcDayTotal extends React.Component {
     this.state = {
       Deposit: props.detail.Deposit
     };
-    this.submitForm = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
   }
 
@@ -97,7 +96,9 @@ class EditMcDayTotal extends React.Component {
             <tbody>
               <tr>
                 <th className="text-center">Deposit Date</th>
-                <td className="text-center">{moment.utc(this.props.detail.DepositDate).format("DD-MM-YYYY")}</td>
+                <td className="text-center">
+                  {moment.utc(this.props.detail.DepositDate).format("DD-MM-YYYY")}
+                </td>
               </tr>
               <tr>
                 <th className="text-center">Receipts Total</th>
@@ -110,7 +111,9 @@ class EditMcDayTotal extends React.Component {
                     autoFocus
                     onFocus={this.handleFocus}
                     onChange={e => handleChange(e, this.props.client)}
-                    onKeyDown={e => keyPressed(e, this.props.client, this)}
+                    onKeyDown={e =>
+                      keyPressed(e, this.props.client, this.props.history, this.handleSubmit)
+                    }
                     type="text"
                     tabIndex="-1"
                     name="deposit"

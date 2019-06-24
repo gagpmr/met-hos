@@ -1,19 +1,18 @@
+import ApolloClient from "apollo-client";
+import { Bert } from "meteor/themeteorchef:bert";
+import moment from "moment";
+import PropTypes from "prop-types";
+import React from "react";
+import { compose, gql, graphql, withApollo } from "react-apollo";
+import DatePicker from "react-datepicker";
+import MDSpinner from "react-md-spinner";
+import { Link } from "react-router-dom";
 import {
   Middle,
   PaddingFourCenter,
   PaddingFourCenterBold,
   PaddingFourCenterLargeBold
 } from "../../../modules/styles";
-import { compose, gql, graphql, withApollo } from "react-apollo";
-
-import ApolloClient from "apollo-client";
-import { Bert } from "meteor/themeteorchef:bert";
-import DatePicker from "react-datepicker";
-import { Link } from "react-router-dom";
-import MDSpinner from "react-md-spinner";
-import PropTypes from "prop-types";
-import React from "react";
-import moment from "moment";
 
 class NoticeDate extends React.Component {
   constructor(props) {
@@ -42,8 +41,7 @@ class NoticeDate extends React.Component {
 }
 
 NoticeDate.propTypes = {
-  noticeDate: PropTypes.string,
-  client: PropTypes.instanceOf(ApolloClient).isRequired
+  noticeDate: PropTypes.string
 };
 
 NoticeDate.defaultProps = {
@@ -113,6 +111,33 @@ const print = (props, e) => {
   return true;
 };
 
+const PROCESS_ACCOUNT = gql`
+  query($id: String!) {
+    resProcessAccount(id: $id)
+  }
+`;
+
+const processResident = (props, e) => {
+  e.preventDefault();
+  const id = e.currentTarget.dataset.resid;
+  props.client
+    .query({
+      query: PROCESS_ACCOUNT,
+      variables: {
+        id
+      }
+    })
+    .then(() => {
+      props.client.resetStore();
+      props.refetch;
+    })
+    .catch(error => {
+      Bert.alert(error, "danger");
+      console.log("there was an error", error);
+    });
+  return true;
+};
+
 const renderList = props => (
   <div className="row">
     <div className="col-md-8 col-md-offset-2">
@@ -139,7 +164,7 @@ const renderList = props => (
             <td style={PaddingFourCenterBold}>Mess Canteen</td>
             <td style={PaddingFourCenterBold}>Hostel</td>
             <td style={PaddingFourCenterBold}>Total</td>
-            <td colSpan="2" style={PaddingFourCenterBold}>
+            <td colSpan="3" style={PaddingFourCenterBold}>
               Do
             </td>
           </tr>
@@ -151,19 +176,16 @@ const renderList = props => (
               <td style={PaddingFourCenter}>{resident.Room.Value}</td>
               <td style={PaddingFourCenter}>{resident.RollNumber}</td>
               <td style={PaddingFourCenter}>{resident.Name}</td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidMcTotal.Total}
-              </td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidPaTotal.Total}
-              </td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidMcTotal.Total}</td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidPaTotal.Total}</td>
               <td style={PaddingFourCenterBold}>{resident.UnpaidTotal}</td>
               <td style={PaddingFourCenterBold}>
-                <a
-                  data-resid={resident._id}
-                  onClick={e => noticeListRemove(props, e)}
-                  href=""
-                >
+                <a data-resid={resident._id} onClick={e => processResident(props, e)} href="">
+                  <i className="fa fa-refresh" aria-hidden="true" />
+                </a>
+              </td>
+              <td style={PaddingFourCenterBold}>
+                <a data-resid={resident._id} onClick={e => noticeListRemove(props, e)} href="">
                   <i className="fa fa-times" aria-hidden="true" />
                 </a>
               </td>
@@ -225,9 +247,9 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  noticeList: PropTypes.array.isRequired,
+  noticeList: PropTypes.array,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

@@ -182,7 +182,7 @@ const renderList = props => (
             <td style={PaddingFourCenterBold}>Misc</td>
             <td style={PaddingFourCenterBold}>HST-Total</td>
             <td style={PaddingFourCenterBold}>Total</td>
-            <td colSpan="4" style={PaddingFourCenterBold}>
+            <td colSpan="5" style={PaddingFourCenterBold}>
               Do
             </td>
           </tr>
@@ -253,7 +253,7 @@ const renderList = props => (
               <td style={PaddingFourCenterBold}>
                 <Link
                   target="_blank"
-                  to={`/notice-list`}
+                  to="/notice-list"
                   data-toggle="tooltip"
                   title="View Notice List"
                 >
@@ -317,10 +317,10 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  duesRegularResidents: PropTypes.object.isRequired,
+  duesRegularResidents: PropTypes.object,
   refetch: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {

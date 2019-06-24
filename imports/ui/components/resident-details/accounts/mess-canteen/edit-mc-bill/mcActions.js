@@ -1,7 +1,5 @@
-import ApolloClient from "apollo-client";
-import { PaddingThreeCenterLargeBold } from "../../../../../../modules/styles";
-import PropTypes from "prop-types";
 import React from "react";
+import { PaddingThreeCenterLargeBold } from "../../../../../../modules/styles";
 import gqls from "./sharedGqls";
 
 const reduceMessTwo = (props, e) => {
@@ -106,62 +104,54 @@ const quaterly = (props, e) => {
 
 const McActions = props => {
   return (
-    <div className="col-md-3">
-      <table className="table table-bordered table-condensed table-striped text-center">
-        <thead>
-          <tr>
-            <th style={PaddingThreeCenterLargeBold}>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="text-center">
-              <a onClick={e => reduceCanteen(props, e)} href="">
-                Reduce Canteen Amount
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td className="text-center">
-              <a onClick={e => reduceMessOne(props, e)} href="">
-                Reduce Mess One Amount
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td className="text-center">
-              <a onClick={e => reduceMessTwo(props, e)} href="">
-                Reduce Mess Two Amount
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td className="text-center">
-              <a onClick={e => quaterly(props, e)} href="">
-                Quarterly
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td className="text-center">
-              <a onClick={e => halfYearly(props, e)} href="">
-                HalfYearly
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <table
+      style={{ height: "100%" }}
+      className="table table-bordered table-condensed table-striped text-center"
+    >
+      <thead>
+        <tr>
+          <th style={PaddingThreeCenterLargeBold}>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="text-center">
+            <a onClick={e => reduceCanteen(props, e)} href="">
+              Reduce Canteen Amount
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td className="text-center">
+            <a onClick={e => reduceMessOne(props, e)} href="">
+              Reduce Mess One Amount
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td className="text-center">
+            <a onClick={e => reduceMessTwo(props, e)} href="">
+              Reduce Mess Two Amount
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td className="text-center">
+            <a onClick={e => quaterly(props, e)} href="">
+              Quarterly
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td className="text-center">
+            <a onClick={e => halfYearly(props, e)} href="">
+              HalfYearly
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
-};
-
-McActions.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  resident: PropTypes.object,
-  bill: PropTypes.object,
-  history: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient).isRequired,
-  fetchEditMcBill: PropTypes.func.isRequired
 };
 
 export default McActions;

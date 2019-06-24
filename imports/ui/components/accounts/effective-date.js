@@ -1,15 +1,13 @@
-import "../../layouts/datepicker.css";
-
-import { graphql, withApollo } from "react-apollo";
-
 import ApolloClient from "apollo-client";
+import gql from "graphql-tag";
+import moment from "moment";
+import PropTypes from "prop-types";
+import React from "react";
+import { graphql, withApollo } from "react-apollo";
 import DatePicker from "react-datepicker";
 import MDSpinner from "react-md-spinner";
 import { Middle } from "../../../modules/styles";
-import PropTypes from "prop-types";
-import React from "react";
-import gql from "graphql-tag";
-import moment from "moment";
+import "../../layouts/datepicker.css";
 
 const UPDATE_DATE = gql`
   mutation($effectiveDate: String!) {
@@ -128,57 +126,59 @@ class EffectiveDate extends React.Component {
       );
     }
     return (
-      <div className="col-md-6 col-md-offset-3">
-        <table className="table table-bordered table-condensed table-striped">
-          <thead>
-            <tr>
-              <th colSpan="3" className="text-center h4 font-bolder">
-                <strong>Effective Date &nbsp; ({this.props.date.EffectiveDateStr})</strong>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th className="text-center width-effective-date">String Value</th>
-              <td className="text-center">{this.props.date.EffectiveDateStr}</td>
-            </tr>
-            <tr>
-              <th className="text-center width-effective-date">Date with Time</th>
-              <td className="text-center">{this.state.startDate.toString()}</td>
-            </tr>
-            <tr>
-              <th className="text-center width-effective-date">Auto Generate</th>
-              <td className="text-center">{this.props.date.AutoGenerate.toString()}</td>
-            </tr>
-            <tr>
-              <td colSpan="2" className="text-center h4 font-bolder">
-                Actions
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2" className="text-center">
-                <a href="" onClick={this.saveToday}>
-                  Effective Date Today
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2" className="text-center">
-                <a href="" onClick={this.enableGenerate}>
-                  Effective Date Auto
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2" className="text-center">
-                <a href="" onClick={this.disableGenerate}>
-                  Alter Effective Date
-                </a>
-              </td>
-            </tr>
-            {dateRows}
-          </tbody>
-        </table>
+      <div style={{ display: "flex" }}>
+        <div style={{ margin: "auto" }}>
+          <table className="table table-bordered table-condensed table-striped">
+            <thead>
+              <tr>
+                <th colSpan="3" className="text-center h4 font-bolder">
+                  <strong>Effective Date &nbsp; ({this.props.date.EffectiveDateStr})</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th className="text-center width-effective-date">String Value</th>
+                <td className="text-center">{this.props.date.EffectiveDateStr}</td>
+              </tr>
+              <tr>
+                <th className="text-center width-effective-date">Date with Time</th>
+                <td className="text-center">{this.state.startDate.toString()}</td>
+              </tr>
+              <tr>
+                <th className="text-center width-effective-date">Auto Generate</th>
+                <td className="text-center">{this.props.date.AutoGenerate.toString()}</td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="text-center h4 font-bolder">
+                  Actions
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="text-center">
+                  <a href="" onClick={this.saveToday}>
+                    Effective Date Today
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="text-center">
+                  <a href="" onClick={this.enableGenerate}>
+                    Effective Date Auto
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="text-center">
+                  <a href="" onClick={this.disableGenerate}>
+                    Alter Effective Date
+                  </a>
+                </td>
+              </tr>
+              {dateRows}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
@@ -200,7 +200,12 @@ const FormatData = props => {
     );
   }
   return (
-    <EffectiveDate loading={props.loading} date={props.effectiveDate} client={props.client} refetch={props.refetch} />
+    <EffectiveDate
+      loading={props.loading}
+      date={props.effectiveDate}
+      client={props.client}
+      refetch={props.refetch}
+    />
   );
 };
 

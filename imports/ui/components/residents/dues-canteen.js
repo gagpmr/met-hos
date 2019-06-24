@@ -1,16 +1,15 @@
+import ApolloClient from "apollo-client";
+import moment from "moment";
+import PropTypes from "prop-types";
+import React from "react";
+import { compose, gql, graphql, withApollo } from "react-apollo";
+import MDSpinner from "react-md-spinner";
 import {
   Middle,
   PaddingFourCenter,
   PaddingFourCenterBold,
   PaddingFourCenterLargeBold
 } from "../../../modules/styles";
-import { compose, gql, graphql, withApollo } from "react-apollo";
-
-import ApolloClient from "apollo-client";
-import MDSpinner from "react-md-spinner";
-import PropTypes from "prop-types";
-import React from "react";
-import moment from "moment";
 
 export const DUES_CANTEEN = gql`
   query {
@@ -57,9 +56,7 @@ const renderList = props => (
               <td style={PaddingFourCenter}>
                 <span>{resident.Name}</span>
               </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.Canteen}
-              </td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.Canteen}</td>
             </tr>
           ))}
           {renderDuesTotal(props.duesTotal)}
@@ -115,9 +112,9 @@ const FormatData = props => {
 
 FormatData.propTypes = {
   loading: PropTypes.bool.isRequired,
-  duesCanteen: PropTypes.object.isRequired,
+  duesCanteen: PropTypes.object,
   refetch: PropTypes.func.isRequired,
-  client: PropTypes.instanceOf(ApolloClient)
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 FormatData.defaultProps = {
