@@ -1,27 +1,27 @@
+import GraphQLJSON from "graphql-type-json";
 import Classes from "./data/classes/classes";
 import Dates from "./data/dates/dates";
-import GraphQLJSON from "graphql-type-json";
 import Holidays from "./data/holidays/holidays";
-import McBills from "./data/residents/mcBills/index";
 import McDayTotals from "./data/mcDayTotals/mcDayTotals";
 import McDetailBills from "./data/mcDetailBills/mcDetailBills";
 import McDetailsGet from "./data/mcDetails/mcDetailsGet";
 import McDetailsPost from "./data/mcDetails/mcDetailsPost";
 import McMonthTotals from "./data/mcMonthTotals/mcMonthTotals";
-import PaBills from "./data/residents/paBills/index";
 import PaDayTotals from "./data/paDayTotals/paDayTotals";
 import PaDetailBills from "./data/paDetailBills/paDetailBills";
 import PaDetailsGet from "./data/paDetails/paDetailsGet";
 import PaDetailsPost from "./data/paDetails/paDetailsPost";
 import PaMonthTotals from "./data/paMonthTotals/paMonthTotals";
+import McBills from "./data/residents/mcBills/index";
+import PaBills from "./data/residents/paBills/index";
 import Residents from "./data/residents/residents";
+import Transactions from "./data/residents/transactions/index";
 import Rooms from "./data/rooms/rooms";
 import SaDayTotals from "./data/saDayTotals/saDayTotals";
 import SaDetailsGet from "./data/saDetails/saDetailsGet";
 import SaDetailsPost from "./data/saDetails/saDetailsPost";
 import SaMonthTotals from "./data/saMonthTotals/saMonthTotals";
 import Sessions from "./data/sessions/sessions";
-import Transactions from "./data/residents/transactions/index";
 
 const queryResolver = {
   JSON: GraphQLJSON,
@@ -65,6 +65,7 @@ const queryResolver = {
     duesCanteen: async () => Residents.duesCanteen(),
     duesMessOne: async () => Residents.duesMessOne(),
     duesMessTwo: async () => Residents.duesMessTwo(),
+    resProcessAccount: async (_, args) => Residents.resProcessAccount(args),
     duesRegularResidents: async () => Residents.duesRegularResidents(),
     noticeList: async () => Residents.noticeListResidents(),
     residentDetails: async (_, args) => Residents.residentDetails(args),
@@ -115,11 +116,9 @@ const mutationResolver = {
     txnDetailBoth: async (_, args) => Transactions.createDetail(args),
     txnDetailPa: async (_, args) => PaDetailBills.txnDetailPa(args),
     txnDetailMc: async (_, args) => McDetailBills.txnDetailMc(args),
-    mcDetailBillAll: async (_, args) =>
-      McDetailBills.createDetailAllBills(args),
+    mcDetailBillAll: async (_, args) => McDetailBills.createDetailAllBills(args),
     mcDetailBill: async (_, args) => McDetailBills.createDetail(args),
-    paDetailBillAll: async (_, args) =>
-      PaDetailBills.createDetailAllBills(args),
+    paDetailBillAll: async (_, args) => PaDetailBills.createDetailAllBills(args),
     paDetailBill: async (_, args) => PaDetailBills.createDetail(args),
     txnRemovePaBill: async (_, args) => Transactions.removePaBill(args),
     txnAddPaBill: async (_, args) => Transactions.addPaBill(args),

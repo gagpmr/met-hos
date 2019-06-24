@@ -111,6 +111,7 @@ const queryType = gql`
     roomResidents(roomId: String!): JSON
     residentsRoomWise: JSON
     duesRegularResidents: JSON
+    resProcessAccount(id: String!): JSON
     duesCanteen: JSON
     duesMessOne: JSON
     duesMessTwo: JSON
@@ -315,12 +316,6 @@ const mutationSchema = makeExecutableSchema({
   typeDefs: [mutationType, jsonType]
 });
 
-const schemas = [
-  mcDaySchema,
-  mcMonthSchema,
-  resDetailSchema,
-  querySchema,
-  mutationSchema
-];
+const schemas = [mcDaySchema, mcMonthSchema, resDetailSchema, querySchema, mutationSchema];
 
 export default schemas;

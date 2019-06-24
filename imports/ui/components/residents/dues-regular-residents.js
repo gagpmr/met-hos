@@ -1,18 +1,17 @@
+import ApolloClient from "apollo-client";
+import { Bert } from "meteor/themeteorchef:bert";
+import moment from "moment";
+import PropTypes from "prop-types";
+import React from "react";
+import { compose, gql, graphql, withApollo } from "react-apollo";
+import MDSpinner from "react-md-spinner";
+import { Link } from "react-router-dom";
 import {
   Middle,
   PaddingFourCenter,
   PaddingFourCenterBold,
   PaddingFourCenterLargeBold
 } from "../../../modules/styles";
-import { compose, gql, graphql, withApollo } from "react-apollo";
-
-import ApolloClient from "apollo-client";
-import { Bert } from "meteor/themeteorchef:bert";
-import { Link } from "react-router-dom";
-import MDSpinner from "react-md-spinner";
-import PropTypes from "prop-types";
-import React from "react";
-import moment from "moment";
 
 const DUES_LIST_FALSE = gql`
   mutation($id: String!) {
@@ -121,6 +120,33 @@ const refresh = (props, e) => {
   props.refetch;
 };
 
+const PROCESS_ACCOUNT = gql`
+  query($id: String!) {
+    resProcessAccount(id: $id)
+  }
+`;
+
+const processResident = (props, e) => {
+  e.preventDefault();
+  const id = e.currentTarget.dataset.resid;
+  props.client
+    .query({
+      query: PROCESS_ACCOUNT,
+      variables: {
+        id
+      }
+    })
+    .then(() => {
+      props.client.resetStore();
+      props.refetch;
+    })
+    .catch(error => {
+      Bert.alert(error, "danger");
+      console.log("there was an error", error);
+    });
+  return true;
+};
+
 const renderList = props => (
   <div className="row">
     <div className="col-md-12">
@@ -169,50 +195,26 @@ const renderList = props => (
               <td style={PaddingFourCenter}>
                 <span>{resident.Name}</span>
               </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.MessOne}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.MessTwo}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.Canteen}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.Amenity}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidMcTotal.HalfYearly}
-              </td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.MessOne}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.MessTwo}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.Canteen}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.Amenity}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidMcTotal.HalfYearly}</td>
               <td style={PaddingFourCenter}>
                 {resident.UnpaidMcTotal.MessFine +
                   resident.UnpaidMcTotal.CanteenFine +
                   resident.UnpaidMcTotal.HalfYearlyFine}
               </td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidMcTotal.Total}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.RoomRent}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.WaterCharges}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.ElectricityCharges}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.HalfYearly}
-              </td>
-              <td style={PaddingFourCenter}>
-                {resident.UnpaidPaTotal.Miscellaneous}
-              </td>
-              <td style={PaddingFourCenterBold}>
-                {resident.UnpaidPaTotal.Total}
-              </td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidMcTotal.Total}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.RoomRent}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.WaterCharges}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.ElectricityCharges}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.HalfYearly}</td>
+              <td style={PaddingFourCenter}>{resident.UnpaidPaTotal.Miscellaneous}</td>
+              <td style={PaddingFourCenterBold}>{resident.UnpaidPaTotal.Total}</td>
               <td style={PaddingFourCenterBold}>{resident.UnpaidTotal}</td>
               <td style={PaddingFourCenterBold}>
-                <a id="refresh" onClick={e => refresh(props, e)} href="">
+                <a data-resid={resident._id} onClick={e => processResident(props, e)} href="">
                   <i className="fa fa-refresh" aria-hidden="true" />
                 </a>
               </td>

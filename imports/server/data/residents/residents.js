@@ -1,8 +1,4 @@
 import Accounts from "../../data/accounts/accounts";
-import Dates from "../dates/dates";
-import McBills from "./mcBills/index";
-import PaBills from "./paBills/index";
-import RemoResidents from "../remoResidents/remoResidents";
 import dbCategories from "../../db/dbCategories";
 import dbClasses from "../../db/dbClasses";
 import dbMcDetails from "../../db/dbMcDetails";
@@ -11,6 +7,10 @@ import dbResidents from "../../db/dbResidents";
 import dbRooms from "../../db/dbRooms";
 import dbSaDetails from "../../db/dbSaDetails";
 import dbSessions from "../../db/dbSessions";
+import Dates from "../dates/dates";
+import RemoResidents from "../remoResidents/remoResidents";
+import McBills from "./mcBills/index";
+import PaBills from "./paBills/index";
 
 const updateResident = async args => {
   const suffix = await dbSessions.getSessionSuffix(args.session);
@@ -250,7 +250,12 @@ const duesCanteen = async () => {
   };
 };
 
+const resProcessAccount = async args => {
+  await Accounts.processAccount(args.id);
+};
+
 const Residents = {
+  resProcessAccount,
   admissionDetails,
   updateResident,
   getByRoomId,
